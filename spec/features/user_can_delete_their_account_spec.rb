@@ -10,7 +10,7 @@ RSpec.describe "A signed-in user can delete their account" do
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
     click_on "Sign in"
-    select('My Trips', :from => 'Select Box')
+    select('My Account', :from => 'Select Box')
 
     expect(page).to have_content("Account Information")
     click_on "Delete Account"

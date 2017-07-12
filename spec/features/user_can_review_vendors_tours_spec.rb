@@ -1,11 +1,3 @@
-As a logged in user
-When I visit a specific tour
-And I fill in the review form
-And I click on submit
-Then I see my review at the top of the reviews
-And I see average stars updated to reflect my review
-
-
 require 'rails_helper'
 
 RSpec.describe "A signed-in user can review a vendor's tours" do
