@@ -16,7 +16,7 @@ RSpec.describe "a user can sign in" do
     click_on "Sign In"
 
     expect(user.trips.count).to eq(0)
-    expect(current_path).to eq new_trip_path
+    expect(current_path).to eq(new_trip_path)
   end
 end
 
