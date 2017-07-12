@@ -24,6 +24,8 @@ RSpec.describe "logged in user" do
     click_on "Add"
     expect(flash[:success]).to be_present
   end
+
+  
 end
 
 # 15. As a logged in user I can change the date I’m adding places to

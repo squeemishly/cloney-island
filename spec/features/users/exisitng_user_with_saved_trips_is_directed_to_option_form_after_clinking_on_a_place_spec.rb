@@ -17,12 +17,12 @@ RSpec.describe "existing user with saved trips" do
     fill_in "Password", with: user.password
     click_on "Sign In"
 
-    expect(current_path).to eq(user_dashboard_path(user.id))
+    expect(current_path).to eq(user_trips_path(user.id))
     expect(page).to have_content("Create New Trip")
     expect(page).to have_content("Choose Existing Trip")
     expect(user.trips.count).to eq(2)
     expect(page).to have_content(trip1.start_city.name)
-    expect(page).to have_content(trip1.start_city.city_image)
+    expect(page).to have_selector(".city-image")
     expect(page).to have_content(trip1.start_date)
     expect(page).to have_content(trip1.end_date)
     expect(current_path).to eq(place_path(place.id))

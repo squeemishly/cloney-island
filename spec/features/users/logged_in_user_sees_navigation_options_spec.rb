@@ -17,7 +17,7 @@ RSpec.describe "a logged in user" do
    expect(page).to have_button("Daily Plan")
    expect(page).to have_button("Places")
    expect(page).to have_selector(".place", 10)
-   within(".place"[0]) do
+   within first(".place") do
      expect(page).to have_content(place.name)
      expect(page).to have_content(place.description)
      expect(page).to have_content(place.place_image)
