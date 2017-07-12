@@ -19,4 +19,9 @@ feature "guest creates account" do
       expect(current_path).to eq(new_trip_path)
     end
   end
+
+  context "they fill in form with invalid credentials" do
+    xit "they see the new user form and a flash message" do
+    end
+  end
 end
