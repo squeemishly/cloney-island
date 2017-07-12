@@ -21,3 +21,6 @@ feature "user navigates to city from root" do
 
       # We expect the path to change to show the lat and long coordinates
       # I don't know how to test for that -- it might be more of a service test?
+    end
+  end
+end
