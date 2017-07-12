@@ -10,12 +10,11 @@ RSpec.describe "existing user creates trip" do
     visit root_path
     click_on "Sign In"
     fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
+    fill_in "Password", with: "password"
     click_on "Sign In"
 
     expect(current_path).to eq(new_trip_path)
-    expect(page).to have_content(place.name)
-    expect(page).to have_content(place.description)
+    expect(page).to have_content(city.name)
 
     fill_in "Start Date", with: start_date
     fill_in "End Date", with: end_date

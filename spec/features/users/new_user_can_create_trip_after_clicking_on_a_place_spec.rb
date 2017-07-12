@@ -2,32 +2,35 @@ require 'rails_helper'
 
 Rspec.describe "user can create a trip" do
   it "after clicking on a place" do
-    user = create(:user, password: "password")
     place = create(:place, name: "Denver")
     start_date = "07-10-2017"
     end_date = "07-11-2017"
 
     visit root_path
     click_on "Denver"
+    within first(".place-preview") do
+      page.find(".place-preview-name").click
+    end
 
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq(login_path)
+    click_on "Create an Account with Email"
 
-    fill_in "First Name", with: user.first_name
-    fill_in "Last Name", with: user.last_name
-    fill_in "Email", with: user.email
-    fill_in "Phone Number", with: user.phone
+
+    fill_in "First Name", with: "Finn"
+    fill_in "Last Name", with: "the Human"
+    fill_in "Email", with: "here@here.com"
+    fill_in "Phone Number", with: "555-555-5555"
     fill_in "Password", with: "password"
     click_on "Sign Up"
 
     expect(current_path).to eq(new_trip_path)
-    expect(page).to have_content(place.name)
-    expect(page).to have_content(place.description)
-    
+    expect(page).to have_content(city.name)
+
     fill_in "Start Date", with: start_date
     fill_in "End Date", with: end_date
     click_on "Create New Trip"
 
-    expect(current_path).to eq(place_path(place.id)
+    expect(current_path).to eq(place_path(place.id))
   end
 end
 
