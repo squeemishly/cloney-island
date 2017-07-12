@@ -8,8 +8,8 @@ RSpec.describe "a user can sign in" do
     click_on "Sign In"
 
     expect(current_path).to eq login_path
-    page.should have_content("Email")
-    page.should have_content("Password")
+    expect(page).to have_content("Email")
+    expect(page).to have_content("Password")
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
