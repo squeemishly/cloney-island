@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "A signed-in user view a list of their planned trips" do
+RSpec.describe "A signed-in user can view a list of their planned trips" do
   it "can view a list of planned trips" do
     user = create(:user)
     trip1 = create(:trip)
