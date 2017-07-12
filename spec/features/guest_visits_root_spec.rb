@@ -7,7 +7,6 @@ feature "guest visits root" do
 
       within('.navbar-main') do
         expect(page).to have_content('Sign In')
-        expect(page).to have_content('Sign In')
         expect(page).to have_content('New Trip')
         expect(page).to have_content('Cloney Island Travel')
       end

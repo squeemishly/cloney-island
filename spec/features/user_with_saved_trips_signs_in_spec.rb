@@ -9,7 +9,7 @@ feature "user signs in" do
       click_on "Sign In"
 
       expect(page).to have_content("Sign In with Google")
-      expect(page).to have_content("Sign In with Google")
+      expect(page).to have_content("Sign In with Facebook")
       expect(page).to have_content("Sign In with Email")
 
       click_on "Sign In with Email"

@@ -20,7 +20,7 @@ feature "guest prompted to sign in before creating trip" do
       expect(current_path).to eq(login_path)
       expect(page).to have_content("You must sign in or create an account to create a trip")
       expect(page).to have_content("Sign In")
-      expect(page).to have_content("Create Account")
+      expect(page).to have_link?("Create Account", href: new_user_path)
     end
 
   context "they then click on Create Account" do

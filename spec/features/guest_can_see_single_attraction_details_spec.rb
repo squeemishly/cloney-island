@@ -38,7 +38,8 @@ feature "guest navigates to individual attraction from city" do
         expect(page).to have_selector(".city-details-email")
         expect(page).to have_selector(".city-details-review")
         expect(page).to have_content("Visitor Reviews")
-        expect(page).to have_content("Sign in or create an account to leave a review")
+
+        # expect(page).to have_content("Sign in or create an account to leave a review")
         # expect(page).to have_selector(".city-details-tags")
         # Tags are an extension feature
       end
