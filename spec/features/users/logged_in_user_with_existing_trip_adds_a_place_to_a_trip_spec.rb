@@ -7,18 +7,17 @@ RSpec.describe "logged in user with existing trip" do
    end
    user = create(:user, password: "password")
    trip = create(:trip)
-   locations = create_list(:place, 10)
-   location = locations.first
-   trip.itineraries.places << locations
+   user.trips << trip
 
    visit trips_path(trip.id)
-   expect(page).to have_selector(".place", 10)
-   within(".place"[0]) do
-     expect(page).to have_content(location.name)
-     expect(page).to have_content(location.description)
-     expect(page).to have_content(location.place_image)
-     expect(page).to have_button("Add")
-     click_on "Add"
+
+   expect(page).to have_selector(".place", count: 10)
+   within first(".place-preview") do
+     expect(page).to have_selector(".place-preview-img")
+     expect(page).to have_selector(".place-preview-name")
+     expect(page).to have_selector(".place-preview-description")
+     expect(page).to have_selector(".add-attraction-button")
+     find("add-attraction-button").click
    end
    expect(flash[:success]).to be_present
   end

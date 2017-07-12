@@ -13,19 +13,20 @@ RSpec.describe "logged in user" do
 
     visit edit_trips_path(trip.id)
     expect(page).to have_content(date1)
-    click_on "Current Day"
-    page.should have_css('date-dropdown')
-    within(".date-dropdown") do
-      click_on "07-11-2017"
-    end
-    expect(page).to_not have_content(date1)
-    expect(page).to have_content(date2)
+    select(date2), from: ".date-dropdown"
 
-    click_on "Add"
+    within first(".place-preview") do
+      page.find(".add-attraction-button").click
+    end
+
+    # expect(user.trips.first.itineraries).to include"date1"
+    #we want to verify that the attraction was added to the second date and not added to the first
+
     expect(flash[:success]).to be_present
   end
 
-  
+#THIS IS SOME LUMPING JAVASCRIPT TO DO THE STUFF
+
 end
 
 # 15. As a logged in user I can change the date I’m adding places to
