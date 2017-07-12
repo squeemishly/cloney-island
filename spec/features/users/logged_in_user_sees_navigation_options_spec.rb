@@ -7,6 +7,7 @@ RSpec.describe "a logged in user" do
    end
    user = create(:user, password: "password")
    places = create_list(:place, 10)
+   place1 = place.first
    date = Date.today
 
    visit user_dashboard_path(user.id)
@@ -15,7 +16,12 @@ RSpec.describe "a logged in user" do
    expect(page).to have_content("Current Day")
    expect(page).to have_button("Daily Plan")
    expect(page).to have_button("Places")
-   expect(Place.count).to eq(10)
+   expect(page).to have_selector(".place", 10)
+   within(".place"[0]) do
+     expect(page).to have_content(place.name)
+     expect(page).to have_content(place.description)
+     expect(page).to have_content(place.place_image)
+   end
   end
 end
 
