@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "user visits root" do
+feature "guest visits root" do
   context "they are not logged in" do
     it "they see main page elements" do
       visit root_path

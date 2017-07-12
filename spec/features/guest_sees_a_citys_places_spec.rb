@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "user navigates to city from root" do
+feature "guest navigates to city from root" do
   context "they are not logged in" do
     it "they see a list of attractions in the the city they clicked on" do
       visit root_path
