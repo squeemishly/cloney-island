@@ -19,6 +19,7 @@ feature "guest navigates to individual attraction from city" do
       # services rather than capybara features
 
       within ('.column-list') do
+        expect(page).to have_selector(".add-attraction-button")
         expect(page).to have_selector(".city-details")
         expect(page).to have_selector(".city-details-img")
         expect(page).to have_selector(".city-details-name")

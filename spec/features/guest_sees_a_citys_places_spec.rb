@@ -11,6 +11,7 @@ feature "guest navigates to city from root" do
       end
 
       within first(".place-preview") do
+        expect(page).to have_selector("..add-attraction-button")
         expect(page).to have_selector(".place-preview-img")
         expect(page).to have_selector(".place-preview-name")
         expect(page).to have_selector(".place-preview-description")
