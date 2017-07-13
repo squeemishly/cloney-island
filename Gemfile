@@ -16,7 +16,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
-
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
+gem 'figaro'
+gem 'faraday'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -32,4 +36,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-rails'
   gem 'simplecov', :require => false
+  gem 'vcr'
+  gem 'webmock'
 end

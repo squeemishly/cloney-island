@@ -9,6 +9,14 @@ require 'rspec/rails'
 require 'capybara/rails'
 # Require shoulda-matchers and config it with Rails and RSpec
 require 'shoulda-matchers'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  # config.filter_sensitive_data(ENV['google_map_api_key'])
+  config.filter_sensitive_data('<KEY>') { ENV['google_map_api_key'] }
+end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -64,5 +72,5 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
+  config.filter_gems_from_backtrace("capybara-2.14.4", "rack-test-0.6.3", "rack-2.0.3", "railties-5.1.2")
 end
