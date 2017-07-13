@@ -7,7 +7,7 @@
         <% if attraction[:photos] %>
           <div><img class="attraction-image-container" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>"></div>
         <% end %>
-        <%= attraction[:name] %>
+        <h2 class="attraction-preview-name"><%= attraction[:name] %></h2>
         <%= attraction[:geometry][:location][:lat] %>
         <%= attraction[:geometry][:location][:lng] %>
         <%= attraction[:id] %>
