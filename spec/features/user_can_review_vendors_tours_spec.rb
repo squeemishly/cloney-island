@@ -30,3 +30,11 @@ RSpec.describe "A signed-in user can review a vendor's tours" do
     #EXPECT STAR RATING TO BE LESS OR MORE
   end
 end
+
+# 33. A user can review vendors tours
+# As a logged in user
+# When I visit a specific tour
+# And I fill in the review form
+# And I click on submit
+# Then I see my review at the top of the reviews
+# And I see average stars updated to reflect my review

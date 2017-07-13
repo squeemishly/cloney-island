@@ -31,3 +31,13 @@ RSpec.describe "A signed-in user can delete their tour reviews" do
     expect(page).to_not have_content(review1.name)
   end
 end
+
+# 35. A user can delete their own reviews
+# As a logged in user
+# When I visit ‘my account’
+# And I click on “View my reviews”
+# And I click on delete
+# Then I see a flash message: “Are you sure you want to delete it?”
+# And I click “yes”
+# Then it redirects me to “View my reviews” page
+# And I do not see the review I deleted

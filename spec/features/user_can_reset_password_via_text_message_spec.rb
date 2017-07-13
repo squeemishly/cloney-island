@@ -23,3 +23,17 @@ RSpec.describe "A user can reset their password via text message" do
     expect(page).to have_content("Your password has been successfully reset!")
   end
 end
+
+# 24. Registered user can reset password with text message confirmation
+# As a registered user
+# When I forget my password
+# When I try to sign in
+# Then I can click on “forgot password”
+# And I can type in my email address
+# And I will receive a text message with a code
+# And I can type that code into a code field on the page
+# And I will see a field to reset my password
+# And I can type in my password
+# And I can confirm my password in the password confirm field
+# And I can click on Save Changes
+# And my password will be updated

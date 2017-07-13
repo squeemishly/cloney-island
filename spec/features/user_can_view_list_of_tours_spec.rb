@@ -25,3 +25,15 @@ RSpec.describe "A user can view the tour index page" do
      expect(page).to have_content(tour2.avg_rating)
   end
 end
+
+# 30. A logged in user can see all tours (index)
+# As a logged in user
+# When I click on ‘tours’ on the first navbar
+# Then it redirects me to /tours/index
+# And I see:
+# A thumbnail picture
+# A tour name
+# A tour vendor name
+# A tour price
+# A tour description
+# And average stars

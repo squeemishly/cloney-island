@@ -28,3 +28,17 @@ RSpec.describe "A user can view the tour index page" do
      expect(page).to have_content("Reviews For #{tour1.name}")
    end
  end
+
+# 31. A logged in user can see a specific tour (show)
+# As a logged in user
+# When I click on a tour
+# Then it redirects me to /tours/id/
+# And I see:
+# A picture
+# A tour name
+# A tour vendor name
+# A tour price
+# A tour description
+# And average stars
+# A review box (form) --- should have username, stars, description, title
+# 5 latest reviews

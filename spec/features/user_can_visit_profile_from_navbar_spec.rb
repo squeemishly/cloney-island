@@ -16,3 +16,9 @@ RSpec.describe "A signed-in user can visit their profile from the navbar" do
     expect(page).to have_content("#{user.name}'s Account")
   end
 end
+
+# 27. A logged in user can visit profile from navbar
+# As a logged in user
+# When I click on my avatar
+# And then I click on My Account
+# Then I will be redirected to a user dashboard

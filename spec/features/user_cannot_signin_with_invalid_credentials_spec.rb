@@ -14,3 +14,12 @@ RSpec.describe "A guest user cannot sign in with invalid credentials" do
     expect(current_page).to have_content("Invalid account information, please try again.")
   end
 end
+
+# 29. A user tries to sign in with invalid credentials
+# As a guest
+# When I click on “sign in”
+# And I fill in the email field with an email that isn’t in the database
+# And I fill in the password field
+# And I click on sign in
+# Then I am redirected to the sign in page
+# And I see a flash message informing me my sign in failed

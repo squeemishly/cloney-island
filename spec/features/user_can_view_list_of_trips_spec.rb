@@ -26,6 +26,17 @@ RSpec.describe "A signed-in user can view a list of their planned trips" do
     expect(page).to have_content(trip2.start_city)
 
     click_on "#{trip1.name}"
-    expect(current_path).to eq(trip_path)
+    expect(current_path).to eq(trip_path(trip.id))
   end
 end
+
+#23. Logged in user can see a list of all planned trips
+
+# As a logged in user
+# When I visit “My Trips”
+# Then I see each of my saved trips displayed
+# And each trip has a photo
+# And each trip has a title
+# And each trip has the first date, a dash, and the end date
+# When I click on one of the trips
+# Then I will be redirected to the “Trip Overview” page associated with that trip.

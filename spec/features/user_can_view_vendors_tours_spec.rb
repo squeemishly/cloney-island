@@ -23,3 +23,11 @@ RSpec.describe "A signed-in user can view all tours from one vendor" do
     expect(page).to have_content(tour2.name)
   end
 end
+
+# 32. A logged in user can see all tours from one company
+# As a logged in user
+# When I click on a vendor name
+# Then it redirects me to /vendors/id/ (tour index) (confirm path)
+# And I see
+# Vendor name
+# All their tours : picture, name, price, stars, description

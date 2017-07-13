@@ -31,3 +31,13 @@ RSpec.describe "A signed-in user can edit their tour reviews" do
     expect(current_path).to eq("/users/#{user.id}/reviews")
   end
 end
+
+# 34. A user can edit their own reviews
+# As a logged in user
+# When I visit ‘my account’
+# And I click on “View my reviews”
+# And I click on edit
+# Then it redirects me to an edit_review_form
+# And I change the description
+# And I click on save
+# Then It redirects me to “View my reviews” page
