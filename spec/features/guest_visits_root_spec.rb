@@ -35,7 +35,7 @@ feature "guest visits root" do
   end
 
   context "they click on a city" do
-    xit "they see the display page for the city they clicked on" do
+    it "they see the display page for the city they clicked on" do
       visit root_path
 
       within ('.column-list') do
