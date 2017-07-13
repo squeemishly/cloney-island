@@ -1,16 +1,66 @@
-<div class="column-list col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div id="map"></div>
 
-</div>
-
-<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 60%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
     <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
       var map;
+      var infowindow;
+
       function initMap() {
+        var pyrmont = {lat: -33.867, lng: 151.195};
+        var paris = {lat: 48.8566, lng: 2.3522};
+
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.7392, lng: -104.9903},
-          zoom: 8
+          center: paris,
+          zoom: 15
+        });
+
+        var request = {
+          location: paris,
+          radius: 5000,
+          type: ['restaurant']
+        }
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&libraries=places&callback=initMap" async defer></script>
+    
