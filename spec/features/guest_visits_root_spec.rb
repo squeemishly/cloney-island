@@ -49,7 +49,7 @@ feature "guest visits root" do
       within(".column-list") do
         expect(page).to have_content("Paris")
         expect(page).to_not have_content("London")
-        expect(page).to have_selector(".place-preview")
+        expect(page).to have_selector(".attraction-preview")
       end
 
       # We expect the path to change to show the lat and long coordinates

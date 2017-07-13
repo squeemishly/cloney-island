@@ -20,6 +20,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'figaro'
+gem 'faraday'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
