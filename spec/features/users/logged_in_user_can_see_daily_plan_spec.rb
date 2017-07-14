@@ -7,7 +7,7 @@ RSpec.describe "logged in user" do
   it "can see daily plan" do
     user = create(:user)
     trip = create(:trip)
-    places = create_list(:place, 10)
+    attractions = create_list(:attraction, 10)
     date = 07-10-2017
     trip.itineraries.places << places
     user.trips << trip
@@ -15,6 +15,13 @@ RSpec.describe "logged in user" do
     visit trips_path(trip.id)
     click_on "Daily Plan"
 
+    within (".attraction-preview") do
+      expect(page).to have_content(date)
+      expect(attractions.count).to eq(3)
+      expect(page).to have_content(attraction[0].attraction_image)
+      expect(page).to have_content(attraction[0].name)
+    end
+    #javascript expectations
   end
 end
 
