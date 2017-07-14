@@ -15,9 +15,9 @@ RSpec.describe "A user can reset their password via text message" do
     expect(page).to have_content("Enter SMS code:")
     expect(page).to have_content("Reset Password:")
     expect(page).to have_content("Confirm Password:")
-    fill_in "SMS Code", with: #ENTER CODE HERE
-    fill_in "Reset Password", with: #ENTER NEW PASSWORD HERE
-    fill_in "Confirm Password", with: #ENTER NEW PASSWORD HERE
+    # fill_in "SMS Code", with: #ENTER CODE HERE
+    # fill_in "Reset Password", with: #ENTER NEW PASSWORD HERE
+    # fill_in "Confirm Password", with: #ENTER NEW PASSWORD HERE
     click_on "Save Changes"
 
     expect(page).to have_content("Your password has been successfully reset!")
