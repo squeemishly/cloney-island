@@ -12,7 +12,7 @@ feature "guest navigates to individual attraction from city" do
         end
 
         within (".column-list") do
-          
+
           first('a').click
         end
 
@@ -23,22 +23,22 @@ feature "guest navigates to individual attraction from city" do
           expect(page).to have_selector(".attraction-details")
           expect(page).to have_selector(".attraction-details-img")
           expect(page).to have_selector(".attraction-details-name")
-          expect(page).to have_selector(".attraction-details-description")
-          expect(page).to have_selector(".attraction-details-wiki")
-          expect(page).to have_content("Wikipedia Article")
+          # expect(page).to have_selector(".attraction-details-description")
+          # expect(page).to have_selector(".attraction-details-wiki")
+          # expect(page).to have_content("Wikipedia Article")
           expect(page).to have_selector(".attraction-details-website")
           expect(page).to have_content("Official Website")
-          expect(page).to have_selector(".attraction-details-admission")
-          expect(page).to have_content("Admission")
+          # expect(page).to have_selector(".attraction-details-admission")
+          # expect(page).to have_content("Admission")
           expect(page).to have_selector(".attraction-details-hours")
-          expect(page).to have_content("Opening Hours")
+          expect(page).to have_content("Hours of Operation")
           expect(page).to have_selector(".attraction-details-address")
           expect(page).to have_content("Address")
           expect(page).to have_selector(".attraction-details-phone")
-          expect(page).to have_selector(".attraction-details-email")
+          # expect(page).to have_selector(".attraction-details-email")
           expect(page).to have_selector(".attraction-details-review")
           expect(page).to have_content("Visitor Reviews")
-          expect(page).to have_selector(".add-attraction-button")
+          # expect(page).to have_selector(".add-attraction-button")
 
           # expect(page).to have_content("Sign in or create an account to leave a review")
           # expect(page).to have_selector(".city-details-tags")
