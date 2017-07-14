@@ -7,7 +7,6 @@ class SearchController < ApplicationController
     elsif params[:attraction]
       response = Faraday.get("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{params[:attraction]}&key=#{ENV['google_map_api_key']}")
       @attraction = JSON.parse(response.body, symbolize_names: true)
-      binding.pry
     end
   end
 end
