@@ -1,20 +1,14 @@
 <div class="column-list col-xs-12 col-sm-12 col-md-3 col-lg-3">
-  <%= @city[:name] %>
-  <%# binding.pry %>
-  <% @attractions.each do |attraction| %>
-      <a href="/search?attraction=<%=attraction[:name]%>" style="line-height:62px;"><div class="attraction-preview">
-        <%# binding.pry %>
-        <% if attraction[:photos] %>
-          <div><img class="attraction-image-container" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>"></div>
-        <% end %>
-        <%= attraction[:name] %>
-        <%= attraction[:geometry][:location][:lat] %>
-        <%= attraction[:geometry][:location][:lng] %>
-        <%= attraction[:id] %>
-        <%= attraction[:place_id] %>
-        <%= attraction[:opening_hours] %>
-      </div> </a>
-    <% end %>
+  <% if @city %>
+    <% map_lat = @city[:lat] %>
+    <% map_lng = @city[:lng] %>
+    <%= render partial: "city" %>
+  <% end %>
+  <% if @attraction %>
+    <% map_lat = @attraction[:lat] %>
+    <% map_lng = @attraction[:lng] %>
+    <%= render partial: "attraction" %>
+  <% end %>
 </div>
 
 <div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
@@ -23,8 +17,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'),
          {
-          center: {lat: <%= @city[:lat] %>, lng: <%= @city[:lng] %>},
-          zoom: 8
+          center: {lat: <%= map_lat %>, lng: <%= map_lng %>},
+          zoom: 12
         });
       }
     </script>

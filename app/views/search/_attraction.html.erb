@@ -1,0 +1,31 @@
+<div class="attraction-details">
+  <h1 class="attraction-details-name"><%= @attraction[:name] %></h1>
+  <% if @attraction[:photos] %>
+    <div><img class="attraction-details-img" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= @attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>"></div>
+  <% end %>
+  <div class="attraction-details-address">
+    Address: <%= @attraction[:formatted_address] %>
+  </div>
+  <div class="attraction-details-phone">
+    Phone Number: <%= @attraction[:formatted_phone_number] %>
+  </div>
+    Rating: <%= @attraction[:rating] %>
+  <div class="attraction-details-website">
+    <%= link_to "Official Website", @attraction[:website] %>
+  </div>
+  <div class="attraction-details-hours">
+     Hours of Operation: <%= @attraction[:opening_hours][:weekday_text] %>
+  </div>
+  <%= @attraction[:international_phone_number] %>
+  <div class="attraction-details-review">
+    <% @attraction[:reviews].each do |review| %>
+      Visitor Reviews: <%= review[:author_name] %>
+      <%= review[:rating] %>
+      <%= review[:relative_time_description] %>
+      <%= review[:text] %>
+      <%= link_to 'Author Website', review[:author_url] %>
+      <img src="<%= review[:profile_photo_url] %>" alt="author-avatar">
+    <% end %>
+  </div>
+
+</div>
