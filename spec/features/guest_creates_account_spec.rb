@@ -19,7 +19,7 @@ feature "guest creates account" do
       click_on "Sign Up"
 
       expect(User.count).to eq(1)
-      expect(current_path).to eq(new_trip_path)
+      expect(current_path).to eq(new_user_trip_path(User.first))
     end
   end
 
