@@ -1,0 +1,16 @@
+Don't have an account? <%= link_to "Create an Account with Email", new_user_path %> <br>
+
+<%= link_to "Sign In with Google", login_path %> <br>
+<%= link_to "Sign In with Facebook", new_user_path %> <br>
+
+Sign In with Email
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Sign In", class:"btn btn-sign-in" %>
+<% end %>
