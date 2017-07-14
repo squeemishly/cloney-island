@@ -11,7 +11,8 @@ RSpec.describe "logged in user" do
     visit attraction_path(attraction.id)
 
     #javascript test for seeing trail on map
-
+  end
+end
 # 17. Logged in user can see the path of their journey for the day
 # As a logged in user,
 # When I add a place to my Daily Plan
