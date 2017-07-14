@@ -21,6 +21,7 @@ feature "user signs in" do
       expect(current_path).to eq user_trips_path(user)
       expect(page).to have_content("Create New Trip")
       expect(page).to have_content("Choose Existing Trip")
+      expect(page).to_not have_content("Sign In")
     end
 
     it "they enter wrong email and see a flash message" do
