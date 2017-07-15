@@ -17,7 +17,16 @@ class Attraction
   end
 
   def self.fetch_attractions_by_city(city)
-    GooglePlacesService.fetch_attractions_by_city(city)
+    attractions = GooglePlacesService.fetch_attractions_by_city(city)
+    attractions.map do |attraction|
+      new(attraction)
+    end
+  end
+
+  def self.marker_format(attractions)
+    attractions.map do |attraction|
+      [attraction.name, attraction.lat, attraction.lng]
+    end
   end
 
   private
