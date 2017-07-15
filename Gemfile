@@ -21,6 +21,9 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'figaro'
 gem 'faraday'
+gem "bootstrap_form", github: "bootstrap-ruby/rails-bootstrap-forms" , branch: "bootstrap-v4"
+gem 'font-awesome-rails'
+gem 'bootstrap-social-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,8 +1,14 @@
 <div class="column-list col-xs-12 col-sm-12 col-md-3 col-lg-3">
   <% @cities.each do |city| %>
       <a href="/search?city=<%=city%>" style="line-height:62px;"><div class="city-preview">
-        <%= city[:name] %>, <%= city[:country] %>
-        <%= city[:description] %>
+        <div class="card">
+          <div style="background-image: url(<%= city[:picture] %>);" class="city-image">
+          <!-- <img src="<%= city[:picture] %>" class="city-image card-img-top"> -->
+          </div>
+          <div class="card-block">
+            <h4 class="card-title"><%= city[:name] %>, <%= city[:country] %></h4>
+          </div>
+        </div>
       </div> </a>
     <% end %>
 </div>

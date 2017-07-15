@@ -1,21 +1,17 @@
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
+<h3 class="sign-in">Create a new account</h3>
+
+<%= bootstrap_form_for @user do |f| %>
   <%= f.text_field :first_name %>
 
-  <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 
-  <%= f.label :email %>
   <%= f.text_field :email %>
 
-  <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation, "Confirm Password" %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, label: "Confirm Password" %>
 
-  <%= f.label :phone %>
   <%= f.text_field :phone %>
 
-  <%= f.submit "Sign Up" %>
+  <%= f.submit "Sign Up", class:"btn btn-sign-in" %>
 <% end %>
