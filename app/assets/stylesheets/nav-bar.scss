@@ -6,10 +6,25 @@
   content: "Map Filters";
 }
 
-.logo {
- max-height: 104px;
+.row-test {
+  max-height: 104px;
 }
+
+// .logo {
+//  max-height: 104px;
+//  // max-width: 100%;
+// }
 
 .navbar-main, .navbar-secondary {
   margin-bottom: 0 !important;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  .col,
+  [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
