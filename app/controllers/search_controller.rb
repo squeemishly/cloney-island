@@ -6,8 +6,7 @@ class SearchController < ApplicationController
       @attractions_js = Attraction.marker_format(@attractions)
 
     elsif params[:attraction]
-      response = Faraday.get("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{params[:attraction]}&key=#{ENV['google_map_api_key']}")
-      @attraction = JSON.parse(response.body, symbolize_names: true)[:result]
+      @attraction = Attraction.fetch_details(params[:attraction])
     end
   end
 end

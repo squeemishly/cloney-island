@@ -29,6 +29,11 @@ class Attraction
     end
   end
 
+  def self.fetch_details(place_id)
+    # GooglePlacesService.fetch_details(place_id)
+    
+  end
+
   private
     attr_reader :attr
 end
