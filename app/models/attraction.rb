@@ -16,6 +16,10 @@ class Attraction
     @lng = attr[:geometry][:location][:lng]
   end
 
+  def self.fetch_attractions_by_city(city)
+    GooglePlacesService.fetch_attractions_by_city(city)
+  end
+
   private
     attr_reader :attr
 end
