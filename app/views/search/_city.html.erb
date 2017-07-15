@@ -6,7 +6,7 @@
           <!--<%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
             <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
           <% end %> -->
-          <img class="attraction-image-container" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= attraction.photo_reference %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>">
+          <img class="attraction-image-container" src=<%= attraction.photo_url %>>
         </div>
         <h2 class="attraction-preview-name"><%= attraction.name %></h2>
         <%= attraction.vicinity %>

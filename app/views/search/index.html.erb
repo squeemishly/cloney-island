@@ -5,8 +5,8 @@
     <%= render partial: "city" %>
   <% end %>
   <% if @attraction %>
-    <% map_lat = @attraction[:lat] %>
-    <% map_lng = @attraction[:lng] %>
+    <% map_lat = @attraction.lat %>
+    <% map_lng = @attraction.lng %>
     <%= render partial: "attraction" %>
   <% end %>
 </div>
