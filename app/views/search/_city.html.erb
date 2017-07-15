@@ -1,28 +1,15 @@
 <%= @city[:name] %>
 <% @attractions.each do |attraction| %>
-    <a href="/search?attraction=<%=attraction[:place_id]%>" style="line-height:62px;"><div class="attraction-preview">
-      <% if attraction[:photos] %>
-        <% if current_user %>
-          <!-- <div class="imagewrap">
-            <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
-              <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
-            <% end %>
-            <img class="attraction-image-container" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>">
-          </div> -->
-        <% else %>
-          <div class="imagewrap">
-            <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
-              <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
-            <% end %>
-            <img class="attraction-image-container" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>">
-          </div>
-        <% end %>
-      <% end %>
-      <h2 class="attraction-preview-name"><%= attraction[:name] %></h2>
-      <%= attraction[:geometry][:location][:lat] %>
-      <%= attraction[:geometry][:location][:lng] %>
-      <%= attraction[:id] %>
-      <%= attraction[:place_id] %>
-      <%= attraction[:opening_hours] %>
-    </div> </a>
+    <a href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
+      <div class="attraction-preview">
+        <div class="imagewrap">
+          <!--<%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+            <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+          <% end %> -->
+          <img class="attraction-image-container" src=<%= attraction.photo_url %>>
+        </div>
+        <h2 class="attraction-preview-name"><%= attraction.name %></h2>
+        <%= attraction.vicinity %>
+      </div>
+    </a>
   <% end %>

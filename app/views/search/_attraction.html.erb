@@ -1,25 +1,25 @@
 <div class="attraction-details">
-  <h1 class="attraction-details-name"><%= @attraction[:name] %></h1>
-  <% if @attraction[:photos] %>
-    <div><img class="attraction-details-img" src="https://maps.googleapis.com/maps/api/place/photo?photoreference=<%= @attraction[:photos][0][:photo_reference] %>&sensor=false&maxheight=300&maxwidth=300&key=<%= ENV['google_map_api_key'] %>"></div>
-  <% end %>
+  <h1 class="attraction-details-name"><%= @attraction.name %></h1>
+    <div>
+      <img class="attraction-details-img" src=<%= @attraction.photo_url %>>
+    </div>
   <div class="attraction-details-address">
-    <%= "Address: #{@attraction[:formatted_address]}" if @attraction[:formatted_address] %>
+    <%= "Address: #{@attraction.formatted_address}" if @attraction.formatted_address %>
   </div>
   <div class="attraction-details-phone">
-    <%= "Phone Number: #{@attraction[:formatted_phone_number]}" if @attraction[:formatted_phone_number] %>
+    <%= "Phone Number: #{@attraction.formatted_phone_number}" if @attraction.formatted_phone_number %>
   </div>
-    <%= "Rating: #{@attraction[:rating]}" if @attraction[:rating]%>
+    <%= "Rating: #{@attraction.rating}" if @attraction.rating %>
   <div class="attraction-details-website">
-    <%= link_to "Official Website", @attraction[:website] if @attraction[:website] %>
+    <%= link_to "Official Website", @attraction.website if @attraction.website %>
   </div>
   <div class="attraction-details-hours">
-      <%= "Hours of Operation: #{@attraction[:opening_hours][:weekday_text]}" if @attraction[:opening_hours]%>
+      <%= "Hours of Operation: #{@attraction.opening_hours}" if @attraction.opening_hours%>
   </div>
-    <%= @attraction[:international_phone_number] if @attraction[:international_phone_number] %>
+    <%= @attraction.international_phone_number if @attraction.international_phone_number %>
   <div class="attraction-details-review">
-    <% if @attraction[:reviews] %>
-      <% @attraction[:reviews].each do |review| %>
+    <% if @attraction.reviews %>
+      <% @attraction.reviews.each do |review| %>
         Visitor Reviews: <%= review[:author_name] %>
         <%= review[:rating] %>
         <%= review[:relative_time_description] %>
@@ -29,5 +29,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
