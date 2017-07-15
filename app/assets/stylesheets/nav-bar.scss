@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .navbar-secondary .navbar-toggle:before {
   content: "Trip Planning Tools";
 }
@@ -10,10 +12,10 @@
   max-height: 104px;
 }
 
-// .logo {
-//  max-height: 104px;
-//  // max-width: 100%;
-// }
+.logo {
+ max-height: 104px;
+ // max-width: 100%;
+}
 
 .navbar-main, .navbar-secondary {
   margin-bottom: 0 !important;
@@ -27,4 +29,15 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.navbar {
+  background-color: $site-background !important;
+  border: 0 !important;
+}
+
+li a {
+  color: $header-links !important;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.15em;
 }
