@@ -1,16 +1,18 @@
-<h1>You must sign in or create an account to create a trip</h1>
+<h1 class="sign-in">You must sign in or create an account to create a trip</h1>
 
-<h3>Don't have an account? <%= link_to "Create an Account with Email", new_user_path %></h3> <br>
 
-<%= link_to login_path, class: "btn btn-social btn-google" do %>
-  <span class="fa fa-google"></span> Sign in with Google
-<% end %><br>
-<%= link_to new_user_path, class: "btn btn-social btn-facebook" do %>
-  <span class="fa fa-facebook"></span> Sign in with Facebook
-<% end %>
 
-<div class="container form" style="width:400px; margin:0 auto;">
-  <h3>Sign In with Email:</h3>
+<div class='oauth-logins'>
+  <%= link_to login_path, class: "btn btn-social btn-google" do %>
+    <span class="fa fa-google"></span> Sign in with Google
+  <% end %>
+  <%= link_to new_user_path, class: "btn btn-social btn-facebook" do %>
+    <span class="fa fa-facebook"></span> Sign in with Facebook
+  <% end %>
+</div>
+
+<div class="container form">
+  <h3 class="sign-in">Sign In with Email:</h3>
   <%= bootstrap_form_for(:session, url: login_path) do |f| %>
     <%= f.text_field :email %>
 
@@ -19,3 +21,5 @@
     <%= f.submit "Sign In", class:"btn btn-sign-in" %>
   <% end %>
 </div>
+
+<h3 class="sign-in">Don't have an account? <%= link_to "Create an Account with Email", new_user_path %></h3> <br>
