@@ -5,6 +5,11 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <% if @attractions_js %>
+      <script type="text/javascript">
+        var attractions = <%= raw @attractions_js %>;
+      </script>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <style>
       /* Always set the map height explicitly to define the size of the div
