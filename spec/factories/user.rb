@@ -5,7 +5,7 @@ FactoryGirl.define do
     sequence :email do |n|
       "kitty#{n}@gmail.com"
     end
-    phone "555-555-5555"
+    phone "+15555555555"
     password "password"
     status 0
     role 0

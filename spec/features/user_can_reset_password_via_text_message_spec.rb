@@ -6,21 +6,16 @@ RSpec.describe "A user can reset their password via text message" do
 
     visit root_path
 
-    click_on "Sign In"
-    click_on "Forgot Password"
-
+    click_on "SIGN IN"
     fill_in "Email", with: "#{user.email}"
-    click_on "Get My Password"
+    fill_in "Password", with: "password"
+    find(".btn-sign-in").click
+    click_on "Change Password"
 
-    expect(page).to have_content("Enter SMS code:")
-    expect(page).to have_content("Reset Password:")
-    expect(page).to have_content("Confirm Password:")
-    # fill_in "SMS Code", with: #ENTER CODE HERE
-    # fill_in "Reset Password", with: #ENTER NEW PASSWORD HERE
-    # fill_in "Confirm Password", with: #ENTER NEW PASSWORD HERE
-    click_on "Save Changes"
+    expect(page).to have_content("Verification Code")
+    expect(page).to have_content("Confirm")
 
-    expect(page).to have_content("Your password has been successfully reset!")
+    expect(page).to have_content("Verification code is correct!")
   end
 end
 
