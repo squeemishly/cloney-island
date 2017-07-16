@@ -1,0 +1,96 @@
+<div class="column-list col-xs-12 col-sm-12 col-md-3 col-lg-3 scroll-column">
+  <% if @city %>
+    <% map_lat = @city[:lat] %>
+    <% map_lng = @city[:lng] %>
+    <%= render partial: "city" %>
+  <% end %>
+  <% if @attraction %>
+    <% map_lat = @attraction.lat %>
+    <% map_lng = @attraction.lng %>
+    <%= render partial: "attraction" %>
+  <% end %>
+</div>
+
+<% if @attractions_js %>
+<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
+    <script type='text/javascript' charset="utf-8">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <%= @city[:lat] %>, lng: <%= @city[:lng] %>},
+          zoom: 12
+        });
+
+      setMarkers(map);
+      }
+
+// Data for the markers consisting of a name, a LatLng and a zIndex for the
+// order in which these markers should display on top of each other.
+
+
+      function setMarkers(map) {
+        // Adds markers to the map.
+
+        // Marker sizes are expressed as a Size of X,Y where the origin of the image
+        // (0,0) is located in the top left of the image.
+
+        // Origins, anchor positions and coordinates of the marker increase in the X
+        // direction to the right and in the Y direction down.
+        var image = {
+          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(20, 32),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(0, 32)
+        };
+        // Shapes define the clickable region of the icon. The type defines an HTML
+        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+        // The final coordinate closes the poly by connecting to the first coordinate.
+
+        for (var i = 0; i < attractions.length; i++) {
+          var attraction = attractions[i];
+          var marker = new google.maps.Marker({
+            position: {lat: attraction[1], lng: attraction[2]},
+            map: map,
+            icon: image,
+            title: attraction[0]
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
+    async defer></script>
+
+  <% elsif @attraction %>
+
+    <div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
+    <script type='text/javascript' charset="utf-8">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var myLatLng = {lat: <%= @attraction.lat %>, lng: <%= @attraction.lng %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
+    async defer></script>
+<% end %>
+

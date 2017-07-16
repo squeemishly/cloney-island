@@ -1,0 +1,82 @@
+@import "variables.scss";
+
+.navbar-secondary .navbar-toggle:before {
+  content: "Trip Planning Tools";
+}
+
+.navbar-filters .navbar-toggle:before {
+  content: "Map Filters";
+}
+
+.row-test {
+  max-height: 104px;
+}
+
+.logo {
+ max-height: 104px;
+}
+
+.navbar-main, .navbar-secondary {
+  margin-bottom: 0 !important;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  .col,
+  [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.navbar {
+  background-color: $site-background !important;
+  border: 0 !important;
+}
+
+li a {
+  color: $header-links !important;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.15em;
+}
+
+.btn-nav {
+  background-color: $orange;
+  border: 0px;
+  color: white;
+}
+
+.navbar-right {
+  margin-right: -30px;
+}
+
+.sign-in-link {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+button.navbar-toggle.collapsed {
+  float: left;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle.collapsed.third {
+  float: left;
+  margin-left: 15px;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle.third {
+  margin-left: 15px;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle {
+  float: left;
+  background-color: $orange;
+  color: white;
+
