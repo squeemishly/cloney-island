@@ -58,7 +58,7 @@
           var marker = new google.maps.Marker({
             position: {lat: attraction[1], lng: attraction[2]},
             map: map,
-            icon: image,
+            icon: {url: attraction[3], scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0), anchor: new google.maps.Point(0, 32)},
             title: attraction[0]
           });
         }
