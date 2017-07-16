@@ -13,7 +13,6 @@ RSpec.describe User do
   context "relationships" do
     it "has relationships" do
       user = create(:user)
-      expect(user).to respond_to :user_roles
       expect(user).to respond_to :tours
       expect(user).to respond_to :reviews
       expect(user).to respond_to :trips
