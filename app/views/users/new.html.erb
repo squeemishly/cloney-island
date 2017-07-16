@@ -1,17 +1,19 @@
+<div class="sign-up">
+
 <h3 class="sign-in">Create a new account</h3>
+  <%= bootstrap_form_for @user do |f| %>
+    <%= f.text_field :first_name %>
 
-<%= bootstrap_form_for @user do |f| %>
-  <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
 
-  <%= f.text_field :last_name %>
+    <%= f.text_field :email %>
 
-  <%= f.text_field :email %>
+    <%= f.password_field :password %>
 
-  <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation, label: "Confirm Password" %>
 
-  <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+    <%= f.text_field :phone %>
 
-  <%= f.text_field :phone %>
-
-  <%= f.submit "Sign Up", class:"btn btn-sign-in" %>
-<% end %>
+    <%= f.submit "Sign Up", class:"btn btn-sign-in" %>
+  <% end %>
+</div>
