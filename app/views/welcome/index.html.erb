@@ -1,4 +1,4 @@
-<div class="column-list col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<div class="column-list col-xs-12 col-sm-3 col-md-3 col-lg-3">
   <% @cities.each do |city| %>
       <a href="/search?city=<%=city%>" style="line-height:62px;"><div class="city-preview">
         <div class="card">
@@ -13,13 +13,13 @@
     <% end %>
 </div>
 
-<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
+<div class="main-map col-xs-12 col-sm-9 col-md-9 col-lg-9" id="map"></div>
     <script>
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 39.7392, lng: -104.9903},
-          zoom: 8
+          zoom: 12
         });
       }
     </script>
