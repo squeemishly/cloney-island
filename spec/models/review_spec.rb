@@ -10,8 +10,10 @@ RSpec.describe Review do
   end
 
   context "relationships" do
-    review = create(:review)
-    expect(review).to respond_to :users
-    expect(review).to respond_to :tours
+    it "has relationships" do
+      review = create(:review)
+      expect(review).to respond_to :users
+      expect(review).to respond_to :tours
+    end
   end
 end
