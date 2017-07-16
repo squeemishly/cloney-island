@@ -4,3 +4,12 @@
 <h1>My Trips</h1>
 
 <h3>Choose Existing Trip</h3>
+
+<div class="my-trip-list">
+  <% @trips.each do |trip| %>
+    <a href=<%= user_trip_path(current_user, trip) %> ><div class="my-trip">
+      <%= trip.start_city %><br>
+      <%= trip.start_date %> - <%= trip.end_date %>
+    </div></a>
+  <% end %>
+</div>
