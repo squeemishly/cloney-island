@@ -1,36 +1,46 @@
 require 'rails_helper'
 
 RSpec.describe "A signed-in user can view a list of their planned trips" do
+  before(:each) do
+  end
+
   it "can view a list of planned trips" do
     user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     trip1 = create(:trip)
-    trip2 = create(:trip)
+    # trip2 = create(:trip)
     user.trips << trip1
-    user.trips << trip2
+    # user.trips << trip2
 
-    visit root_path
+    # visit root_path
+    #
+    # click_on 'SIGN IN'
+    #
+    # fill_in 'Email', with: "#{user.email}"
+    # fill_in 'Password', with: 'password'
+    # find(".btn-sign-in").click
+    #
+    # select('My Trips', :from => '.user-avatar')
 
-    click_on 'SIGN IN'
+    visit user_trips_path(user)
 
-    fill_in 'Email', with: "#{user.email}"
-    fill_in 'Password', with: 'password'
-    find(".btn-sign-in").click
-
-    select('My Trips', :from => '.user-avatar')
-
-    expect(current_path).to eq(trips_path)
+    expect(current_path).to eq(user_trips_path(user))
     expect(page).to have_content("My Trips")
-    expect(page).to have_content(trip1.title)
-    expect(page).to have_content(trip1.start_date)
-    expect(page).to have_content(trip1.end_date)
-    expect(page).to have_content(trip1.start_city)
-    expect(page).to have_content(trip2.title)
-    expect(page).to have_content(trip2.start_date)
-    expect(page).to have_content(trip2.end_date)
-    expect(page).to have_content(trip2.start_city)
 
-    click_on "#{trip1.name}"
-    expect(current_path).to eq(trip_path(trip.id))
+    within first(".my-trip-list") do
+      expect(page).to have_content(trip1.start_date)
+      expect(page).to have_content(trip1.end_date)
+      expect(page).to have_content(trip1.start_city)
+    end
+
+    # expect(page).to have_content(trip2.start_date)
+    # expect(page).to have_content(trip2.end_date)
+    # expect(page).to have_content(trip2.start_city)
+    # save_and_open_page
+    click_on trip1.start_city
+
+    expect(page).to have_content "Itinerary for #{trip1.start_city} on #{trip1.start_date} - #{trip1.end_date}"
+    expect(current_path).to eq user_trip_path(user, trip1)
   end
 end
 

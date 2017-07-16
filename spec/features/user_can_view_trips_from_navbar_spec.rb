@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "A signed-in user can access trips via the navbar" do
   before(:each) do
-     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
    end
   it "can view their trips page from the navbar" do
     user = create(:user_with_trips)
