@@ -14,7 +14,7 @@ class Users::PasswordsController < ApplicationController
     if passwords_not_empty? && passwords_equal?
       current_user.update(password_params)
       redirect_to user_trips_path(current_user.id), success: "Password Updated"
-      sessions[:authenticated] = false
+      session[:authenticated] = false
     else
       redirect_to users_password_edit_path(current_user.id), warning: "Error, please try again."
     end
