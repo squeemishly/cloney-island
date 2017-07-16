@@ -45,18 +45,12 @@ feature "guest visits root" do
           expect(page).to have_selector(".city-preview")
           click_on "Paris, France"
         end
-
-        # We expect the map to center on Paris (or whatever city we click), but it's
-        # Javascript. I don't think capybara can test for javascript
-        # save_and_open_page
+        
         within(".column-list") do
           expect(page).to have_content("Paris")
           expect(page).to_not have_content("London")
           expect(page).to have_selector(".attraction-preview")
         end
-
-        # We expect the path to change to show the lat and long coordinates
-        # I don't know how to test for that -- it might be more of a service test?
       end
     end
   end
