@@ -23,3 +23,8 @@
 @import "nav-bar.scss";
 @import "variables.scss";
 @import "city-attractions.scss";
+
+.scroll-column {
+  height: 100%;
+  overflow: scroll;
+}
