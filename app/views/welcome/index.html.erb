@@ -3,7 +3,6 @@
       <a href="/search?city=<%=city%>" style="line-height:62px;"><div class="city-preview">
         <div class="card">
           <div style="background-image: url(<%= city[:picture] %>);" class="city-image">
-          <!-- <img src="<%= city[:picture] %>" class="city-image card-img-top"> -->
           </div>
           <div class="card-block">
             <h4 class="card-title"><%= city[:name] %>, <%= city[:country] %></h4>
@@ -13,7 +12,7 @@
     <% end %>
 </div>
 
-<div class="main-map col-xs-12 col-sm-9 col-md-9 col-lg-9" id="map"></div>
+<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map">
     <script>
       var map;
       function initMap() {
@@ -25,3 +24,4 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
     async defer></script>
+ </div>

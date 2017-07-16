@@ -14,7 +14,6 @@
 
 .logo {
  max-height: 104px;
- // max-width: 100%;
 }
 
 .navbar-main, .navbar-secondary {
@@ -48,6 +47,36 @@ li a {
   color: white;
 }
 
-.nav-bar-third {
-  padding-left: 15px;
+.navbar-right {
+  margin-right: -30px;
 }
+
+.sign-in-link {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+button.navbar-toggle.collapsed {
+  float: left;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle.collapsed.third {
+  float: left;
+  margin-left: 15px;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle.third {
+  margin-left: 15px;
+  background-color: $orange;
+  color: white;
+}
+
+button.navbar-toggle {
+  float: left;
+  background-color: $orange;
+  color: white;
+
