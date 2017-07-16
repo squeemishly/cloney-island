@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe "user can create a trip" do
+RSpec.describe "user can create a trip" do
   it "after clicking on a place" do
     place = create(:place, name: "Denver")
     start_date = "07-10-2017"
