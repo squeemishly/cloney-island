@@ -13,7 +13,7 @@ RSpec.describe "logged in user" do
 
     visit edit_trips_path(trip.id)
     expect(page).to have_content(date1)
-    select(date2), from: ".date-dropdown"
+    find(".date-dropdown").select(date2)
 
     within first(".place-preview") do
       page.find(".add-attraction-button").click
