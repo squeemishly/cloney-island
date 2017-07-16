@@ -1,6 +1,6 @@
 <h2><%= @city[:name] %></h2>
 <% @attractions.each do |attraction| %>
-    <a href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
+    <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
       <div class="attraction-preview">
         <div class="card">
           <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container">
