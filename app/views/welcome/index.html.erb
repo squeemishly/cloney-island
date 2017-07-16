@@ -13,7 +13,7 @@
     <% end %>
 </div>
 
-<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map"></div>
+<div class="main-map col-xs-12 col-sm-12 col-md-9 col-lg-9" id="map">
     <script>
       var map;
       function initMap() {
@@ -25,3 +25,4 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
     async defer></script>
+ </div>
