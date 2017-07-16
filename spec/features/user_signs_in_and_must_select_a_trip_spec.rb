@@ -6,10 +6,10 @@ feature "user signs in" do
 
       user = create(:user_with_trips)
       visit root_path
-      click_on "Sign In"
+      click_on "SIGN IN"
 
-      expect(page).to have_content("Sign In with Google")
-      expect(page).to have_content("Sign In with Facebook")
+      expect(page).to have_content("Sign in with Google")
+      expect(page).to have_content("Sign in with Facebook")
       expect(page).to have_content("Sign In with Email")
 
       expect(current_path).to eq(login_path)
@@ -48,5 +48,27 @@ feature "user signs in" do
       expect(page).to have_content("The email or password you entered is incorrect")
     end
   end
-end
 
+  context "they do NOT have saved trips" do
+    it "so they are required to make one" do
+      user = create(:user)
+
+      visit root_path
+      click_on "SIGN IN"
+
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      find(".btn-sign-in").click
+
+      expect(current_path).to eq new_user_trip_path(user)
+      expect(page).to have_content("Create a New Trip")
+
+      fill_in "Location", with: "Beijing"
+      fill_in "Start Date", with: "2019-10-28"
+      fill_in "End Date", with: "2019-11-15"
+      click_on "Create Trip"
+
+      expect(current_path).to eq '/'
+    end
+  end
+end

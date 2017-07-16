@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe "A guest user cannot sign in with invalid credentials" do
   it "cannot sign in with invalid credentials" do
 
+    #########################################
+    # I think this is tested in user_signs_in_and_must_select_trip_spec:
+    ##########################################
+
     visit root_path
 
     click_on 'Sign In Using Email'

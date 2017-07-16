@@ -1,15 +1,20 @@
-<%= @city[:name] %>
+<h2><%= @city[:name] %></h2>
 <% @attractions.each do |attraction| %>
-    <a href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
+    <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
       <div class="attraction-preview">
-        <div class="imagewrap">
+        <div class="card">
+          <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container">
+          </div>
+          <div class="card-block">
+            <h4 id="card-title" class="attraction-preview-name"><%= attraction.name %></h4>
+          </div>
+
+        <%#<div class="imagewrap">%>
           <!--<%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
             <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
           <% end %> -->
-          <img class="attraction-image-container" src=<%= attraction.photo_url %>>
+        <%#</div>%>
         </div>
-        <h2 class="attraction-preview-name"><%= attraction.name %></h2>
-        <%= attraction.vicinity %>
       </div>
     </a>
   <% end %>
