@@ -62,6 +62,7 @@ feature "user signs in" do
 
       expect(current_path).to eq new_user_trip_path(user)
       expect(page).to have_content("Create a New Trip")
+      save_and_open_page
 
       fill_in "Location", with: "Beijing"
       fill_in "Start Date", with: "2019-10-28"
