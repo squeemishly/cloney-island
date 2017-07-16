@@ -10,32 +10,13 @@
         var attractions = <%= raw @attractions_js %>;
       </script>
     <% end %>
+    <% if @attraction %>
+      <script type="text/javascript">
+        var attraction_img = '<%= raw @attraction.photo_url %>';
+      </script>
+    <% end %>
     <%= javascript_include_tag 'application' %>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      @media only screen and (max-width: 767px) {
-        #map {
-        height: 500px;
-        width: 96%;
-        margin-left: 2%;
-        margin-right: 2%;
-        }
-      }
-      @media only screen and (min-width: 768px) {
-        #map {
-          height: 90%;
-          width: 73%;
-          margin-right: 1%;
-          border-radius: 10px;
-        }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   </head>
 
