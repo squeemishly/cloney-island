@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :trips, only: [:new, :index, :create]
   end
 
-  # namespace :users do
-  #   get '/dashboard'
+  namespace :users, path: ":username" do
+    get '/trips/change_password', to: 'passwords#reset', as: :password_reset
+  end
+
+  resources :confirmations, only: [:new, :create] 
 end
