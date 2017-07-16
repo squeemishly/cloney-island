@@ -24,6 +24,7 @@ gem 'faraday'
 gem "bootstrap_form", github: "bootstrap-ruby/rails-bootstrap-forms" , branch: "bootstrap-v4"
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
+gem 'twilio-ruby'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
