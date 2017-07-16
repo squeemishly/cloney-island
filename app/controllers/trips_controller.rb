@@ -5,6 +5,7 @@ class TripsController < ApplicationController
   end
 
   def index
+    @trips = Trip.where(user_id: current_user.id)
   end
 
   def create
@@ -17,6 +18,10 @@ class TripsController < ApplicationController
       @trip = Trip.new
       redirect_to new_user_trip_path(@user)
     end
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
   end
 
   private
