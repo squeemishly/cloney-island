@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :edit, :destroy] do
     resources :trips, only: [:new, :index]
   end
+
+  # namespace :users do
+  #   get '/dashboard'
 end

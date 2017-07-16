@@ -6,13 +6,13 @@ RSpec.describe "A signed-in user can view their account options in My Account" d
 
     visit root_path
 
-    click_on 'Sign In Using Email'
+    click_on 'SIGN IN'
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
-    click_on "Sign in"
-    select('My Account', :from => 'Select Box')
+    find(".btn-sign-in").click
+    # select('My Account', :from => 'Select Box')
 
-    expect(current_path).to eq('/user/account')
+    expect(current_path).to eq("/users/#{user.id}/trips")
     expect(page).to have_content("Edit Email")
     expect(page).to have_content("Edit Phone")
     expect(page).to have_content("Update Image")

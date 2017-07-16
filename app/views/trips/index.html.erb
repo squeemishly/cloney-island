@@ -1,6 +1,16 @@
-
 <%= link_to "Create New Trip", new_user_trip_path(current_user) %>
 
 <h1>My Trips</h1>
 
 <h3>Choose Existing Trip</h3>
+
+
+<h1>Account Info</h1>
+<%= %>
+<%= link_to "Edit Email", edit_user_path(current_user) %>
+<%= link_to "Edit Phone", edit_user_path(current_user) %>
+<%= link_to "Update Image", edit_user_path(current_user) %>
+<%= link_to "Change Password", edit_user_path(current_user) %>
+#EDIT WHEN WE CREATE THIS PATH
+<%= "View My Reviews" %>
+<%= link_to "Delete Account", user_path(current_user), method: :delete %>
