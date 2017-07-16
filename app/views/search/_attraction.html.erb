@@ -1,7 +1,10 @@
 <div class="attraction-details">
-  <h1 class="attraction-details-name"><%= @attraction.name %></h1>
-    <div>
-      <img class="attraction-details-img" src=<%= @attraction.photo_url %>>
+  <div class="card">
+    <div style="background-image: url(<%= @attraction.photo_url %>);" class="city-image attraction-details-img">
+    </div>
+    <div class="card-block">
+      <h4 class="card-title attraction-details-name"><%= @attraction.name %></h4>
+    </div>
     </div>
   <div class="attraction-details-address">
     <%= "Address: #{@attraction.formatted_address}" if @attraction.formatted_address %>
