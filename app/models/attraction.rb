@@ -29,7 +29,7 @@ class Attraction
     @formatted_phone_number = attr[:formatted_phone_number] if attr[:formatted_phone_number]
     @rating = attr[:rating] if attr[:rating]
     @website = attr[:website] if attr[:website]
-    @opening_hours = attr[:opening_hours] if attr[:opening_hours]
+    @opening_hours = attr[:opening_hours][:weekday_text] if attr[:opening_hours]
     @international_phone_number = attr[:international_phone_number] if attr[:international_phone_number]
     @reviews = attr[:reviews] if attr[:reviews]
   end
