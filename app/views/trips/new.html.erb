@@ -1,2 +1,8 @@
-<h1>New Trip</h1>
-#made this for changes
+<h1>Create a New Trip</h1>
+
+<%= bootstrap_form_for [@user, @trip] do |f| %>
+  <%= f.text_field :start_city, label: "Location" %>
+  <%= f.text_field :start_date, label: "Start Date" %>
+  <%= f.text_field :end_date, label: "End Date" %>
+  <%= f.submit "Create Trip", class:"btn btn-sign-in" %>
+<% end %>
