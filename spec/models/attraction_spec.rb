@@ -61,7 +61,7 @@ describe Attraction do
     it "has relationships" do
       place = create(:attraction)
       expect(place).to respond_to :itineraries
-      expect(place).to respond_to :cities
+      expect(place).to respond_to :city
     end
   end
 end
