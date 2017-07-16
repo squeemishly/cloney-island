@@ -43,7 +43,7 @@ class Attraction
 
   def self.marker_format(attractions)
     attractions.map do |attraction|
-      [attraction.name, attraction.lat, attraction.lng]
+      [attraction.name, attraction.lat, attraction.lng, attraction.photo_url]
     end
   end
 
