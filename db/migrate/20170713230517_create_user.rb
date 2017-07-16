@@ -11,5 +11,3 @@ class CreateUser < ActiveRecord::Migration[5.1]
     end
   end
 end
-
-#making sure this shows up
