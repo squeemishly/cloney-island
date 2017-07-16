@@ -43,7 +43,7 @@ describe GooglePlacesService do
           expect(raw_attraction[:geometry][:location]).to have_key(:lat)
           expect(raw_attraction[:geometry][:location]).to have_key(:lng)
 
-          
+
           expect(raw_attraction[:name]).to be_a String
           expect(raw_attraction[:geometry]).to be_a Hash
           expect(raw_attraction[:geometry][:location]).to be_a Hash
