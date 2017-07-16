@@ -10,8 +10,10 @@ RSpec.describe Tour do
   end
 
   context "relationships" do
-    tour = create(:tour)
-    expect(tour).to respond_to :reviews
-    expect(tour).to respond_to :users
+    it "has relationships" do
+      tour = create(:tour)
+      expect(tour).to respond_to :reviews
+      expect(tour).to respond_to :users
+    end
   end
 end

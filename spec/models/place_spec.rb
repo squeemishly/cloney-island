@@ -1,6 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Place do
+RSpec.describe Attraction do
+
+      #######################
+      # We don't need this one any more
+      # We have the attraction test instead
+      #######################
+
+
   context "attributes" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:description) }
@@ -18,8 +25,10 @@ RSpec.describe Place do
   end
 
   context "relationships" do
-    place = create(:place)
-    expect(place).to respond_to :itineraries
-    expect(place).to respond_to :cities
+    it "has relationships" do
+      place = create(:attraction)
+      expect(place).to respond_to :itineraries
+      expect(place).to respond_to :cities
+    end
   end
 end
