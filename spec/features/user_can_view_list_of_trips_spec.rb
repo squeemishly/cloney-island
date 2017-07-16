@@ -5,14 +5,18 @@ RSpec.describe "A signed-in user can view a list of their planned trips" do
     user = create(:user)
     trip1 = create(:trip)
     trip2 = create(:trip)
+    user.trips << trip1
+    user.trips << trip2
 
     visit root_path
 
-    click_on 'Sign In Using Email'
+    click_on 'SIGN IN'
+
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
-    click_on "Sign in"
-    select('My Trips', :from => 'Select Box')
+    find(".btn-sign-in").click
+
+    select('My Trips', :from => '.user-avatar')
 
     expect(current_path).to eq(trips_path)
     expect(page).to have_content("My Trips")
