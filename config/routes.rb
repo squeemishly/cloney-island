@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     resources :trips, only: [:new, :index]
   end
 
-  namespace :users, path: ":username" do
+  namespace :users, path: ":id" do
+    patch '/trips/change_password/update', to: 'passwords#update', as: :password_patch
+    get '/trips/change_password/edit', to: 'passwords#edit', as: :password_edit
     get '/trips/change_password', to: 'passwords#reset', as: :password_reset
+
   end
 
-  resources :confirmations, only: [:new, :create] 
+  resources :confirmations, only: [:new, :create]
 end

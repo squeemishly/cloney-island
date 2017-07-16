@@ -1,4 +1,4 @@
-module ConfirmationSender
+class ConfirmationSender
   def self.send_confirmation_to(user)
     verification_code = CodeGenerator.generate
     user.update(verification_code: verification_code)
