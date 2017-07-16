@@ -19,9 +19,18 @@
     <%= link_to "Official Website", @attraction.website if @attraction.website %>
   </div>
   <div class="attraction-details-hours attraction-details-field">
-      <%= "Hours of Operation: #{@attraction.opening_hours}" if @attraction.opening_hours%>
+  <% if @attraction.opening_hours %>
+      <%= "Hours of Operation:" %>
+      <ul>
+        <% @attraction.opening_hours.each do |daily_hours| %>
+          <li><%= daily_hours %></li>
+        <% end %>
+      </ul>
+  <% end %>
   </div>
+  <div class="attraction-details-international_phone_number attraction-details-field">
     <%= @attraction.international_phone_number if @attraction.international_phone_number %>
+  </div>
   <div class="attraction-details-review attraction-details-field">
     <% if @attraction.reviews %>
       <% @attraction.reviews.each do |review| %>
