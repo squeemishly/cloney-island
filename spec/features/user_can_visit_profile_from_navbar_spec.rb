@@ -6,8 +6,7 @@ RSpec.describe "A signed-in user can visit their profile from the navbar" do
 
     visit root_path
 
-    click_on 'Sign In'
-    click_on 'Sign In Using Email'
+    click_on 'SIGN IN'
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
     find('.btn-sign-in').click
@@ -15,8 +14,9 @@ RSpec.describe "A signed-in user can visit their profile from the navbar" do
     find('.user-avatar').click
     find('.my-account-link').click
 
-    expect(current_path).to eq('/user/dashboard')
-    expect(page).to have_content("#{user.name}'s Account")
+    expect(current_path).to eq user_path(user)
+    expect(page).to have_content("#{user.first_name}")
+    expect(page).to have_content("#{user.last_name}")
   end
 end
 

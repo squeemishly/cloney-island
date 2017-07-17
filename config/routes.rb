@@ -6,11 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-<<<<<<< HEAD
   resources :users, only: [:new, :create, :edit, :update, :destroy] do
-=======
-  resources :users, only: [:new, :create, :edit, :update] do
->>>>>>> avatar dropdown menu allow access to all trips
     resources :trips, only: [:new, :index, :create, :show]
   end
 

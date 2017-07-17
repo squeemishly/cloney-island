@@ -51,7 +51,7 @@
                 <ul class="dropdown-menu">
                   <li><a href=<%= user_trips_path(current_user) %>>My Trips</a></li>
                   <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href=<%= user_path(current_user) %> class="my-account-link">My Account</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href=<%= logout_path %> class="sign-out-link">Sign Out</a></li>
                 </ul>
