@@ -9,9 +9,11 @@ RSpec.describe Trip do
   end
 
   context "relationships" do
-    trip = create(:trip)
-    expect(trip).to respond_to :users
-    expect(trip).to respond_to :itineraries
-    expect(trip).to respond_to :cities
+    it "has relationships" do
+      trip = create(:trip)
+      expect(trip).to respond_to :user
+      expect(trip).to respond_to :itineraries
+      expect(trip).to respond_to :cities
+    end
   end
 end

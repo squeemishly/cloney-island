@@ -8,8 +8,10 @@ RSpec.describe Itinerary do
   end
 
   context "relationships" do
-    itinerary = create(:itinerary)
-    expect(itinerary).to respond_to :trips
-    expect(itinerary).to respond_to :places
+    it "has relationships" do
+      itinerary = create(:itinerary)
+      expect(itinerary).to respond_to :trips
+      expect(itinerary).to respond_to :places
+    end
   end
 end
