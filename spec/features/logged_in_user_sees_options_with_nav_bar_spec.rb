@@ -1,21 +1,19 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.feature "logged in user" do
-#   it "sees options with nav-bar" do
-#     before(:each) do
-#       allow_any_instance_of(ApplicationController).to recieve(current_user).and_return(user)
-#     end
+RSpec.feature "logged in user" do
+  it "sees options with nav-bar" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-#     visit root_path
-#     expect(page).to have_selector(".user-avatar")
-#     page.find(".user-avatar").click
-#     expect(page).to have_selector(".user-dropdown")
-#     expect(page).to have_content("Plan a new Trip")
-#     expect(page).to have_content("My Trips")
-#     expect(page).to have_content("My Account")
-#     expect(page).to have_content("Sign Out")
-#   end
-# end
+    visit root_path
+    expect(page).to have_selector(".user-avatar")
+    page.find(".user-avatar").click
+    expect(page).to have_content("Plan New Trip")
+    expect(page).to have_content("My Trips")
+    expect(page).to have_content("My Account")
+    expect(page).to have_content("Sign Out")
+  end
+end
 
 # # 20. Logged In User Sees Options with Personal Nav-Bar
 # # As a logged in user
