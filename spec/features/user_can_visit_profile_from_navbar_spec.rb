@@ -6,7 +6,7 @@ RSpec.describe "A signed-in user can visit their profile from the navbar" do
 
     visit root_path
 
-    click_on 'SIGN IN'
+    click_on 'Sign In'
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
     find('.btn-sign-in').click
