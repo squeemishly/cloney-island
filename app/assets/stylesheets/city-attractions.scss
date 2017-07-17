@@ -11,11 +11,12 @@
 .imagewrap {
   display: inline-block;
   position: relative;
+  width: 100%;
 }
 
 .add-attraction-button {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 0;
 }
 
