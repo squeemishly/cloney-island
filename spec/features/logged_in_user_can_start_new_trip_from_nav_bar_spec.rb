@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "logged in user" do
-  it "sees options with nav-bar" do
+  it "sees options in the user avatar on the nav-bar" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -9,6 +9,15 @@ RSpec.feature "logged in user" do
     expect(page).to have_selector(".user-avatar")
     page.find(".user-avatar").click
     click_on "Plan New Trip"
+    expect(current_path).to eq(new_user_trip_path(user))
+  end
+
+  it "can click on New Trip" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit root_path
+    click_on "New Trip"
     expect(current_path).to eq(new_user_trip_path(user))
   end
 end
