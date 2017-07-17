@@ -6,8 +6,10 @@ RSpec.describe City do
   end
 
   context "relationships" do
-    city = create(:city)
-    expect(city).to respond_to :trips
-    expect(city).to respond_to :places
+    it "responds to trips and places" do
+      city = create(:city)
+      expect(city).to respond_to :trips
+      expect(city).to respond_to :places
+    end
   end
 end
