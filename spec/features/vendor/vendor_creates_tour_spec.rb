@@ -5,7 +5,7 @@ feature "Vendor creates tour" do
     vendor = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(vendor)
 
-    visit "/vendor/dashboard"
+    visit vendor_dashboard_path
     click_on "New Tour"
 
     expect(current_path).to eq("/tours/new") #check paths

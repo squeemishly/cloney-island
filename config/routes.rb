@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :confirmations, only: [:new, :create]
+
+  namespace :vendor do
+    get '/dashboard', to: 'dashboard#index'
+  end
+
 end
