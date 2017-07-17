@@ -34,8 +34,8 @@ class Attraction
     @reviews = attr[:reviews] if attr[:reviews]
   end
 
-  def self.fetch_attractions_by_city(city)
-    attractions = GooglePlacesService.fetch_attractions_by_city(city)
+  def self.fetch_attractions_by_city(attraction_type, city)
+    attractions = GooglePlacesService.fetch_attractions_by_city(attraction_type, city)
     attractions.map do |attraction|
       new(attraction)
     end
