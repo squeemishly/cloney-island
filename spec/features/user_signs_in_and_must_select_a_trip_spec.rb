@@ -6,7 +6,7 @@ feature "user signs in" do
 
       user = create(:user_with_trips)
       visit root_path
-      click_on "SIGN IN"
+      click_on "Sign In"
 
       expect(page).to have_content("Sign in with Google")
       expect(page).to have_content("Sign in with Facebook")
@@ -54,7 +54,7 @@ feature "user signs in" do
       user = create(:user)
 
       visit root_path
-      click_on "SIGN IN"
+      click_on "Sign In"
 
       fill_in "Email", with: user.email
       fill_in "Password", with: "password"

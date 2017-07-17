@@ -6,7 +6,7 @@ RSpec.describe "A signed-in user" do
 
     visit root_path
 
-    click_on 'SIGN IN'
+    click_on 'Sign In'
     # find('.sign-in-link').click
     fill_in 'Email', with: "#{user.email}"
     fill_in 'Password', with: 'password'
@@ -17,7 +17,7 @@ RSpec.describe "A signed-in user" do
     # .select('Sign Out')
 
     expect(current_path).to eq('/')
-    expect(page).to have_content('SIGN IN')
+    expect(page).to have_content('Sign In')
     expect(page).to_not have_selector('.user-avatar')
   end
 end
