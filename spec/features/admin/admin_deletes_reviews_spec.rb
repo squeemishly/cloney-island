@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe "Admin" do
+RSpec.describe "Admin" do
   before :each do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     admin = create(:user)
