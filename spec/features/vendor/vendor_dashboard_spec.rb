@@ -16,14 +16,13 @@ RSpec.describe "Vendor" do
     expect(page).to have_content("View All Tours")
   end
 
-  xit "can't see other vendor's dashboard" do
-    vendor2 = create(:user)
-    role = create(:role, name: "vendor")
-    vendor2.roles << role
+  it "can't see other vendor's dashboard" do
+    vendor2 = create(:user, first_name: "other", role: 1)
 
-    visit "/vendor/#{vendor2.id}/dashboard"
+    visit "/users/#{vendor2.id}/vendor/dashboard"
 
-    expect(page).to have_content "The page you were looking for doesn't exist."
+    expect(page).to have_content "Welcome #{@vendor.first_name}"
+    expect(page).to_not have_content "Welcome #{vendor2.first_name}"
   end
 end
 
