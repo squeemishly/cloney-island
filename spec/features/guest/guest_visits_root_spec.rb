@@ -5,6 +5,7 @@ feature "guest visits root" do
     it "they see main page elements" do
       VCR.use_cassette("main_page_elements") do
         visit root_path
+        click_on "London"
 
         expect(page).to have_selector(".logo")
         within('.navbar-main') do
