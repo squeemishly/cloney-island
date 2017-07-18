@@ -4,7 +4,7 @@ RSpec.describe "Vendor" do
   before :each do
     @vendor = create(:user_with_tours, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@vendor)
-    tour1 = @vendor.tours.first
+    @tour1 = @vendor.tours.first
     # tour1 = create(:tour_with_rating) #??
     # vendor.tours << tour1
   end
@@ -14,6 +14,14 @@ RSpec.describe "Vendor" do
 
     expect(page).to have_content("New Tour")
     expect(page).to have_content("View All Tours")
+    expect(page).to have_content("Manage Tours")
+
+    expect(page).to have_selector('.tour', count: @vendor.tours.count)
+    expect(page).to have_content(@tour1.name)
+    expect(page).to have_content(@tour1.price)
+    # expect(page).to have_content(@tour1.avg_rating)
+    expect(page).to have_content("Edit")
+    expect(page).to have_content("Delete")
   end
 
   it "can't see other vendor's dashboard" do

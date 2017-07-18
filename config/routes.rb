@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:new, :index, :create, :show, :edit]
     namespace :vendor do
       get '/dashboard', to: 'dashboard#index'
-      resources :tours, only: [:new, :show, :index]
+      resources :tours, except: [:create]
       post '/tours/:id', to: 'tours#create'
     end
   end
