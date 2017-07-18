@@ -2,13 +2,15 @@ class GooglePlacesService
   attr_reader :city,
               :place_id,
               :start_city,
-              :conn
+              :conn,
+              :place_type
 
   def initialize(args = {})
     @city = args[:city]
     @place_id = args[:place_id]
     @start_city = args[:start_city]
     @conn = Faraday.new("https://maps.googleapis.com/maps/api/place/")
+    @place_type = "point-of-interest"
   end
 
   def fetch_attractions_by_city(attraction_type)
