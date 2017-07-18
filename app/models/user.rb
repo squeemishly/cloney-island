@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :trips
   enum role: [:user, :vendor]
+
+  has_many :trips
+  has_many :tours
 
   validates_presence_of :first_name
   validates_presence_of :last_name
