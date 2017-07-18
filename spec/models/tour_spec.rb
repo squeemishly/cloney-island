@@ -12,7 +12,7 @@ RSpec.describe Tour, type: :model do
     it "has relationships" do
       tour = create(:tour)
       # expect(tour).to respond_to :reviews
-      expect(tour).to respond_to :users
+      expect(tour).to respond_to :user
     end
   end
 end

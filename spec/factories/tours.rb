@@ -4,6 +4,6 @@ FactoryGirl.define do
     description "MyString"
     price "MyString"
     average_rating 1.5
-    user nil
+    association :user
   end
 end
