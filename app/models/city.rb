@@ -10,9 +10,13 @@ class City < ApplicationRecord
     end
   end
 
+  # def self.city_lookup(params)
+  #   response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDsH3cXjVtbV0tw7CcDAbDQQEt39K7MCyA&query=#{params[:trip][:start_city]}")
+  #   JSON.parse(response.body, symbolize_names: true)[:results][0]
+  # end
+
   def self.city_lookup(params)
-    response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDsH3cXjVtbV0tw7CcDAbDQQEt39K7MCyA&query=#{params[:trip][:start_city]}")
-    JSON.parse(response.body, symbolize_names: true)[:results][0]
+    GooglePlacesService.fetch_city(params)
   end
 
 
