@@ -14,6 +14,14 @@ RSpec.describe "Vendor" do
 
     expect(page).to have_content("New Tour")
     expect(page).to have_content("View All Tours")
+    expect(page).to have_content("Manage Tours")
+
+    expect(page).to have_selector('.tour', count: @vendor.tours.count)
+    expect(page).to have_content(tour1.name)
+    expect(page).to have_content(tour1.price)
+    expect(page).to have_content(tour1.avg_rating)
+    expect(page).to have_content("Edit")
+    expect(page).to have_content("Delete")
   end
 
   it "can't see other vendor's dashboard" do
