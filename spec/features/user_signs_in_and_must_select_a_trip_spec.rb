@@ -51,24 +51,26 @@ feature "user signs in" do
 
   context "they do NOT have saved trips" do
     it "so they are required to make one" do
-      user = create(:user)
+      VCR.use_cassette("user_signs_in_and_creates_a_trip") do
+        user = create(:user)
 
-      visit root_path
-      click_on "Sign In"
+        visit root_path
+        click_on "Sign In"
 
-      fill_in "Email", with: user.email
-      fill_in "Password", with: "password"
-      find(".btn-sign-in").click
+        fill_in "Email", with: user.email
+        fill_in "Password", with: "password"
+        find(".btn-sign-in").click
 
-      expect(current_path).to eq new_user_trip_path(user)
-      expect(page).to have_content("Create a New Trip")
+        expect(current_path).to eq new_user_trip_path(user)
+        expect(page).to have_content("Create a New Trip")
 
-      fill_in "Location", with: "Beijing"
-      fill_in "Start Date", with: "2019-10-28"
-      fill_in "End Date", with: "2019-11-15"
-      click_on "Create Trip"
+        fill_in "Location", with: "Beijing"
+        fill_in "Start Date", with: "2019-10-28"
+        fill_in "End Date", with: "2019-11-15"
+        click_on "Create Trip"
 
-      expect(current_path).to eq '/'
+        expect(current_path).to eq '/search'
+      end
     end
   end
 end
