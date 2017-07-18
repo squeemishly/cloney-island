@@ -14,6 +14,4 @@ class City < ApplicationRecord
     GooglePlacesService.fetch_city(params)
   end
 
-
-
 end

@@ -26,6 +26,13 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+    @city = @trip.city
+    city_place_info = {name: @city.name,lat: @city.lat, lng: @city.lng}
+    redirect_to "/search?city=#{city_place_info}"
+  end
+
   private
 
   def trip_params

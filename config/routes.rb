@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
-    resources :trips, only: [:new, :index, :create, :show]
+    resources :trips, only: [:new, :index, :create, :show, :edit]
     namespace :vendor do
       get '/dashboard', to: 'dashboard#index'
       resources :tours, except: [:create]
