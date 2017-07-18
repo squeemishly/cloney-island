@@ -23,6 +23,29 @@ feature "guest creates account" do
     end
   end
 
+  context "the add button forces a guest to create account" do
+    it "they are redirected to the create account form" do
+      VCR.use_cassette("guest_creates_account_for_trip") do
+        visit root_path
+
+        within ('.column-list') do
+          expect(page).to have_selector(".city-preview")
+          click_on "Paris, France"
+        end
+
+        within first(".attraction-preview") do
+          find(".add-attraction-button").click
+        end
+
+        expect(current_path).to eq(login_path)
+        expect(page).to have_content("You must sign in or create an account to create a trip")
+
+        click_on "Create an Account with Email"
+        expect(current_path).to eq(new_user_path)
+      end
+    end
+  end
+
   context "they fill in form with invalid credentials" do
     it "they see the new user form and a flash message" do
       visit login_path
