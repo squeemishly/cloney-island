@@ -4,7 +4,7 @@ feature "Vendor edits their tour" do
   before :each do
     @vendor = create(:user_with_tours, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@vendor)
-    @tour = @vendor.tours.last
+    @tour = @vendor.tours.first
   end
 
   context "edits their own tour from the dashboard" do
@@ -17,16 +17,16 @@ feature "Vendor edits their tour" do
 
       expect(current_path).to eq(edit_user_vendor_tour_path(@vendor, @tour))
 
-      fill_in "name", with: "different name"
-      fill_in "description", with: "new description"
-      fill_in "price", with: 5000
+      fill_in "tour_name", with: "different name"
+      fill_in "tour_description", with: "new description"
+      fill_in "tour_price", with: "$99,999.23"
       click_on "Update"
 
-      expect(current_path).to eq("/vendor/#{vendor.id}/tours/#{tour1.id}") #check paths
+      expect(current_path).to eq(user_vendor_tour_path(@vendor, @tour))
 
       expect(page).to have_content("different name")
       expect(page).to have_content("new description")
-      expect(page).to have_content(5000)
+      expect(page).to have_content("$99,999.23")
       expect(page).to have_content("Edit")
       expect(page).to have_content("Delete")
     end
