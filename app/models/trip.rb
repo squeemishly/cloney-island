@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  belongs_to :city
 
   validates_presence_of :start_city
   validates_presence_of :start_date
