@@ -1,0 +1,9 @@
+<%= bootstrap_form_for [:vendor, @tour], :url => user_vendor_tour_path(:vendor, @vendor, @tour) do |f| %>
+  <%= f.text_field :name, label: "Name:" %><br />
+
+  <%= f.text_field :description, label: "Description:" %><br />
+
+  <%= f.text_field :price, label: "Price:" %><br />
+
+  <%= f.submit %>
+<% end %>
