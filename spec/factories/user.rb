@@ -19,5 +19,15 @@ FactoryGirl.define do
         create_list(:trip, evaluator.trips_count, user: user)
       end
     end
+
+    factory :user_with_tours do
+      transient do
+        tours_count 6
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:tour, evaluator.tours_count, user: user)
+      end
+    end
   end
 end
