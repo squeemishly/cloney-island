@@ -22,6 +22,13 @@ class Vendor::ToursController < ApplicationController
     @tour = @vendor.tours.find_by(id: params[:id])
   end
 
+  def edit
+    @vendor = current_user
+    @tour = @vendor.tours.find_by(id: params[:id])
+  end
+
+  def update
+  end
   private
     def tour_params
       params.require(:tour).permit(:name, :description, :price)
