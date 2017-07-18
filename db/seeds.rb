@@ -1,8 +1,37 @@
 class Seed
   def self.start
     seed = Seed.new
+    seed.generate_admin
     seed.generate_users
     seed.generate_trips
+  end
+
+  def generate_admin
+    user = User.create!(
+      first_name: "Admin",
+      last_name: "Soverign",
+      email: "admin@admin.com",
+      phone: Faker::PhoneNumber.phone_number,
+      password: "password",
+      role: 2,
+      verification_code: nil,
+      )
+    puts "Admin created"
+  end
+
+  def generate_vendors
+    20.times do |i|
+      user = User.create!(
+            first_name: Faker::Zelda.character,
+            last_name: Faker::Zelda.character,
+            email: Faker::Internet.email,
+            phone: Faker::PhoneNumber.phone_number,
+            password: "password",
+            role: 1,
+            verification_code: nil,
+            )
+      puts "Vendor #{i}: #{user.first_name} created!"
+    end
   end
 
   def generate_users
