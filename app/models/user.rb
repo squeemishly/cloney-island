@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   enum role: [:user, :vendor]
 
-  has_many :trips
+  has_many :trips, dependent: :destroy
   has_many :tours
 
   validates_presence_of :first_name
