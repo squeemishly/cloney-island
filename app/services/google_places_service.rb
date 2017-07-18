@@ -2,7 +2,7 @@ class GooglePlacesService
   attr_reader :city,
               :place_id,
               :start_city,
-              :conn,
+              :conn
 
   def initialize(args = {})
     @city = args[:city]
