@@ -1,11 +1,13 @@
 class GooglePlacesService
   attr_reader :city,
               :place_id,
+              :start_city,
               :conn
 
   def initialize(args = {})
     @city = args[:city]
     @place_id = args[:place_id]
+    @start_city = args[:start_city]
     @conn = Faraday.new("https://maps.googleapis.com/maps/api/place/")
   end
 
@@ -32,5 +34,13 @@ class GooglePlacesService
 
   def self.fetch_details(place_id)
     new({place_id: place_id}).fetch_details
+  end
+
+  def fetch_city
+    get_url("textsearch/json?key=#{ENV['google_map_api_key']}&query=#{start_city}")[:results][0]
+  end
+
+  def self.fetch_city(params)
+    new({start_city: params[:trip][:start_city]}).fetch_city
   end
 end
