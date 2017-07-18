@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :edit, :update, :show] do
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :trips, only: [:new, :index, :create, :show]
     namespace :vendor do
       get '/dashboard', to: 'dashboard#index'
