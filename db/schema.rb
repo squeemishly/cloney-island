@@ -15,6 +15,13 @@ ActiveRecord::Schema.define(version: 20170718005635) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.float "lat"
+    t.float "lng"
+    t.string "place_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -31,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170718005635) do
     t.date "end_date"
     t.bigint "user_id"
     t.string "start_city"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_trips_on_city_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -46,5 +55,6 @@ ActiveRecord::Schema.define(version: 20170718005635) do
   end
 
   add_foreign_key "tours", "users"
+  add_foreign_key "trips", "cities"
   add_foreign_key "trips", "users"
 end
