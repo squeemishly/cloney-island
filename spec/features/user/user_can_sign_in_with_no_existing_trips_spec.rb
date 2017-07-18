@@ -19,20 +19,3 @@ RSpec.describe "a user can sign in" do
     expect(current_path).to eq(new_user_trip_path(user.id))
   end
 end
-
-
-# # As a user
-# # With existing account
-# # And no existing trips
-# # I visit root path
-# # When I click “sign in”
-# # I see a button to sign in with google *
-# # I see a button to sign in with FB*
-# # I see a button to sign in with email
-# # I click on “sign in using email”
-# # I see a form with field for:
-# # ‘Email’
-# # ‘Password’
-# # And I fill in fields with correct user information
-# # And I click on “sign in”
-# # And I should be redirected to a prompt page asking to make a new trip form
