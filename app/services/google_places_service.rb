@@ -42,7 +42,5 @@ class GooglePlacesService
 
   def self.fetch_city(params)
     new({start_city: params[:trip][:start_city]}).fetch_city
-    # response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDsH3cXjVtbV0tw7CcDAbDQQEt39K7MCyA&query=#{params[:trip][:start_city]}")
-    # JSON.parse(response.body, symbolize_names: true)[:results][0]
   end
 end
