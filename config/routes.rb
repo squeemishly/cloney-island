@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
+namespace :admin do
+  get '/dashboard', to: 'dashboard#index'
+end
+
   namespace :users, path: ":id" do
     patch '/users/change_password/update', to: 'passwords#update', as: :password_patch
     get '/users/change_password/edit', to: 'passwords#edit', as: :password_edit
