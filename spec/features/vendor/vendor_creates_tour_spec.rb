@@ -13,9 +13,10 @@ feature "Vendor creates tour" do
     fill_in "tour_name", with: "tour1"
     fill_in "tour_description", with: "cool"
     fill_in "tour_price", with: 50
-    click_on "Create Tour"
+    click_on "Create"
 
-    tour1 = vendor.tours.first
+    tour1 = vendor.tours.last
+
     expect(current_path).to eq(user_vendor_tour_path(vendor, tour1))
     expect(page).to have_content(tour1.name)
     expect(page).to have_content(tour1.description)
