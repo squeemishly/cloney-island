@@ -1,6 +1,6 @@
 class City < ApplicationRecord
   has_many :trips
-  
+
   def self.create_new_city(args)
     name = args[:name]
     lat = args[:geometry][:location][:lat]
