@@ -13,7 +13,7 @@ feature "guest visits root" do
         end
 
         within('.navbar-secondary') do
-          expect(page).to have_content('Places')
+          expect(page).to have_content('Attractions')
           expect(page).to have_content('Tours')
         end
 
