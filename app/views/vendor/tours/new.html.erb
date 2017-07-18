@@ -1,4 +1,4 @@
-<%= form_for [:vendor, @tour], :url => vendor_tour_path(@vendor, @tour) do |f| %>
+<%= form_for [:vendor, @tour], :url => user_vendor_tour_path(:vendor, @vendor, @tour) do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
 

@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update, :show] do
     resources :trips, only: [:new, :index, :create, :show]
+    namespace :vendor do
+      get '/dashboard', to: 'dashboard#index'
+      resources :tours, only: [:new, :show]
+      post '/tours/:id', to: 'tours#create'
+    end
   end
 
   namespace :users, path: ":id" do
@@ -18,11 +23,5 @@ Rails.application.routes.draw do
   end
 
   resources :confirmations, only: [:new, :create]
-
-  namespace :vendor do
-    get '/dashboard', to: 'dashboard#index'
-    resources :tours, only: [:new, :show]
-    post '/tours/:id', to: 'tours#create'
-  end
 
 end
