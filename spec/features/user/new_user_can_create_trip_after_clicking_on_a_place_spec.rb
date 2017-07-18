@@ -1,42 +1,39 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "user can create a trip" do
-  xit "after clicking on a place" do
-    VCR.use_cassette("creating a trip") do
+# RSpec.describe "user can create a trip" do
+#   it "after clicking on a place" do
+#     place = create(:place, name: "Denver")
+#     start_date = "07-10-2017"
+#     end_date = "07-11-2017"
 
-      start_date = "07-10-2017"
-      end_date = "07-11-2017"
+#     visit root_path
+#     click_on "Denver"
+#     within first(".place-preview") do
+#       page.find(".place-preview-name").click
+#     end
 
-      visit root_path
-      click_on "Denver"
-      within (".column-list") do
-        first(".attraction-preview-link").click
-      end
-
-      expect(current_path).to eq(search_path)
-      find("add-attraction-button".click)
+#     expect(current_path).to eq(login_path)
+#     click_on "Create an Account with Email"
 
 
-      fill_in "First Name", with: "Finn"
-      fill_in "Last Name", with: "the Human"
-      fill_in "Email", with: "here@here.com"
-      fill_in "Phone Number", with: "555-555-5555"
-      fill_in "Password", with: "password"
-      click_on "Sign Up"
+#     fill_in "First Name", with: "Finn"
+#     fill_in "Last Name", with: "the Human"
+#     fill_in "Email", with: "here@here.com"
+#     fill_in "Phone Number", with: "555-555-5555"
+#     fill_in "Password", with: "password"
+#     click_on "Sign Up"
 
-      expect(current_path).to eq(new_trip_path)
-      expect(page).to have_content(city.name)
+#     expect(current_path).to eq(new_trip_path)
+#     expect(page).to have_content(city.name)
 
-      fill_in "Start Date", with: start_date
-      fill_in "End Date", with: end_date
-      click_on "Create New Trip"
+#     fill_in "Start Date", with: start_date
+#     fill_in "End Date", with: end_date
+#     click_on "Create New Trip"
 
-      expect(current_path).to eq(place_path(place.id))
-    end
-  end
-end
+#     expect(current_path).to eq(place_path(place.id))
+#   end
+# end
 
-#NEED THE BUTTON TO FUNCTION BEFORE CAN FINISH TEST
 
 
 # # 10. A new user can create a trip after clicking on a place
