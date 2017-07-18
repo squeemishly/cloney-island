@@ -22,7 +22,7 @@ feature "guest visits root" do
           expect(page).to have_content('Shopping')
           expect(page).to have_content('Restaurants')
           expect(page).to have_content('Museums')
-          expect(page).to have_content('Camping')
+          expect(page).to have_content('Libraries')
           expect(page).to have_content('Transport')
           expect(page).to have_content('Nightlife')
           expect(page).to have_content('Parks')
