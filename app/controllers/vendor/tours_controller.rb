@@ -28,7 +28,12 @@ class Vendor::ToursController < ApplicationController
   end
 
   def update
+    @vendor = current_user
+    @tour = @vendor.tours.find_by(id: params[:format])
+    @tour.update(tour_params)
+    redirect_to user_vendor_tour_path(@vendor, @tour)
   end
+
   private
     def tour_params
       params.require(:tour).permit(:name, :description, :price)
