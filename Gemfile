@@ -25,6 +25,7 @@ gem "bootstrap_form", github: "bootstrap-ruby/rails-bootstrap-forms" , branch: "
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
 gem 'twilio-ruby'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
