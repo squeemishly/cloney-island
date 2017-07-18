@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     patch '/trips/change_password/update', to: 'passwords#update', as: :password_patch
     get '/trips/change_password/edit', to: 'passwords#edit', as: :password_edit
     get '/trips/change_password', to: 'passwords#reset', as: :password_reset
-
   end
+
+  get '/confirmation', to: 'confirmations#show'
 
   resources :confirmations, only: [:new, :create]
 end
