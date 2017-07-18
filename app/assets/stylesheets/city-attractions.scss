@@ -4,16 +4,21 @@
   border: 1pt solid #E8E8E8;
   margin-bottom: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
 }
 
 .attraction-preview:hover {
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.imagewrap {
-  display: inline-block;
-  position: relative;
+.attraction-preview-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   width: 100%;
+  height: 100%;
+  z-index: 9;
 }
 
 .add-attraction-button {
@@ -22,6 +27,8 @@
   right: 0;
   color: white;
   background-color: $orange !important;
+  display: block;
+  z-index: 1000;
 }
 
 .btn-expand {
