@@ -5,10 +5,11 @@ FactoryGirl.define do
     sequence :email do |n|
       "kitty#{n}@gmail.com"
     end
-    phone "+15555555555"
+    phone "+13035197055"
     password "password"
     status 0
     role 0
+    verification_code 123456
 
     factory :user_with_trips do
       transient do
