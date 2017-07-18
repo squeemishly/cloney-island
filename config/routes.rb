@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   end
 
+  get '/confirmation', to: 'confirmations#show'
+
   resources :confirmations, only: [:new, :create]
 
 end

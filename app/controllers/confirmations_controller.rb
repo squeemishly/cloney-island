@@ -1,6 +1,10 @@
 class ConfirmationsController < ApplicationController
   def new
-     @user = current_user
+    if params[:email]
+      @user = User.find_by(email: params[:email])
+    else
+      @user = current_user
+    end
   end
 
   def create
@@ -13,5 +17,8 @@ class ConfirmationsController < ApplicationController
       flash.now[:error] = "Verification code is incorrect."
       render :new
     end
+  end
+
+  def show
   end
 end
