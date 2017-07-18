@@ -9,9 +9,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDsH3cXjVtbV0tw7CcDAbDQQEt39K7MCyA&query=#{params[:trip][:start_city]}")
-    raw_city_info = JSON.parse(response.body, symbolize_names: true)[:results][0]
-    @city = City.create_new_city(raw_city_info)
+    # response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDsH3cXjVtbV0tw7CcDAbDQQEt39K7MCyA&query=#{params[:trip][:start_city]}")
+    # raw_city_info = JSON.parse(response.body, symbolize_names: true)[:results][0]
+    # @city = City.create_new_city(raw_city_info)
+    @city = City.create_new_city(params)
     @user = User.find(params[:user_id])
     @trip = Trip.new(trip_params)
     @user.trips << @trip
