@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   namespace :vendor do
     get '/dashboard', to: 'dashboard#index'
-    resources :tours, only: [:new]
+    resources :tours, only: [:new, :show]
+    post '/tours/:id', to: 'tours#create'
   end
 
 end
