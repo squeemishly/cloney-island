@@ -5,10 +5,10 @@ feature "Vendor creates tour" do
     vendor = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(vendor)
 
-    visit vendor_dashboard_path
+    visit user_vendor_dashboard_path(vendor)
     click_on "New Tour"
 
-    expect(current_path).to eq(new_vendor_tour_path)
+    expect(current_path).to eq(new_user_vendor_tour_path(vendor))
 
     fill_in "tour_name", with: "tour1"
     fill_in "tour_description", with: "cool"
@@ -16,7 +16,7 @@ feature "Vendor creates tour" do
     click_on "Create Tour"
 
     tour1 = vendor.tours.first
-    expect(current_path).to eq(vendor_tour_path(tour1)) #check paths
+    expect(current_path).to eq(user_vendor_tour_path(vendor, tour1))
     expect(page).to have_content(tour1.name)
     expect(page).to have_content(tour1.description)
     expect(page).to have_content(tour1.price)
