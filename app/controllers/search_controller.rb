@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def index
     if params[:city]
+      binding.pry
       @city = eval(params[:city])
 
       @attraction_type = params[:attraction_type] || "point-of-interest"
