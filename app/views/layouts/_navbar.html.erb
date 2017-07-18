@@ -97,19 +97,22 @@
         <span class="sr-only">Toggle navigation</span>
       </button>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
-      <ul class="nav navbar-nav">
-        <li><a href="/search?attraction_type=point-of-interest&city=<%=@city%>">Sightseeing</a></li>
-        <li><a href="/search?attraction_type=shopping_mall&city=<%=@city%>">Shopping</a></li>
-        <li><a href="/search?attraction_type=restaurant&city=<%=@city%>">Restaurants</a></li>
-        <li><a href="/search?attraction_type=museum&city=<%=@city%>">Museums</a></li>
-        <li><a href="/search?attraction_type=library&city=<%=@city%>">Libraries</a></li>
-        <li><a href="/search?attraction_type=transit_station&city=<%=@city%>">Transport</a></li>
-        <li><a href="/search?attraction_type=night_club&city=<%=@city%>">Nightlife</a></li>
-        <li><a href="/search?attraction_type=park&city=<%=@city%>">Parks</a></li>
-        <li><a href="/search?attraction_type=gym&city=<%=@city%>">Sports</a></li>
-        <li><a href="/search?attraction_type=spa&city=<%=@city%>">Relaxation</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+
+    <% if params[:city] %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+        <ul class="nav navbar-nav">
+          <li><a href="/search?attraction_type=point-of-interest&city=<%=@city%>">Sightseeing</a></li>
+          <li><a href="/search?attraction_type=shopping_mall&city=<%=@city%>">Shopping</a></li>
+          <li><a href="/search?attraction_type=restaurant&city=<%=@city%>">Restaurants</a></li>
+          <li><a href="/search?attraction_type=museum&city=<%=@city%>">Museums</a></li>
+          <li><a href="/search?attraction_type=library&city=<%=@city%>">Libraries</a></li>
+          <li><a href="/search?attraction_type=transit_station&city=<%=@city%>">Transport</a></li>
+          <li><a href="/search?attraction_type=night_club&city=<%=@city%>">Nightlife</a></li>
+          <li><a href="/search?attraction_type=park&city=<%=@city%>">Parks</a></li>
+          <li><a href="/search?attraction_type=gym&city=<%=@city%>">Sports</a></li>
+          <li><a href="/search?attraction_type=spa&city=<%=@city%>">Relaxation</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    <% end %>
   </div><!-- /.container-fluid -->
 </nav>
