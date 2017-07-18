@@ -3,7 +3,6 @@ class GooglePlacesService
               :place_id,
               :start_city,
               :conn,
-              :place_type
 
   def initialize(args = {})
     @city = args[:city]
