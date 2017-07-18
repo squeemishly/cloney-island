@@ -1,0 +1,12 @@
+<%= form_for [:vendor, @tour], :url => user_vendor_tour_path(:vendor, @vendor, @tour) do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_field :description %><br />
+
+  <%= f.label :price %>:
+  <%= f.text_field :price %><br />
+
+  <%= f.submit %>
+<% end %>

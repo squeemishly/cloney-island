@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
+  enum role: [:user, :vendor]
+
   has_many :trips
+  has_many :tours
 
   validates_presence_of :first_name
   validates_presence_of :last_name
@@ -8,4 +11,6 @@ class User < ApplicationRecord
   validates_presence_of :phone
   validates_presence_of :password
   validates_presence_of :status
+  validates_presence_of :role
+
 end
