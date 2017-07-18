@@ -6,10 +6,11 @@ Welcome <%= @vendor.first_name %>!
   <h2>Manage Tours</h2>
     <% @vendor.tours.each do |tour| %>
       <div class="tour">
-      <p><%= tour.name %></p>
-      <p><%= tour.description %></p>
-      <p><%= tour.price %></p>
-      <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
-      <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+        <p><%= tour.name %></p>
+        <p><%= tour.description %></p>
+        <p><%= tour.price %></p>
+        <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
+        <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+      </div>
     <% end %>
 </div>
