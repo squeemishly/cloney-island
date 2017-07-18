@@ -4,5 +4,6 @@ FactoryGirl.define do
     end_date "2017-10-30"
     user
     start_city "Denver"
+    city
   end
 end
