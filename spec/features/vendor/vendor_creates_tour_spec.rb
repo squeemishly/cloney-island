@@ -8,7 +8,7 @@ feature "Vendor creates tour" do
     visit vendor_dashboard_path
     click_on "New Tour"
 
-    expect(current_path).to eq("/tours/new") #check paths
+    expect(current_path).to eq(new_vendor_tour_path)
 
     fill_in "name", with: "tour1"
     fill_in "description", with: "cool"

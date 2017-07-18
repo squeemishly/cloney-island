@@ -1,1 +1,3 @@
-Heyo! We're at the vendor dashboard! Welcome <%= current_user.first_name %>
+Welcome <%= @vendor.first_name %>!
+<%= link_to "New Tour", new_tour_path(@vendor) %>
+New Trip

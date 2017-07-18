@@ -3,6 +3,7 @@ class Vendor::DashboardController < ApplicationController
   before_action :require_vendor
 
   def index
+    @vendor = current_user
   end
 
   private
