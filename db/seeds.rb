@@ -3,6 +3,7 @@ class Seed
     seed = Seed.new
     seed.generate_admin
     seed.generate_users
+    seed.generate_vendors
     seed.generate_trips
   end
 
