@@ -2,17 +2,19 @@ class GooglePlacesService
   attr_reader :city,
               :place_id,
               :start_city,
-              :conn
+              :conn,
+              :place_type
 
   def initialize(args = {})
     @city = args[:city]
     @place_id = args[:place_id]
     @start_city = args[:start_city]
     @conn = Faraday.new("https://maps.googleapis.com/maps/api/place/")
+    @place_type = "point-of-interest"
   end
 
   def fetch_attractions_by_city
-    get_url("nearbysearch/json?location=#{city[:lat]},#{city[:lng]}&radius=5000&types=point-of-interest&keyword=attraction&language=english&key=#{ENV['google_map_api_key']}")[:results]
+    get_url("nearbysearch/json?location=#{city[:lat]},#{city[:lng]}&radius=5000&types=#{place_type}&keyword=attractions&language=english&key=#{ENV['google_map_api_key']}")[:results]
   end
 
   def fetch_details
