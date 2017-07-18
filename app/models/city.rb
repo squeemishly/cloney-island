@@ -1,10 +1,5 @@
 class City < ApplicationRecord
   has_many :trips
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> resolved rebase errors
   def self.create_new_city(args)
     name = args[:name]
     lat = args[:geometry][:location][:lat]
