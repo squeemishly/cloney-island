@@ -37,6 +37,15 @@ class Seed
             verification_code: nil,
             )
       puts "Vendor #{i}: #{user.first_name} created!"
+      6.times do |i|
+        tour = Tour.create!(
+          name: "#{rand(2..14)} Days in #{Faker::StarTrek.location}",
+          description: Faker::TwinPeaks.quote,
+          price: "$#{Faker::Number.decimal(2)}",
+          average_rating: rand(1..5).to_f,
+          user_id: user.id
+        )
+      end
     end
   end
 
