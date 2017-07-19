@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature "guest creates account" do
+
   context "they fill in form with valid credentials" do
     it "they see the new trip form" do
 
@@ -26,11 +27,12 @@ feature "guest creates account" do
   context "the add button forces a guest to create account" do
     it "they are redirected to the create account form" do
       VCR.use_cassette("guest_creates_account_for_trip") do
+        city1 = create(:city)
+
         visit root_path
 
-        within ('.column-list') do
-          expect(page).to have_selector(".city-preview")
-          click_on "Paris, France"
+        within (".column-list") do
+          first("a").click
         end
 
         within first(".attraction-preview") do

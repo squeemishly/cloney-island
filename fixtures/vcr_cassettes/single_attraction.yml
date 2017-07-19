@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=48.8566,2.3522&radius=5000&types=point-of-interest
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=39.9041999,116.4073963&radius=5000&types=point-of-interest
     body:
       encoding: US-ASCII
       string: ''
@@ -831,7 +831,7 @@ http_interactions:
   recorded_at: Wed, 19 Jul 2017 21:19:25 GMT
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/place/details/json?key=<KEY>&placeid=ChIJATr1n-Fx5kcRjQb6q6cdQDY
+    uri: https://maps.googleapis.com/maps/api/place/details/json?key=<KEY>&placeid=ChIJxUzg_TRT8DUR0MslZbKzbF4
     body:
       encoding: US-ASCII
       string: ''

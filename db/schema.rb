@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170719022947) do
     t.float "lat"
     t.float "lng"
     t.string "place_id"
+    t.string "picture"
+    t.string "country"
   end
 
   create_table "itineraries", force: :cascade do |t|

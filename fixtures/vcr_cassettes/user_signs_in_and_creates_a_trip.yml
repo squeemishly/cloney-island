@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - pablo
       Content-Length:
-      - '841'
+      - '840'
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -86,7 +86,54 @@ http_interactions:
   recorded_at: Wed, 19 Jul 2017 21:19:33 GMT
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=39.90419989999999,116.4073963&radius=5000&types=point-of-interest
+    uri: https://maps.googleapis.com/maps/api/place/photo?key=<KEY>&maxwidth=700&photoreference=CmRaAAAAJlpFHd6h5Dk1IcavQB_2VKEpiIbdIgxip9nVihmSrml-Qfp5BYqWRI-lQh8_yhLbmiWdHDU8k-SAteVof0nFfLQZR29a_KuXh8qdiryzh3stNLA2ahHpcPEYySbGHslXEhBQFrkutxoLpj480kxybv5rGhSVB9TtLA2zzZ3KKKnrv6lv_WqKgw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Wed, 19 Jul 2017 21:48:45 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Location:
+      - https://lh3.googleusercontent.com/p/AF1QipOhDQj4F-pt0a3lPoxTQYy67HS-0bdsFRhnrPw2=s1600-w700
+      Content-Type:
+      - text/html; charset=UTF-8
+      Server:
+      - pablo
+      Content-Length:
+      - '288'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="39,38,37,36,35"
+    body:
+      encoding: UTF-8
+      string: "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302
+        Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A
+        HREF=\"https://lh3.googleusercontent.com/p/AF1QipOhDQj4F-pt0a3lPoxTQYy67HS-0bdsFRhnrPw2=s1600-w700\">here</A>.\r\n</BODY></HTML>\r\n"
+    http_version: 
+  recorded_at: Wed, 19 Jul 2017 21:48:45 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=39.9041999,116.4073963&radius=5000&types=point-of-interest
     body:
       encoding: US-ASCII
       string: ''

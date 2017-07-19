@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=51.5074,0.1278&radius=5000&types=point-of-interest
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=<KEY>&keyword=attractions&language=english&location=39.9041999,116.4073963&radius=5000&types=point-of-interest
     body:
       encoding: US-ASCII
       string: ''
