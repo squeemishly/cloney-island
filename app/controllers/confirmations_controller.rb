@@ -1,15 +1,10 @@
 class ConfirmationsController < ApplicationController
   def new
-    if params[:email]
-      @user = User.find_by(email: params[:email])
-    else
-      @user = current_user
-    end
+    @user = current_user
   end
 
   def create
-    @user = current_user
-    binding.pry
+    @user = current_user 
     if @user.verification_code == params[:verification_code]
       session[:authenticated] = true
       flash[:notice] = "Verification code is correct!"
@@ -20,6 +15,13 @@ class ConfirmationsController < ApplicationController
     end
   end
 
-  def show
+  def verify
+    @user = User.find_by(email: params[:email])
+    if @user
+      ConfirmationSender.send_confirmation_to(@user)
+      redirect_to new_confirmation_path
+    else
+      flash.now[:error] = "Email address cannot be found."
+    end
   end
 end
