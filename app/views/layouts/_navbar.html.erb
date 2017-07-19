@@ -24,7 +24,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-              <% if current_user %>
+              <% if current_user && current_user.vendor? %>
+                <li class="new-trip"><a href=<%= user_vendor_dashboard_path(current_user) %>>Vendor Dashboard</a></li>
+              <% elsif current_user %>
                 <li class="new-trip"><a href=<%= new_user_trip_path(current_user) %>>New Trip</a></li>
               <% else %>
                 <li class="new-trip"><a href=<%= login_path %>>New Trip</a></li>
@@ -49,7 +51,19 @@
               <button type="submit" class="btn btn-nav btn-default">Submit</button>
             </form> -->
             <ul class="nav navbar-nav navbar-right">
-              <% if current_user %>
+              <% if current_user && current_user.vendor? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AVATAR<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href=<%= user_vendor_dashboard_path(current_user) %>>Vendor Dashboard</a></li>
+                  <li><a href=<%= user_vendor_tours_path(current_user) %>>My Tours</a></li>
+                  <li><a href=<%= new_user_vendor_tour_path(current_user) %>>Create New Tour</a></li>
+                  <li><a href=<%= user_path(current_user) %> class="my-account-link">My Account</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href=<%= logout_path %> class="sign-out-link">Sign Out</a></li>
+                </ul>
+              </li>
+              <% elsif current_user %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AVATAR<span class="caret"></span></a>
                 <ul class="dropdown-menu">

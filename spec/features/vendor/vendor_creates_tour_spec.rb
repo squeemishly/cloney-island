@@ -13,7 +13,7 @@ feature "Vendor creates tour" do
     fill_in "tour_name", with: "tour1"
     fill_in "tour_description", with: "cool"
     fill_in "tour_price", with: 50
-    click_on "Create"
+    within ('.new-tour-form') { click_on "Create" }
 
     tour1 = vendor.tours.last
 
