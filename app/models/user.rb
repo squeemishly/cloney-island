@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  enum role: [:user, :vendor]
+  enum role: [:user, :vendor, :admin]
 
   has_many :trips, dependent: :destroy
   has_many :tours
