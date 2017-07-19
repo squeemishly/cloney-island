@@ -1,0 +1,11 @@
+<h2><%= @vendor.first_name %>'s Guided Tours</h2>
+
+<% @tours.each do |tour| %>
+  <div class="tour">
+    <h3><%= tour.name %></h3>
+    <span><%= "Average Rating: #{tour.average_rating}" unless tour.average_rating.nil? %></span>
+    <p><%= tour.description %><p>
+    <span><%= tour.price %></span>
+
+  </div>
+  <% end %>
