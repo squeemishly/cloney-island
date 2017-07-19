@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Admin" do
-  # before :each do
-  # end
 
   it "sees their dashboard" do
     admin = create(:user, role: 2)
@@ -12,12 +10,12 @@ RSpec.describe "Admin" do
     click_on "Dashboard"
     expect(current_path).to eq("/admin/dashboard")
 
-    expect(page).to have_selector('.search')
+    expect(page).to have_selector('#query')
   end
 end
 
 # As an admin
-# When I login, 
+# When I login,
 # I am redirected to /admin/dashboard
 # And I see user search field
 # * Maybe add analytics later?
