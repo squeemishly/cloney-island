@@ -1,20 +1,20 @@
-<p>Please check your phone for the verification code we have sent you.</p>
+<div class="container">
+  <div class="confirm-text">
+    <h1 class="name"><%= current_user.first_name %></h1>
 
-<p>Enter the 6-digit activation code to reset your password.</p>
+    <p>Please check your phone for a 6-digit verification code.</p>
 
-<%= form_tag(confirmations_path, method: "post", class: "form-horizontal") do %>
-  <div class="form-group">
-    <%= label_tag :verification_code, "Verification Code", class: "col-md-2 control-label" %>
-    <div class="col-sm-10">
-      <%= text_field_tag :verification_code, nil, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag "Confirm", class: "btn btn-success" %>
+    <p>Enter the code to reset your password.</p>
+  </div>
+  <div class="form">
+    <%= form_tag(confirmations_path, method: "post", class: "form-horizontal") do %>
+      <div class="form-group">
+        <%= label_tag :verification_code, "Verification Code", class: "control-label" %>
+        <br>
+        <%= text_field_tag :verification_code, nil, class: "form-control" %>
+        <br>
+        <%= submit_tag "Confirm", class: "btn btn-confirm" %>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
-
-
-  </div>
+</div>
