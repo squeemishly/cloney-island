@@ -6,10 +6,7 @@ RSpec.describe "logged in user with existing trip" do
       user = create(:user, password: "password")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      city = City.create(name: "Beijing",
-                        lat: 39.9041999,
-                        lng: 116.4073963,
-                        place_id: "ChIJuSwU55ZS8DURiqkPryBWYrk")
+      city = create(:city)
 
       trip = create(:trip, city: city)
 
@@ -36,12 +33,3 @@ end
 # And I expect to see an “add” button on each place
 # And when I press the “Add” button,
 # Then I expect to see a message that confirms that the place was added to the current day’s itinerary.
-
-
-# # 14. Logged in user with an existing trip adds a place to a trip
-# # As a logged in user,
-# # When I create a trip
-# # Then I expect to see a list of places
-# # And I expect to see an “add” button on each place
-# # And when I press the “Add” button,
-# # Then I expect to see a message that confirms that the place was added to the current day’s itinerary.
