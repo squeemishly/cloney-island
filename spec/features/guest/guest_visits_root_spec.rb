@@ -37,6 +37,7 @@ feature "guest visits root" do
           within first(".attraction-preview").click
         end
 
+        expect(current_path).to eq(search_path)
         within(".column-list") do
           expect(page).to have_content("Beijing")
           expect(page).to_not have_content("London")
