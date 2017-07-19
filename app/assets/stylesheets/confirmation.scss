@@ -1,8 +1,13 @@
 @import "variables.scss";
 
 .btn-confirm {
-  background-color: $orange;
-  color: white;
+  background-color: $orange !important;
+  color: white !important;
+}
+
+.btn-confirm:hover {
+  background-color: $orange !important;
+  color: white !important;
 }
 
 .form {
