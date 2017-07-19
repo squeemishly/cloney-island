@@ -1,3 +1,5 @@
+require 'json'
+
 class Attraction
   attr_reader :name,
               :vicinity,
@@ -42,9 +44,15 @@ class Attraction
   end
 
   def self.marker_format(attractions)
-    attractions.map do |attraction|
-      [attraction.name, attraction.lat, attraction.lng, attraction.photo_url]
+    attractions_formatted = attractions.map do |attraction|
+      {
+        name: attraction.name,
+        lat: attraction.lat,
+        lng: attraction.lng,
+        photo: attraction.photo_url
+      }
     end
+    attractions_formatted.to_json
   end
 
   def self.fetch_details(place_id)

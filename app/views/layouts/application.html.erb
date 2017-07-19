@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <% if @attractions_js %>
       <script type="text/javascript">
-        var attractions = <%= raw @attractions_js %>;
+        var attractions = JSON.parse('<%= raw @attractions_js %>');
       </script>
     <% end %>
     <% if @attraction %>
