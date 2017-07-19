@@ -25,7 +25,15 @@ class Seed
 
   def generate_vendors
     return if User.where(role: 1).count >= 20
-
+    user = User.create!(
+          first_name: "Vendor",
+          last_name: "Vending",
+          email: "vendor@vendor.com",
+          phone: Faker::PhoneNumber.phone_number,
+          password: "password",
+          role: 1,
+          verification_code: nil,
+          )
     20.times do |i|
       user = User.create!(
             first_name: Faker::Zelda.character,
