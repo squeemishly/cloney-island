@@ -1,6 +1,6 @@
 <div class="container">
   <div class="confirm-text">
-    <h1 class="name"><%= current_user.first_name %></h1>
+    <h1 class="name"><%= @user.first_name %></h1>
 
     <p>Please check your phone for a 6-digit verification code.</p>
 
@@ -13,6 +13,7 @@
         <br>
         <%= text_field_tag :verification_code, nil, class: "form-control" %>
         <br>
+        <%= hidden_field_tag :user_id, @user.id, class: "form-control" %>
         <%= submit_tag "Confirm", class: "btn btn-confirm" %>
       </div>
     <% end %>
