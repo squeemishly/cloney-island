@@ -1,0 +1,3 @@
+<%= select_tag "trips", options_from_collection_for_select(current_user.trips, "id", "start_city", (@trip.id if @trip)) %>
+
+<%#= select_tag "trips", options_from_collection_for_select(current_user.trips, "id", "start_city") %>

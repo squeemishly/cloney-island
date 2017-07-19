@@ -31,6 +31,11 @@
               <% else %>
                 <li class="new-trip"><a href=<%= login_path %>>New Trip</a></li>
               <% end %>
+
+              <% if current_user %>
+                <%= render partial: "/layouts/trip_dropdowns" %>
+              <% end %>
+              
               </li>
             </ul>
 
