@@ -1,20 +1,24 @@
 require 'rails_helper'
 
 feature "guest navigates to individual attraction from city" do
+  before(:each) do
+    city = create(:city)
+    city = create(:city, name: "London")
+  end
   context "they are not logged in" do
     it "they see a the details of the attraction they clicked on" do
       VCR.use_cassette("single_attraction") do
         visit root_path
 
-        within ('.column-list') do
-          expect(page).to have_selector(".city-preview")
-          click_on "Paris, France"
+        within (".column-list") do
+          first("a").click
         end
 
         within (".column-list") do
-
-          first('a').click
+          first("a").click
         end
+
+        expect(current_path).to eq(search_path)
 
         within ('.column-list') do
           expect(page).to have_selector(".attraction-details")
@@ -35,19 +39,10 @@ feature "guest navigates to individual attraction from city" do
       VCR.use_cassette("single_attraction_different_attributes") do
         visit root_path
 
-        within ('.column-list') do
-          expect(page).to have_selector(".city-preview")
-          click_on "London, United Kingdom"
-        end
-
         within (".column-list") do
-
           first('a').click
         end
 
-        #Once again, we expect the map to change, to zoom in on the location of the
-        # attraction. Not sure if we can test this, but if we can, it might be through
-        # services rather than capybara features
         within ('.column-list') do
           expect(page).to have_selector(".attraction-details")
           expect(page).to have_selector(".attraction-details-img")

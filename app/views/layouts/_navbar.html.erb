@@ -104,6 +104,7 @@
   </div>
 </div>
 
+<% if params[:city] %>
 <nav class="navbar navbar-default navbar-filters nav-bar-third">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -111,22 +112,20 @@
         <span class="sr-only">Toggle navigation</span>
       </button>
     </div>
-
-    <% if params[:city] %>
-      <div class="collapse navbar-collapse navbar-filters" id="bs-example-navbar-collapse-3">
-        <ul class="nav navbar-nav">
-          <li><a href="/search?attraction_type=point-of-interest&city=<%=@city_id%>">Sightseeing</a></li>
-          <li><a href="/search?attraction_type=shopping_mall&city=<%=@city_id%>">Shopping</a></li>
-          <li><a href="/search?attraction_type=restaurant&city=<%=@city_id%>">Restaurants</a></li>
-          <li><a href="/search?attraction_type=museum&city=<%=@city_id%>">Museums</a></li>
-          <li><a href="/search?attraction_type=library&city=<%=@city_id%>">Libraries</a></li>
-          <li><a href="/search?attraction_type=transit_station&city=<%=@city_id%>">Transport</a></li>
-          <li><a href="/search?attraction_type=night_club&city=<%=@city_id%>">Nightlife</a></li>
-          <li><a href="/search?attraction_type=park&city=<%=@city_id%>">Parks</a></li>
-          <li><a href="/search?attraction_type=gym&city=<%=@city_id%>">Sports</a></li>
-          <li><a href="/search?attraction_type=spa&city=<%=@city_id%>">Relaxation</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    <% end %>
+    <div class="collapse navbar-collapse navbar-filters" id="bs-example-navbar-collapse-3">
+      <ul class="nav navbar-nav">
+        <li><a href="/search?attraction_type=point-of-interest&city=<%=@city_id%>">Sightseeing</a></li>
+        <li><a href="/search?attraction_type=shopping_mall&city=<%=@city_id%>">Shopping</a></li>
+        <li><a href="/search?attraction_type=restaurant&city=<%=@city_id%>">Restaurants</a></li>
+        <li><a href="/search?attraction_type=museum&city=<%=@city_id%>">Museums</a></li>
+        <li><a href="/search?attraction_type=library&city=<%=@city_id%>">Libraries</a></li>
+        <li><a href="/search?attraction_type=transit_station&city=<%=@city_id%>">Transport</a></li>
+        <li><a href="/search?attraction_type=night_club&city=<%=@city_id%>">Nightlife</a></li>
+        <li><a href="/search?attraction_type=park&city=<%=@city_id%>">Parks</a></li>
+        <li><a href="/search?attraction_type=gym&city=<%=@city_id%>">Sports</a></li>
+        <li><a href="/search?attraction_type=spa&city=<%=@city_id%>">Relaxation</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% end %>
