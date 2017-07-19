@@ -1,6 +1,9 @@
 class SearchController < ApplicationController
   def index
     if params[:city]
+      if params[:trip]
+        @trip = Trip.find(params[:trip])
+      end
       @city = eval(params[:city])
 
       @attraction_type = params[:attraction_type] || "point-of-interest"
