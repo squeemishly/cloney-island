@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   end
 
   namespace :users, path: ":id" do
-    patch '/trips/change_password/update', to: 'passwords#update', as: :password_patch
-    get '/trips/change_password/edit', to: 'passwords#edit', as: :password_edit
-    get '/trips/change_password', to: 'passwords#reset', as: :password_reset
+    patch '/users/change_password/update', to: 'passwords#update', as: :password_patch
+    get '/users/change_password/edit', to: 'passwords#edit', as: :password_edit
+    get '/users/change_password', to: 'passwords#reset', as: :password_reset
 
   end
 
