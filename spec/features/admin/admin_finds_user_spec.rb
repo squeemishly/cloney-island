@@ -2,22 +2,21 @@
 
 # RSpec.describe "Admin" do
 #   before :each do
+#     admin = create(:user, role: 2)
 #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-#     admin = create(:user)
 #     user = create(:user)
-#     role = create(:role, name: "admin")
-#     admin.roles << role
 #   end
 
 #   context "searches an existing user" do
 #     it "searches for user" do
-#       visit "/admin/#{admin.id}/dashboard"
+#       visit "/admin/dashboard"
 
-#       fill_in :search, with: user.email
+#       fill_in :query, with: user.email
 #       click_on "Search"
 
-#       expect(current_path).to eq("/admin/user/#{user.id}") #admin view for the profile page
-#       expect(page).to have_content(user.name)
+#       expect(current_path).to eq("/admin/query") #admin view for the profile page
+#       expect(page).to have_content(user.first_name)
+#       expect(page).to have_content(user.last_name)
 #       expect(page).to have_content(user.email)
 #       expect(page).to have_field("Vendor", checked: false)
 #       expect(page).to have_field("Admin", checked: false)
@@ -28,9 +27,9 @@
 
 #   context "searches a user that doesn't exist" do
 #     it "searches for non existing user" do
-#       visit "/admin/#{admin.id}/dashboard"
+#       visit "/admin/dashboard"
 
-#       fill_in :search, with: "wrong@email.com"
+#       fill_in :query, with: "wrong@email.com"
 #       click_on "Search"
 #       expect(page).to have_content "The page you were looking for doesn't exist."
 #     end

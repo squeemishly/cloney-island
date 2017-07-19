@@ -1,22 +1,21 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe "Admin" do
-#   before :each do
-#     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-#     admin = create(:user)
-#     role = create(:role, name: "admin")
-#     admin.roles << role
-#   end
+RSpec.describe "Admin" do
 
-#   it "sees their dashboard" do
-#     expect(current_path).to eq("/admin/#{admin.id}/dashboard")
+  it "sees their dashboard" do
+    admin = create(:user, role: 2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-#     expect(page).to have_selector('.search')
-#   end
-# end
+    visit '/'
+    click_on "Dashboard"
+    expect(current_path).to eq("/admin/dashboard")
 
-# # As an admin
-# # When I login, 
-# # I am redirected to /admin/dashboard
-# # And I see user search field
-# # * Maybe add analytics later?
+    expect(page).to have_selector('#query')
+  end
+end
+
+# As an admin
+# When I login,
+# I am redirected to /admin/dashboard
+# And I see user search field
+# * Maybe add analytics later?
