@@ -33,8 +33,9 @@ feature "guest visits root" do
       VCR.use_cassette("display_page_for_city") do
         visit root_path
 
-        within ('.column-list') do
-          within first(".attraction-preview").click
+
+        within (".column-list") do
+          first("a").click
         end
 
         expect(current_path).to eq(search_path)
