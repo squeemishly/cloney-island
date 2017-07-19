@@ -2,11 +2,9 @@
 
 # RSpec.describe "Admin" do
 #   before :each do
+#     admin = create(:user, role: 2)
 #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-#     admin = create(:user)
 #     user = create(:user)
-#     role = create(:role, name: "admin")
-#     admin.roles << role
 #   end
 
 #   it "assigns vendor role to user" do
