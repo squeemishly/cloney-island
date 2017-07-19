@@ -43,7 +43,7 @@ feature "guest navigates to individual attraction from city" do
         within (".column-list") do
           first('a').click
         end
-        
+
         within (".column-list") do
           first('a').click
         end
@@ -57,11 +57,7 @@ feature "guest navigates to individual attraction from city" do
           expect(page).to have_selector(".attraction-details-address")
           expect(page).to have_selector(".attraction-details-phone")
           expect(page).to have_selector(".attraction-details-review")
-          # expect(page).to have_selector(".add-attraction-button")
-
-          # expect(page).to have_content("Sign in or create an account to leave a review")
-          # expect(page).to have_selector(".city-details-tags")
-          # Tags are an extension feature
+          expect(page).to have_selector(".add-attraction-button")
         end
       end
     end
