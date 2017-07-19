@@ -21,6 +21,9 @@
 </div>
 
 <h3 class="sign-in">Don't have an account? <%= link_to "Create an Account with Email", new_user_path %></h3>
-<h3 class="sign-in">Forgot your password? <%= link_to "Reset Password", confirmation_path %></h3>
+<h3 class="sign-in">Forgot your password?</h3>
+<%= bootstrap_form_tag(url: confirm_email_path, method: :post) do %>
+  <%= text_field_tag :email, params[:email], placeholder: "Enter Your Email" %>
 
-<br>
+  <%= submit_tag "Send SMS", class: "btn btn-sign-in" %>
+<% end %>

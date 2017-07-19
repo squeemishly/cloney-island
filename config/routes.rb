@@ -27,6 +27,8 @@ end
   end
 
   get '/confirmation', to: 'confirmations#show'
+  post '/email_confirmation', to: 'confirmations#verify', as: :confirm_email
+  get '/email_confirmation', to: 'confirmations#confirm_reset', as: :confirm_reset
 
   resources :confirmations, only: [:new, :create]
 
