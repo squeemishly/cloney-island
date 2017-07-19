@@ -5,7 +5,6 @@ class ConfirmationsController < ApplicationController
 
   def create
     @user = current_user
-    binding.pry
     if @user.verification_code == params[:verification_code]
       session[:authenticated] = true
       flash[:notice] = "Verification code is correct!"
