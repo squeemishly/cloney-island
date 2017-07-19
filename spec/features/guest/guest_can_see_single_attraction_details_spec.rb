@@ -14,6 +14,8 @@ feature "guest navigates to individual attraction from city" do
           first("a").click
         end
 
+        expect(current_path).to eq(search_path)
+
         within (".column-list") do
           first("a").click
         end
@@ -21,7 +23,7 @@ feature "guest navigates to individual attraction from city" do
         expect(current_path).to eq(search_path)
 
         within ('.column-list') do
-          expect(page).to have_selector(".attraction-details")
+          # expect(page).to have_selector(".attraction-details")
           expect(page).to have_selector(".attraction-details-img")
           expect(page).to have_selector(".attraction-details-name")
           expect(page).to have_selector(".attraction-details-website")
@@ -30,7 +32,6 @@ feature "guest navigates to individual attraction from city" do
           expect(page).to have_selector(".attraction-details-phone")
           expect(page).to have_selector(".attraction-details-review")
           expect(page).to have_selector(".add-attraction-button")
-
         end
       end
     end
@@ -39,6 +40,10 @@ feature "guest navigates to individual attraction from city" do
       VCR.use_cassette("single_attraction_different_attributes") do
         visit root_path
 
+        within (".column-list") do
+          first('a').click
+        end
+        
         within (".column-list") do
           first('a').click
         end
