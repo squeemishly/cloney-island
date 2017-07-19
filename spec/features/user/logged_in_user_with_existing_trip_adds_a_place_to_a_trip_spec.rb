@@ -14,6 +14,7 @@ RSpec.describe "logged in user with existing trip" do
       trip = create(:trip, city: city)
 
       user.trips << trip
+      binding.pry
 
       visit user_trip_path(user, trip)
       click_on "Edit Trip"
