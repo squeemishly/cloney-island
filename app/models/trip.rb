@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :city
   has_many :itineraries
+  # has_many :places, through: :itineraries
 
   validates_presence_of :start_city
   validates_presence_of :start_date

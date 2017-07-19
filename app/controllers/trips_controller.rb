@@ -40,7 +40,6 @@ class TripsController < ApplicationController
     end
     @trip.itineraries.create(place_id: @place.id, date: @trip.start_date)
     flash.now[:notice] = "#{@place.name} successfully added"
-    binding.pry
   end
 
   private
