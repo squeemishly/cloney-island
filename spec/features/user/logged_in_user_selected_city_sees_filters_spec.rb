@@ -3,13 +3,14 @@ require 'rails_helper'
 feature "guest visits root" do
   before(:each) do
     city = create(:city)
-    city = create(:city, name: "London")
   end
   context "they are not logged in" do
     it "they see main page elements" do
       VCR.use_cassette("main_page_elements") do
         visit root_path
-        within first(".attraction-preview").click
+        within ('.column-list') do
+          find(".attraction-preview").click
+        end
 
         expect(page).to have_selector(".logo")
         within('.navbar-main') do
@@ -20,6 +21,19 @@ feature "guest visits root" do
         within('.navbar-secondary') do
           expect(page).to have_content('Attractions')
           expect(page).to have_content('Tours')
+        end
+
+        within('.navbar-filters') do
+          expect(page).to have_content('Sightseeing')
+          expect(page).to have_content('Shopping')
+          expect(page).to have_content('Restaurants')
+          expect(page).to have_content('Museums')
+          expect(page).to have_content('Libraries')
+          expect(page).to have_content('Transport')
+          expect(page).to have_content('Nightlife')
+          expect(page).to have_content('Parks')
+          expect(page).to have_content('Sports')
+          expect(page).to have_content('Relaxation')
         end
 
         expect(page).to have_selector(".main-map")
@@ -34,11 +48,12 @@ feature "guest visits root" do
         visit root_path
 
         within ('.column-list') do
-          within first(".attraction-preview").click
+          expect(page).to have_selector(".city-preview")
+          click_on "Paris, France"
         end
 
         within(".column-list") do
-          expect(page).to have_content("Beijing")
+          expect(page).to have_content("Paris")
           expect(page).to_not have_content("London")
           expect(page).to have_selector(".attraction-preview")
         end
