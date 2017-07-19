@@ -40,7 +40,7 @@ class TripsController < ApplicationController
       place.lng = params[:lng]
     end
     @trip.itineraries.create(place_id: @place.id, date: @trip.start_date)
-    flash.now[:notice] = "#{@place.name} successfully added"
+    flash.now[:alert] = "#{@place.name} successfully added"
   end
 
   private
