@@ -7,11 +7,12 @@ RSpec.describe "logged in user with existing trip" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       city = City.create(name: "Paris",
-      lat: 48.85837009999999,
-      lng: 2.2944813,
-      place_id: "ChIJLU7jZClu5kcR4PcOOO6p3I0")
+                        lat: 48.85837009999999,
+                        lng: 2.2944813,
+                        place_id: "ChIJLU7jZClu5kcR4PcOOO6p3I0")
       trip = create(:trip, city: city)
       user.trips << trip
+      binding.pry
 
       visit user_trip_path(user, trip)
       click_on "Edit Trip"

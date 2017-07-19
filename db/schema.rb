@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20170719022947) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.bigint "trips_id"
-    t.bigint "places_id"
+    t.bigint "trip_id"
+    t.bigint "place_id"
     t.date "date"
-    t.index ["places_id"], name: "index_itineraries_on_places_id"
-    t.index ["trips_id"], name: "index_itineraries_on_trips_id"
+    t.index ["place_id"], name: "index_itineraries_on_place_id"
+    t.index ["trip_id"], name: "index_itineraries_on_trip_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170719022947) do
     t.string "verification_code"
   end
 
-  add_foreign_key "itineraries", "places", column: "places_id"
-  add_foreign_key "itineraries", "trips", column: "trips_id"
+  add_foreign_key "itineraries", "places"
+  add_foreign_key "itineraries", "trips"
   add_foreign_key "tours", "users"
   add_foreign_key "trips", "cities"
   add_foreign_key "trips", "users"
