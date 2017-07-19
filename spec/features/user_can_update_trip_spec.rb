@@ -31,8 +31,6 @@ require 'rails_helper'
        visit user_trip_path(user, trip1)
 
        expect(page).to have_selector ".attraction-name"
-
-       #how do I count itinerary items here?
      end
    end
  end
