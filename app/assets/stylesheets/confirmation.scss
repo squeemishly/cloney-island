@@ -1,0 +1,24 @@
+@import "variables.scss";
+
+.btn-confirm {
+  background-color: $orange;
+  color: white;
+}
+
+.form {
+  margin-right: 710px;
+}
+
+.control-label {
+  padding-bottom: 10px;
+  color: $purple;
+}
+
+h1.name {
+  color: $purple;
+  font-family: 'Oswald', sans-serif;
+}
+
+p {
+  font-family: 'Helvetica';
+}
