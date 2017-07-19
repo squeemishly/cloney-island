@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature "guest visits root" do
   before(:each) do
-    city = create(:city)
-    city = create(:city, name: "London")
+    city1 = create(:city)
+    city2 = create(:city, name: "London", place_id: "ChIJdd4hrwug2EcRmSrV3Vo6llI")
   end
   context "they are not logged in" do
     it "they see main page elements" do
