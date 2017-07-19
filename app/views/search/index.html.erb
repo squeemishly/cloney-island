@@ -16,7 +16,6 @@
     <script type='text/javascript' charset="utf-8">
 
       var map;
-      var infowindow;
 
       function initMap() {
 
@@ -53,16 +52,22 @@
         // <area> element 'poly' which traces out a polygon as a series of X,Y points.
         // The final coordinate closes the poly by connecting to the first coordinate.
 
-        for (var i = 0; i < attractions.length; i++) {
-          var attraction = attractions[i];
+        attractions.forEach(function(attraction) {
           var marker = new google.maps.Marker({
-            position: {lat: attraction[1], lng: attraction[2]},
+            position: {lat: attraction.lat, lng: attraction.lng},
             map: map,
-            icon: {url: attraction[3], scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0), anchor: new google.maps.Point(0, 32)},
-            title: attraction[0]
+            icon: {url: attraction.photo, scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0), anchor: new google.maps.Point(0, 32)},
+            title: attraction.name
           });
-        }
-      }
+
+          attraction.infoWindow = new google.maps.InfoWindow({
+            content: attraction.name
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            attraction.infoWindow.open(map, this);
+          });
+        });
+      };
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_map_api_key'] %>&callback=initMap"
     async defer></script>
