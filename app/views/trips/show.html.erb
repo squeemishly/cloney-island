@@ -1,3 +1,9 @@
-<%= button_to "Edit Trip", edit_user_trip_path(@trip.user, @trip), method: :get %>
+<%= button_to "Edit Trip", edit_user_trip_path(@trip.user, @trip), method: :get, class: "btn edit-button" %>
 
-<h3>Itinerary for <%= @trip.start_city %> on <%= @trip.start_date %> - <%= @trip.end_date %></h3>
+<h2 class="trip-title">Itinerary for <%= @trip.start_city %><br>on <%= @trip.start_date %> - <%= @trip.end_date %></h2>
+
+<% @trip.itineraries.each do |itinerary| %>
+  <div class="card">
+    <div class="attraction-name"><%= itinerary.place.name %></div>
+  </div>
+<% end %>
