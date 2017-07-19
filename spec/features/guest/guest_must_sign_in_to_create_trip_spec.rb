@@ -4,11 +4,11 @@ feature "guest prompted to sign in before creating trip" do
   context "they are not logged in" do
     it "they see a sign in prompt after clicking on add attraction button" do
       VCR.use_cassette("guest_signs_in_for_trip") do
+        city = create(:city)
         visit root_path
 
-        within ('.column-list') do
-          expect(page).to have_selector(".city-preview")
-          click_on "Paris, France"
+        within (".column-list") do
+          first("a").click
         end
 
         within first(".attraction-preview") do
