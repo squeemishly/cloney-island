@@ -22,6 +22,11 @@ class Vendor::ToursController < ApplicationController
     @tour = @vendor.tours.find_by(id: params[:id])
   end
 
+  def index
+    @vendor = User.find_by(id: params[:user_id])
+    @tours = @vendor.tours
+  end
+
   def edit
     @vendor = current_user
     @tour = @vendor.tours.find_by(id: params[:id])
