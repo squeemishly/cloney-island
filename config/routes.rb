@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 namespace :admin do
   get '/dashboard', to: 'dashboard#index'
+  get '/query', to: 'query#index', as: 'query'
 end
 
   namespace :users, path: ":id" do
