@@ -40,6 +40,11 @@ class GooglePlacesService
     get_url("textsearch/json?key=#{ENV['google_map_api_key']}&query=#{start_city}")[:results][0]
   end
 
+  def fetch_photo(reference)
+    response = conn.get("photo?key=#{ENV['google_map_api_key']}&photoreference=#{reference}&maxwidth=700")
+    response.body.split("=\"").last.split("\"").first
+  end
+
   def self.fetch_city(params)
     new({start_city: params[:trip][:start_city]}).fetch_city
   end

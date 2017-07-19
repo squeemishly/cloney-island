@@ -14,8 +14,7 @@ class TripsController < ApplicationController
     current_user.trips << @trip
     @city.trips << @trip
     if @trip.save
-      city_place_info = {name: @city.name, lat: @city.lat, lng: @city.lng}
-      redirect_to "/search?city=#{city_place_info}"
+      redirect_to "/search?city=#{@city.id}"
     else
       @trip = Trip.new
       redirect_to new_user_trip_path(current_user)
@@ -28,8 +27,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-    city_place_info = {name: @trip.city.name,lat: @trip.city.lat, lng: @trip.city.lng}
-    redirect_to "/search?city=#{city_place_info}&trip=#{@trip.id}"
+    redirect_to "/search?city=#{@trip.city.id}"
   end
 
   def update

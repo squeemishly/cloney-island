@@ -2,41 +2,36 @@ require 'rails_helper'
 
  RSpec.describe "A signed-in user can update a trip" do
    it "can update a trip after signing in" do
-     user = create(:user)
-     trip1 = create(:trip)
-     place1 = create(:place)
+     VCR.use_cassette("user_can_update_a_trip") do
+       user = create(:user)
+       trip1 = create(:trip)
+       user.trips << trip1
 
-     visit root_path
+       visit root_path
 
-     click_on 'Sign In Using Email'
-     fill_in 'Email', with: "#{user.email}"
-     fill_in 'Password', with: 'password'
-     click_on "Sign in"
-     select('My Trips', :from => 'Select Box')
+       click_on 'Sign In'
+       fill_in 'Email', with: "#{user.email}"
+       fill_in 'Password', with: 'password'
+       find(".btn-sign-in").click
 
-     expect(current_path).to eq(trips_path)
-     expect(page).to have_content("My Trips")
-     expect(page).to have_content(trip1.title)
-     expect(page).to have_content(trip1.start_date)
-     expect(page).to have_content(trip1.end_date)
-     expect(page).to have_content(trip1.start_city)
+       expect(current_path).to eq(user_trips_path(user))
+       expect(page).to have_content("My Trips")
+       expect(page).to have_content(trip1.start_date)
+       expect(page).to have_content(trip1.end_date)
+       expect(page).to have_content(trip1.start_city)
 
-     click_on "Edit Trip"
+       click_on trip1.start_city
+       expect(current_path).to eq(user_trip_path(user, trip1))
+       click_on "Edit Trip"
 
-     #expect(current_path).to eq(trip_path)
-     expect(page).to have_content(place1.name)
-     expect(page).to have_content(place1.description)
+       within first(".attraction-preview") do
+         find(".add-attraction-button").click
+       end
 
-     click_on "+"
-     select('My Trips', :from => 'Select Box')
+       visit user_trip_path(user, trip1)
 
-     expect(current_path).to eq(trips_path)
-     expect(page).to have_content("My Trips")
-     expect(page).to have_content(trip1.title)
-
-     click_on "Edit Trip"
-
-     expect(page).to have_content(place1.name)
+       expect(page).to have_selector ".attraction-name"
+     end
    end
  end
 
