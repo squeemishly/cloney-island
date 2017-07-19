@@ -16,8 +16,8 @@ class ConfirmationsController < ApplicationController
   end
 
   def verify
-    if User.exists?(email: params[:password][:email])
-      user = User.find_by(email: params[:password][:email])
+    if User.exists?(email: params[:email])
+      user = User.find_by(email: params[:email])
       ConfirmationSender.send_confirmation_to(user)
       redirect_to new_confirmation_path
     else
