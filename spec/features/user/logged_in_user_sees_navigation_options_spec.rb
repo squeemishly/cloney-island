@@ -11,7 +11,7 @@
  #    date = Date.today
 
  #    visit user_dashboard_path(user.id)
- 
+
  #    click_on "Create New Trip"
  #    expect(page).to have_content("Current Day")
  #    expect(page).to have_button("Daily Plan")
