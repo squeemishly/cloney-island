@@ -61,7 +61,7 @@
           });
 
           attraction.infoWindow = new google.maps.InfoWindow({
-            content: attraction.name
+            content: `<div style="width: 150px; background-image: url(${attraction.photo});" class="city-image"></div><a href="/search?attraction=${attraction.place_id}"><h4>${attraction.name}</h4></a>`
           });
           google.maps.event.addListener(marker, 'click', function() {
             attraction.infoWindow.open(map, this);
