@@ -31,37 +31,40 @@ feature "Vendor edits their tour" do
       expect(page).to have_content("Delete")
     end
   end
-  #   scenario "from the show page" do
-  #     visit "/vendor/#{vendor.id}/tours/#{tour1.id}"
-  #     click_on "Edit"
 
-  #     expect(current_path).to eq("/vendor/#{vendor.id}/tours/#{tour1.id}/edit") #check paths
+  context "edits their own tour from the show page" do
+    it "they click edit and fill out form" do
+      visit user_vendor_tour_path(@vendor, @tour)
+      click_on "Edit"
 
-  #     fill_in "name", with: "different name"
-  #     fill_in "description", with: "new description"
-  #     fill_in "price", with: 5000
-  #     click_on "Update"
+      expect(current_path).to eq(edit_user_vendor_tour_path(@vendor, @tour))
 
-  #     expect(current_path).to eq("/vendor/#{vendor.id}/tours/#{tour1.id}") #check paths
+      fill_in "tour_name", with: "definitely a different name"
+      fill_in "tour_description", with: "an extra new description"
+      fill_in "tour_price", with: "$3.50"
+      click_on "Update"
 
-  #     expect(page).to have_content("different name")
-  #     expect(page).to have_content("new description")
-  #     expect(page).to have_content(5000)
-  #     expect(page).to have_content("Edit")
-  #     expect(page).to have_content("Delete")
-  #   end
-  # end
+      expect(current_path).to eq(user_vendor_tour_path(@vendor, @tour))
 
-  # it "can't edit other vendor's tours" do
-  #   vendor2 = create(:user_with_tours)
-  #   role = create(:role, name: "vendor")
-  #   vendor2.roles << role
-  #   tour2 = vendor2.tours.first
+      expect(page).to have_content("definitely a different name")
+      expect(page).to have_content("an extra new description")
+      expect(page).to have_content("$3.50")
+      expect(page).to have_content("Edit")
+      expect(page).to have_content("Delete")
+    end
+  end
 
-  #   visit "/vendor/#{vendor2.id}/tours/#{tour2.id}"
+  context "tries to edit another vendor's tour from the show page" do
+    it "there is no edit button on the show page" do
+      vendor2 = create(:user_with_tours, role: 1)
+      tour2 = vendor2.tours.first
 
-  #   expect(page).to have_content "The page you were looking for doesn't exist."
-  # end
+      visit user_vendor_tour_path(vendor2, tour2)
+
+      expect(page).to have_content(tour2.name)
+      expect(page).to_not have_content("Edit")
+    end
+  end
 end
 
 # As a vendor

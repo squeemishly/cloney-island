@@ -7,13 +7,18 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
-    resources :trips, only: [:new, :index, :create, :show, :edit]
+    resources :trips, only: [:new, :index, :create, :show, :edit, :update]
     namespace :vendor do
       get '/dashboard', to: 'dashboard#index'
       resources :tours, except: [:create]
       post '/tours/:id', to: 'tours#create'
     end
   end
+
+namespace :admin do
+  get '/dashboard', to: 'dashboard#index'
+  get '/query', to: 'query#index', as: 'query'
+end
 
   namespace :users, path: ":id" do
     patch '/users/change_password/update', to: 'passwords#update', as: :password_patch
