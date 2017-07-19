@@ -12,5 +12,4 @@ class User < ApplicationRecord
   validates_presence_of :password_digest
   validates_presence_of :status
   validates_presence_of :role
-
 end
