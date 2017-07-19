@@ -29,7 +29,7 @@ RSpec.describe "Two-factor authentication" do
       expect(page).to have_content("Verification code is correct!")
     end
 
-    xit "when they are logged out" do
+    it "when they are logged out" do
       allow(CodeGenerator).to receive(:generate).and_return(fake_verification_code)
 
       user = create(:user)
