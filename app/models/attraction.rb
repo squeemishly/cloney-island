@@ -49,7 +49,8 @@ class Attraction
         name: attraction.name,
         lat: attraction.lat,
         lng: attraction.lng,
-        photo: attraction.photo_url
+        photo: attraction.photo_url,
+        place_id: attraction.place_id
       }
     end
     attractions_formatted.to_json
