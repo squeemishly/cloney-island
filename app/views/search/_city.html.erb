@@ -2,9 +2,17 @@
 <% @attractions.each do |attraction| %>
   <div class="attraction-preview card">
     <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>"></a>
-    <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
-      <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
-    <% end %> 
+
+    <% if current_user %>
+      <%#= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <%# end %>
+    <% else %>
+      <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% end %>
+
     <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container"></div>
     <div class="card-block">
       <h4 class="card-title attraction-preview-name"><%= attraction.name %></h4>
