@@ -29,7 +29,18 @@ class TripsController < ApplicationController
   def edit
     @trip = Trip.find(params[:id])
     city_place_info = {name: @trip.city.name,lat: @trip.city.lat, lng: @trip.city.lng}
-    redirect_to "/search?city=#{city_place_info}"
+    redirect_to "/search?city=#{city_place_info}&trip=#{@trip.id}"
+  end
+
+  def update
+    @trip = Trip.find(params[:id]) if current_user.trips.include?(Trip.find(params[:id]))
+    @place = Place.find_or_create_by(google_place_id: params[:place_id]) do |place|
+      place.name = params[:name]
+      place.lat = params[:lat]
+      place.lng = params[:lng]
+    end
+    @trip.itineraries.create(place_id: @place.id, date: @trip.start_date)
+    flash.now[:alert] = "#{@place.name} successfully added"
   end
 
   private
