@@ -1,3 +1,14 @@
+@import "variables.scss";
+
+.panel-heading {
+  background-color: $purple !important;
+  color: white !important;
+}
+
+.panel-info {
+  border-color: $purple !important;
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -6,17 +17,7 @@
     margin-bottom: 0;
 }
 
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
-}
-
-.dropdown-user:hover {
-    cursor: pointer;
-}
-
-.table-user-information > tbody > tr {
+.table-user-information > tbody > tr > td {
     border-top: 1px solid rgb(221, 221, 221);
 }
 
@@ -30,4 +31,24 @@
 }
 .toppad
 {margin-top:20px;
+}
+
+.btn-edit-email {
+  background-color: $orange;
+  color: white;
+}
+
+.btn-edit-email:hover {
+  background-color: $orange;
+  color: white !important;
+}
+
+.btn-edit-phone {
+  background-color: $purple;
+  color: white;
+}
+
+.btn-edit-phone:hover {
+  background-color: $purple;
+  color: white !important;
 }

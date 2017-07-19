@@ -25,15 +25,15 @@
                   </tr>
                   <tr>
                     <tr>
-                      <td><%= link_to "Change Password", users_password_reset_path(current_user.id), method: :get %></td>
-                    </tr>
-                    <tr>
                       <td>View My Reviews</td>
+                      <td><%= link_to "Change Password", users_password_reset_path(current_user.id), method: :get %></td>
                     </tr>
                   </tr>
                 </tbody>
               </table>
-              <%= link_to "Delete Account", user_path(current_user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
+              <%= link_to "Edit Email", edit_user_path(current_user), class: "btn btn-edit-email" %>
+              <%= link_to "Edit Phone", edit_user_path(current_user), class: "btn btn-edit-phone" %>
+              <%= link_to "Delete Account", user_path(current_user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
             </div>
           </div>
         </div>
