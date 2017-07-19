@@ -5,6 +5,7 @@ feature "guest visits root" do
     it "they see main page elements" do
       VCR.use_cassette("main_page_elements") do
         visit root_path
+        click_on "London"
 
         expect(page).to have_selector(".logo")
         within('.navbar-main') do
@@ -13,7 +14,7 @@ feature "guest visits root" do
         end
 
         within('.navbar-secondary') do
-          expect(page).to have_content('Places')
+          expect(page).to have_content('Attractions')
           expect(page).to have_content('Tours')
         end
 
@@ -22,10 +23,10 @@ feature "guest visits root" do
           expect(page).to have_content('Shopping')
           expect(page).to have_content('Restaurants')
           expect(page).to have_content('Museums')
-          expect(page).to have_content('Family')
+          expect(page).to have_content('Libraries')
           expect(page).to have_content('Transport')
           expect(page).to have_content('Nightlife')
-          expect(page).to have_content('Outdoors')
+          expect(page).to have_content('Parks')
           expect(page).to have_content('Sports')
           expect(page).to have_content('Relaxation')
         end

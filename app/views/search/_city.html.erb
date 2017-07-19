@@ -1,35 +1,13 @@
 <h2 class="city-name"><%= @city[:name] %></h2>
 <% @attractions.each do |attraction| %>
-  <div class="attraction-preview">
-    <div class="imagewrap">
-      <div class="card">
-          <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container">
-            <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
-              <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
-            <% end %>
-            <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
-          </div>
-          <div class="card-block">
-            <h4 id="card-title" class="attraction-preview-name"><%= attraction.name %></h4>
-          </div>
-       </div>
+  <div class="attraction-preview card">
+    <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>"></a>
+    <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+      <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+    <% end %> 
+    <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container"></div>
+    <div class="card-block">
+      <h4 class="card-title attraction-preview-name"><%= attraction.name %></h4>
     </div>
   </div>
- </a>
 <% end %>
-
-<!-- <h2><%= @city[:name] %></h2>
-<% @attractions.each do |attraction| %>
-    <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>" style="line-height:62px;">
-      <div class="attraction-preview">
-        <h5 class="add-attraction-button">Add Attraction Placeholder</h5>
-        <div class="card">
-          <div style="background-image: url(<%= attraction.photo_url %>);" class="city-image attraction-image-container">
-          </div>
-          <div class="card-block">
-            <h4 id="card-title" class="attraction-preview-name"><%= attraction.name %></h4>
-          </div>
-        </div>
-      </div>
-    </a>
-  <% end %> -->

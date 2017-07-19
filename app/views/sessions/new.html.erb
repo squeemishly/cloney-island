@@ -25,5 +25,5 @@
 <%= bootstrap_form_tag(url: confirm_email_path, method: :post) do %>
   <%= text_field_tag :email, params[:email], placeholder: "Enter Your Email" %>
 
-  <%= submit_tag "Send SMS", class: "btn btn-sign-in" %>
+  <%= submit_tag "Send SMS", class: "btn btn-get-sms" %>
 <% end %>

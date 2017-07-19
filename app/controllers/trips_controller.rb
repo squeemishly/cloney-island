@@ -9,19 +9,27 @@ class TripsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @city = City.create_new_city(params)
     @trip = Trip.new(trip_params)
-    @user.trips << @trip
+    current_user.trips << @trip
+    @city.trips << @trip
     if @trip.save
-      redirect_to '/'
+      city_place_info = {name: @city.name, lat: @city.lat, lng: @city.lng}
+      redirect_to "/search?city=#{city_place_info}"
     else
       @trip = Trip.new
-      redirect_to new_user_trip_path(@user)
+      redirect_to new_user_trip_path(current_user)
     end
   end
 
   def show
     @trip = Trip.find(params[:id])
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+    city_place_info = {name: @trip.city.name,lat: @trip.city.lat, lng: @trip.city.lng}
+    redirect_to "/search?city=#{city_place_info}"
   end
 
   private

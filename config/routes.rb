@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :edit, :update, :show] do
-    resources :trips, only: [:new, :index, :create, :show]
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :trips, only: [:new, :index, :create, :show, :edit]
+    namespace :vendor do
+      get '/dashboard', to: 'dashboard#index'
+      resources :tours, except: [:create]
+      post '/tours/:id', to: 'tours#create'
+    end
   end
 
   namespace :users, path: ":id" do
@@ -21,4 +26,5 @@ Rails.application.routes.draw do
   get '/email_confirmation', to: 'confirmations#confirm_reset', as: :confirm_reset
 
   resources :confirmations, only: [:new, :create]
+
 end

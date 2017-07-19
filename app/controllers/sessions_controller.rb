@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      if @user.trips == []
+      if @user.vendor?
+        redirect_to user_vendor_dashboard_path(@user)
+      elsif @user.trips == []
         redirect_to new_user_trip_path(@user)
       else
         redirect_to user_trips_path(@user)

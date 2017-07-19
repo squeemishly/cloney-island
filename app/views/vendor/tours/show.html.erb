@@ -1,0 +1,8 @@
+<h2><%= @tour.name %></h2>
+<p><%= @tour.description %></p>
+<p><%= @tour.price %></p>
+<p>No reviews yet</p>
+<% if current_user == @vendor %>
+  <%= link_to "Edit", edit_user_vendor_tour_path(@vendor, @tour) %>
+  <%= link_to "Delete", user_vendor_tour_path(@vendor, @tour), method: :delete %>
+<% end %>
