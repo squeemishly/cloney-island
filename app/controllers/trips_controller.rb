@@ -14,8 +14,7 @@ class TripsController < ApplicationController
     current_user.trips << @trip
     @city.trips << @trip
     if @trip.save
-      city_place_info = {name: @city.name, lat: @city.lat, lng: @city.lng}
-      redirect_to "/search?city=#{city_place_info}"
+      redirect_to "/search?city=#{@city.id}"
     else
       @trip = Trip.new
       redirect_to new_user_trip_path(current_user)
