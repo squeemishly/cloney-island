@@ -1,0 +1,18 @@
+<div>
+  Signed Up Users
+  <%= User.user.count %>
+</div>
+
+<div>
+  Vendors
+  <%= User.vendor.count %>
+</div>
+
+<div>
+<%= form_tag(:admin_query, method: :get) do %>
+  <div>
+    <%= text_field_tag :query, "user email...", class: "transp-text" %>
+    <%= submit_tag "Search", class: "btn" %>
+  </div>
+<% end %>
+</div>
