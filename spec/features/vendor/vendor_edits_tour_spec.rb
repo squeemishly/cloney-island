@@ -20,7 +20,7 @@ feature "Vendor edits their tour" do
       fill_in "tour_name", with: "different name"
       fill_in "tour_description", with: "new description"
       fill_in "tour_price", with: "$99,999.23"
-      click_on "Update"
+      click_on "Edit Tour"
 
       expect(current_path).to eq(user_vendor_tour_path(@vendor, @tour))
 
@@ -42,7 +42,7 @@ feature "Vendor edits their tour" do
       fill_in "tour_name", with: "definitely a different name"
       fill_in "tour_description", with: "an extra new description"
       fill_in "tour_price", with: "$3.50"
-      click_on "Update"
+      click_on "Edit Tour"
 
       expect(current_path).to eq(user_vendor_tour_path(@vendor, @tour))
 
