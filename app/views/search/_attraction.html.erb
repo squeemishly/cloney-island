@@ -1,7 +1,20 @@
 <div class="attraction-details">
-  <h5 class="add-attraction-button">Add Attraction Placeholder</h5>
+  <%#<h5 class="add-attraction-button">Add Attraction Placeholder</h5>%>
 
   <div class="card">
+  <% if current_user && @trip%>
+      <%= link_to "/users/#{current_user.id}/trips/#{@trip.id}?place_id=#{attraction.place_id}&name=#{attraction.name}&lat=#{attraction.lat}&lng=#{attraction.lng}", :method=> :put, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% elsif current_user %>
+      <%= link_to user_trips_path(current_user), class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% else %>
+      <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% end %>
     <div style="background-image: url(<%= @attraction.photo_url %>);" class="city-image attraction-details-img">
     </div>
     <div class="card-block">

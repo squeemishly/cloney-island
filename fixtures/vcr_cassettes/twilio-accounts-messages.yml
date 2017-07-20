@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twilio.com/2010-04-01/Accounts//Messages.json
+    body:
+      encoding: UTF-8
+      string: Body=123456&From&To=%2B13035197055
+    headers:
+      User-Agent:
+      - twilio-ruby/5.0.0 (ruby/x86_64-darwin16 2.3.1-p112)
+      Accept-Charset:
+      - utf-8
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept:
+      - application/json
+      Authorization:
+      - Basic Og==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: NOT FOUND
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match,
+        If-Unmodified-Since
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - ETag
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 20 Jul 2017 02:58:10 GMT
+      Twilio-Request-Duration:
+      - '0.002'
+      Twilio-Request-Id:
+      - RQdea1af719fae464eae55377f86e36f21
+      X-Powered-By:
+      - AT-5000
+      X-Shenanigans:
+      - none
+      Content-Length:
+      - '174'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"code": 20404, "message": "The requested resource /2010-04-01/Accounts//Messages.json
+        was not found", "more_info": "https://www.twilio.com/docs/errors/20404", "status":
+        404}'
+    http_version: 
+  recorded_at: Thu, 20 Jul 2017 02:58:09 GMT
+recorded_with: VCR 3.0.3
