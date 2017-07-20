@@ -27,7 +27,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-    redirect_to "/search?city=#{@trip.city.id}"
+    redirect_to "/search?city=#{@trip.city.id}&trip=#{@trip.id}"
   end
 
   def update
