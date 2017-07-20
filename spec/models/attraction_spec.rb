@@ -56,12 +56,4 @@ describe Attraction do
       expect(attraction.lng).to eq(2.2944813)
     end
   end
-
-  context "relationships" do
-    xit "has relationships" do
-      place = create(:attraction)
-      expect(place).to respond_to :itineraries
-      expect(place).to respond_to :city
-    end
-  end
 end
