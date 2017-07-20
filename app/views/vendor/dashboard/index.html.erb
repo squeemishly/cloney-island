@@ -11,15 +11,21 @@ Welcome <%= @vendor.first_name %>!
         </div>
         <div class="panel-body">
           <div class="row">
-              <% @vendor.tours.each do |tour| %>
-                <div class="tour">
-                  <p><%= tour.name %></p>
-                  <p><%= tour.description %></p>
-                  <p><%= tour.price %></p>
-                  <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
-                  <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <% @vendor.tours.each do |tour| %>
+                    <div class="tour">
+                      <p><%= tour.name %></p>
+                      <p><%= tour.description %></p>
+                      <p><%= tour.price %></p>
+                      <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
+                      <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+                    </div>
+                  <% end %>
                 </div>
-              <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
