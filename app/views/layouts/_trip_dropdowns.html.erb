@@ -1,5 +1,5 @@
 <%= select_tag "trips", options_from_collection_for_select(current_user.trips, "id", "with_dates", (@trip.id if @trip)) %>
 
-<% if @trip %>
-  <%= select_tag "trips", options_from_collection_for_select(@trip.days, "to_s", "to_s", @trip.start_date) %>
+<% if @trip && @trip.start_date && @trip.end_date %>
+  <%= select_tag "days", options_from_collection_for_select(@trip.days, "to_s", "to_s", @trip.start_date) %>
 <% end %>
