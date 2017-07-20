@@ -32,9 +32,14 @@ end
 
   resources :confirmations, only: [:new, :create]
 
-  resources :conversations do
-    resources :messages
+  resources :conversations, only: [:index]
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+
+    resources :messages, only: [:create]
   end
 
-  get '/chat_query', to: 'chat_query#index', as: 'chat_query'
+  # mount ActionCable.server => '/cable'
 end

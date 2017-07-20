@@ -1,46 +1,24 @@
-<div class="ui segment">
-  <h3>Open Conversations</h3>
-
-  <div class="ui list">
-    <div class="item">
+<div class="row">
+  <div class="col-md-9">
+    <ul id="conversations-list">
       <% @conversations.each do |conversation| %>
-        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-          <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.sender_id) %>
-          <% end %>
-          <li><%= link_to recipient.first_name, conversation_messages_path(conversation)%></li>
-        <% end %>
+        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
       <% end %>
-    </div>
+    </ul>
   </div>
-</div>
 
-
-<div class="ui segment">
-  <h3>Get Help</h3>
-
-  <div class="ui list">
-    <% @users.admin.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div class="item">
-        <%= user.first_name %> <%= link_to 'Message me to get help!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+  <div class="col-md-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">User list</h3>
       </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <h3>Search </h3>
-  <div>
-    <%= form_tag(:chat_query, method: :get) do %>
-    <div>
-      <%= text_field_tag :chat_query, "username..", class: "transp-text" %>
-      <%= submit_tag "Search", class: "btn" %>
+      <div class="panel-body">
+        <ul>
+          <% @users.each do |user| %>
+            <li><%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <% end %>
   </div>
-  <% if params[:chat_query] %>
-   <%= render partial: "chat_query/username"  %>
-  <% end %>
 </div>

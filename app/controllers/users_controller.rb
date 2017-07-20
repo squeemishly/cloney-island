@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      cookies[:user_id] = @user.id
       redirect_to new_user_trip_path(@user)
     else
       flash[:notice] = "User creation failed. Please try again"

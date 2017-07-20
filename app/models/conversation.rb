@@ -6,7 +6,20 @@ class Conversation < ActiveRecord::Base
 
   validates_uniqueness_of :sender_id, :scope => :recipient_id
 
-  scope :between, -> (sender_id,recipient_id) do
-    where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
+  scope :between, -> (sender_id, recipient_id) do
+    where(sender_id: sender_id, recipient_id: recipient_id).or(
+      where(sender_id: recipient_id, recipient_id: sender_id)
+    )
+  end
+
+  def self.get(sender_id, recipient_id)
+    conversation = between(sender_id, recipient_id).first
+    return conversation if conversation.present?
+
+    create(sender_id: sender_id, recipient_id: recipient_id)
+  end
+
+  def opposed_user(user)
+    user == recipient ? sender : recipient
   end
 end
