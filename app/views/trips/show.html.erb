@@ -16,7 +16,7 @@
                   ATTRACTIONS:<br>
                   <% @trip.itineraries.each do |itinerary| %>
                     <tr>
-                      <%= itinerary.place.name %><br>
+                      <div class="attraction-name"><%= itinerary.place.name %><br></div>
                     </tr>
                   <% end %>
                 </tbody>
