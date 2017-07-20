@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function() {
-  $("a.add-attraction-button").on("click", function() {
+  $("a.add-attraction-button").on("click", function(event) {
     let tripId = $("select#trips").val();
-    let existingParams = window.location.split('?');
-    window.location = '/search?trip'
+    let day = $("select#days").val();
+    let url = window.location.href.split('?')[0];
+    let newUrl = url + `?trip=${tripId}&day=${day}`;
+    //window.location = newUrl;
+    event.preventDefault();
   });
-  // $("select#trips").on("change", function() {
-  //   window.location = window.location +
-  // });
 });
