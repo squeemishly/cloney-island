@@ -46,7 +46,7 @@ class Attraction
   def self.marker_format(attractions)
     attractions_formatted = attractions.map do |attraction|
       {
-        name: attraction.name,
+        name: attraction.name.gsub("'", ""),
         lat: attraction.lat,
         lng: attraction.lng,
         photo: attraction.photo_url,
