@@ -53,6 +53,7 @@ class Attraction
         place_id: attraction.place_id
       }
     end
+
     attractions_formatted.to_json
   end
 
