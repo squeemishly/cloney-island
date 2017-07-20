@@ -1,18 +1,43 @@
-<div>
-  Signed Up Users
-  <%= User.user.count %>
-</div>
-
-<div>
-  Vendors
-  <%= User.vendor.count %>
-</div>
-
-<div>
-<%= form_tag(:admin_query, method: :get) do %>
-  <div>
-    <%= text_field_tag :query, "user email...", class: "transp-text" %>
-    <%= submit_tag "Search", class: "btn" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Admin Dashboard</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://boredomtherapy.com/wp-content/uploads/2015/06/werewolf-cat-atchoum-1.png" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Signed Up Users:</td>
+                    <td><%= User.user.count %></td>
+                  </tr>
+                  <tr>
+                    <td>Vendors:</td>
+                    <td><%= User.vendor.count %></td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td>View Reviews</td>
+                      <td><%= link_to "Change Password", users_password_reset_path(current_user.id), method: :get %></td>
+                    </tr>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="email-form">
+                <%= form_tag(:admin_query, method: :get) do %>
+                <div>
+                  <%= text_field_tag :query, "user email...", class: "transp-text" %>
+                  <%= submit_tag "Search", class: "btn btn-search" %>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-</div>

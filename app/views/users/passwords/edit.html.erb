@@ -1,4 +1,4 @@
-<div class="form-group" style="width:50%;">
+<div class="form-group update-password" style="width:50%;">
   <%= form_for current_user, url: users_password_patch_path(current_user.id) do |f| %>
     <div class="form-group">
       <%= f.label :password %>
@@ -8,6 +8,6 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
-      <%= f.submit "Update Password", class: "btn btn-default" %>
+      <%= f.submit "Update Password", class: "btn btn-update-password" %>
   <% end %>
 </div>
