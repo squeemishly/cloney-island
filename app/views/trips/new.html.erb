@@ -1,20 +1,9 @@
-<<<<<<< HEAD
 <div class="create-trip-section">
   <h1 class="create-trip">Create a New Trip</h1>
-
-=======
-<h2 align="center">Create a New Trip</h2>
-
-<div class="new-tour-form">
->>>>>>> development
   <%= bootstrap_form_for [@user, @trip] do |f| %>
     <%= f.text_field :start_city, label: "Location" %>
     <%= f.date_field :start_date, label: "Start Date" %>
     <%= f.date_field :end_date, label: "End Date" %>
-<<<<<<< HEAD
-    <%= f.submit "Create Trip", class:"btn btn-confirm" %>
-=======
-    <%= f.submit "Create Trip", class:"btn btn-sign-in" %>
->>>>>>> development
+    <%= f.submit "Create Trip", class:"btn btn-create-trip" %>
   <% end %>
 </div>
