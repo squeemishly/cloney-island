@@ -8,7 +8,7 @@ http_interactions:
       string: Body=123456&From=%2B17205732328&To=%2B13035197055
     headers:
       User-Agent:
-      - twilio-ruby/5.0.0 (ruby/x86_64-darwin16 2.3.1-p112)
+      - twilio-ruby/5.0.0 (ruby/x86_64-darwin16 2.3.2-p217)
       Accept-Charset:
       - utf-8
       Content-Type:
@@ -38,13 +38,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 20 Jul 2017 05:52:26 GMT
+      - Thu, 20 Jul 2017 15:08:22 GMT
       Strict-Transport-Security:
       - max-age=15768000
       Twilio-Request-Duration:
-      - '0.300'
+      - '0.280'
       Twilio-Request-Id:
-      - RQ10327171fcdb4420a1dcd766e7c45c24
+      - RQ200331fdded940af8389d47d43526440
       X-Powered-By:
       - AT-5000
       X-Shenanigans:
@@ -55,15 +55,15 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"sid": "SM77ce817026ed4959bf566f30de256845", "date_created": "Thu,
-        20 Jul 2017 05:52:26 +0000", "date_updated": "Thu, 20 Jul 2017 05:52:26 +0000",
+      string: '{"sid": "SMf0f8f4efc37140fbb86233820b168c46", "date_created": "Thu,
+        20 Jul 2017 15:08:22 +0000", "date_updated": "Thu, 20 Jul 2017 15:08:22 +0000",
         "date_sent": null, "account_sid": "ACe8847635f665e6371e41d78faddea2d6", "to":
         "+13035197055", "from": "+17205732328", "messaging_service_sid": null, "body":
         "Sent from your Twilio trial account - 123456", "status": "queued", "num_segments":
         "1", "num_media": "0", "direction": "outbound-api", "api_version": "2010-04-01",
         "price": null, "price_unit": "USD", "error_code": null, "error_message": null,
-        "uri": "/2010-04-01/Accounts/ACe8847635f665e6371e41d78faddea2d6/Messages/SM77ce817026ed4959bf566f30de256845.json",
-        "subresource_uris": {"media": "/2010-04-01/Accounts/ACe8847635f665e6371e41d78faddea2d6/Messages/SM77ce817026ed4959bf566f30de256845/Media.json"}}'
+        "uri": "/2010-04-01/Accounts/ACe8847635f665e6371e41d78faddea2d6/Messages/SMf0f8f4efc37140fbb86233820b168c46.json",
+        "subresource_uris": {"media": "/2010-04-01/Accounts/ACe8847635f665e6371e41d78faddea2d6/Messages/SMf0f8f4efc37140fbb86233820b168c46/Media.json"}}'
     http_version: 
-  recorded_at: Thu, 20 Jul 2017 05:52:26 GMT
+  recorded_at: Thu, 20 Jul 2017 15:08:22 GMT
 recorded_with: VCR 3.0.3

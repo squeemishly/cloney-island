@@ -9,6 +9,12 @@ require 'rspec/rails'
 require 'capybara/rails'
 # Require shoulda-matchers and config it with Rails and RSpec
 require 'shoulda-matchers'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
