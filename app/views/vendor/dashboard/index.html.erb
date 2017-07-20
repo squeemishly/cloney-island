@@ -27,6 +27,8 @@ Welcome <%= @vendor.first_name %>!
                         </tr>
                         <%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour), class: "btn btn-edit-email" %>
                         <%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                        <hr/>
+                        </hr/>
                       </div>
                     <% end %>
                   </tbody>
