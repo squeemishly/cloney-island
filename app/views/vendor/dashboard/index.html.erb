@@ -2,15 +2,27 @@ Welcome <%= @vendor.first_name %>!
 <%= link_to "New Tour", new_user_vendor_tour_path(@vendor) %>
 <%= link_to "View All Tours", user_vendor_tours_path(@vendor) %>
 
-<div>
-  <h2>Manage Tours</h2>
-    <% @vendor.tours.each do |tour| %>
-      <div class="tour">
-        <p><%= tour.name %></p>
-        <p><%= tour.description %></p>
-        <p><%= tour.price %></p>
-        <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
-        <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class -"panel-title">Manage Tours</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+              <% @vendor.tours.each do |tour| %>
+                <div class="tour">
+                  <p><%= tour.name %></p>
+                  <p><%= tour.description %></p>
+                  <p><%= tour.price %></p>
+                  <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
+                  <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
+                </div>
+              <% end %>
+          </div>
+        </div>
       </div>
-    <% end %>
+    </div>
+  </div>
 </div>
