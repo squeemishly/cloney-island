@@ -1,5 +1,4 @@
 # require 'rails_helper'
-
 # RSpec.describe "Vendor" do
 #   before :each do
 #     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(vendor)
