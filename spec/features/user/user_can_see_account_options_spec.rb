@@ -11,7 +11,7 @@ RSpec.describe "A signed-in user can view their account options in My Account" d
     fill_in 'Password', with: 'password'
     find(".btn-sign-in").click
     click_on "My Account"
-
+    
     expect(current_path).to eq("/users/#{user.id}")
     expect(page).to have_content("Edit Email")
     expect(page).to have_content("Edit Phone")
