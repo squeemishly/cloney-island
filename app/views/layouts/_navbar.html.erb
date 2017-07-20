@@ -31,29 +31,13 @@
               <% else %>
                 <li class="new-trip"><a href=<%= login_path %>>New Trip</a></li>
               <% end %>
-               <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul> -->
               </li>
             </ul>
-            <!-- <form class="navbar-form navbar-left">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-nav btn-default">Submit</button>
-            </form> -->
+
             <ul class="nav navbar-nav navbar-right">
               <% if current_user && current_user.vendor? %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AVATAR<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %><span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href=<%= user_vendor_dashboard_path(current_user) %>>Vendor Dashboard</a></li>
                   <li><a href=<%= user_vendor_tours_path(current_user) %> class="my-tours">My Tours</a></li>
@@ -65,7 +49,10 @@
               </li>
               <% elsif current_user %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user-name"><%= current_user.first_name%></span>&nbsp&nbsp<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+<!-- =======
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %><span class="caret"></span></a>
+>>>>>>> development -->
                 <ul class="dropdown-menu">
                   <li><a href=<%= user_trips_path(current_user) %>>My Trips</a></li>
                   <li><a href=<%= new_user_trip_path(current_user) %>>Plan New Trip</a></li>
