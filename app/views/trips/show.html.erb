@@ -13,9 +13,10 @@
             <div class=" col-md-9 col-lg-9 ">
               <table class="table table-user-information">
                 <tbody>
+                  ATTRACTIONS:<br>
                   <% @trip.itineraries.each do |itinerary| %>
                     <tr>
-                      ATTRACTIONS: <%= itinerary.attractions.name %>
+                      <div class="attraction-name"><%= itinerary.place.name %><br></div>
                     </tr>
                   <% end %>
                 </tbody>
