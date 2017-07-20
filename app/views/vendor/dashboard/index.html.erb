@@ -7,23 +7,31 @@ Welcome <%= @vendor.first_name %>!
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h2 class -"panel-title">Manage Tours</h2>
+          <h3 class -"panel-title">Manage Tours</h2>
         </div>
         <div class="panel-body">
           <div class="row">
             <div class=" col-md-9 col-lg-9 ">
               <table class="table table-user-information">
                 <tbody>
-                  <% @vendor.tours.each do |tour| %>
-                    <div class="tour">
-                      <p><%= tour.name %></p>
-                      <p><%= tour.description %></p>
-                      <p><%= tour.price %></p>
-                      <p><%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour) %></p>
-                      <p><%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete %></p>
-                    </div>
-                  <% end %>
-                </div>
+                    <% @vendor.tours.each do |tour| %>
+                      <div class="tour">
+                        <tr>
+                          <p>Tour Name: <%= tour.name %></p>
+                        </tr>
+                        <tr>
+                          <p>Tour Description: <%= tour.description %></p>
+                        </tr>
+                        <tr>
+                          <p>Tour Price <%= tour.price %></p>
+                        </tr>
+                        <%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour), class: "btn btn-edit-email" %>
+                        <%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                      </div>
+                    <% end %>
+                  </tbody>
+                </table>
+               </div>
               </div>
             </div>
           </div>
