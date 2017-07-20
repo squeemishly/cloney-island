@@ -1,16 +1,44 @@
-<%= link_to "Create New Trip", new_user_trip_path(current_user) %>
+<div align="center">
+  <%= link_to "Create New Trip", new_user_trip_path(current_user), class: "btn btn-edit-email" %>
+</div>
 
-<h2>My Trips</h2>
+<h2 align="center">My Trips</h2>
 
-<h4>Choose Existing Trip</h4>
+<h4 align="center">Choose Existing Trip</h4>
 
-<div class="my-trip-list">
-  <% @trips.each do |trip| %>
-    <a href=<%= user_trip_path(current_user, trip) %> ><div class="my-trip">
-      <div class="trip-city-pic">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class -"panel-title">ALL TRIPS</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <div class="my-trip-list">
+                    <% @trips.each do |trip| %>
+                      <tr>
+                        <a href=<%= user_trip_path(current_user, trip) %> ><div class="my-trip">
+                      </tr>
+                      <tr>
+                        <%= trip.start_city %><br>
+                      </tr>
+                      <tr>
+                        <%= trip.start_date %> - <%= trip.end_date %>
+                      </tr>
+                      </div></a><br>
+                    <% end %>
+                  </div>
+                </tbody>
+              </table>
+             </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <%= trip.start_city %><br>
-      <%= trip.start_date %> - <%= trip.end_date %>
-    </div></a><br>
-  <% end %>
+    </div>
+  </div>
 </div>
