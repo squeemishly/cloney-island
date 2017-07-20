@@ -1,0 +1,30 @@
+@import "variables.scss";
+
+h1.signed-up-users {
+  color: $purple;
+  font-family: 'Oswald', sans-serif;
+  display: inline;
+  float: left;
+}
+
+td.user-count {
+  margin-left: -200px;
+}
+
+.signed-up {
+  align-items: center;
+}
+
+.btn-search {
+  background-color: $orange !important;
+  color: white !important;
+}
+
+.btn-search:hover {
+  background-color: $orange !important;
+  color: white !important;
+}
+
+.email-form {
+  align-items: center;
+}
