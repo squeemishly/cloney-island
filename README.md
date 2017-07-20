@@ -21,13 +21,9 @@ To run locally:
   * ```bundle```
   * ```bundle exec figaro install```
   * There are several required environmental variables. Ask project contributors for required values to add into application.yml.
-  
-  *```rake db:setup```
-  
-  *```rake db:seed```
-  
-  *```rails server```
-  
+  * ```rake db:setup```
+  * ```rake db:seed```
+  * ```rails server```
   * go to ```localhost:30000``` and click on a city
 
 ## Testing Suite
