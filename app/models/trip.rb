@@ -14,6 +14,7 @@ class Trip < ApplicationRecord
   end
 
   def days
+    return [] unless start_date && end_date
     (start_date..end_date).to_a
   end
 end
