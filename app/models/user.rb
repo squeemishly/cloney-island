@@ -12,4 +12,10 @@ class User < ApplicationRecord
   validates_presence_of :password_digest
   validates_presence_of :status
   validates_presence_of :role
+
+  before_save :create_username
+
+  def create_username
+    self.username = "#{self.email.split("@")[0]}"
+  end
 end
