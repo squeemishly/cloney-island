@@ -1,0 +1,35 @@
+
+<h2 class="trip-title" align="center">Itinerary for <%= @trip.start_city %><br>FROM: <%= @trip.start_date %> - <%= @trip.end_date %></h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class -"panel-title">YOUR ITINERARY</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  ATTRACTIONS:<br>
+                  <% @trip.itineraries.each do |itinerary| %>
+                    <tr>
+                      <div class="attraction-name"><%= itinerary.place.name %><br></div>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div align="center">
+  <%= button_to "Edit Trip", edit_user_trip_path(@trip.user, @trip), method: :get, class: "btn btn-edit-email" %>
+</div>

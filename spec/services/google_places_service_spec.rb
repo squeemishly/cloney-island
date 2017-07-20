@@ -6,7 +6,7 @@ describe GooglePlacesService do
       it 'has specific keys' do
         VCR.use_cassette('google_places_service_fetch_attractions_by_city') do
           city = {name: "Paris", country:"France", description: "Has a metal tower", lat: 48.8566, lng: 2.3522}
-          raw_attractions = GooglePlacesService.fetch_attractions_by_city(city)
+          raw_attractions = GooglePlacesService.fetch_attractions_by_city(attraction_type = 'library', city)
           attraction = raw_attractions.first
 
           expect(raw_attractions).to be_an Array

@@ -13,7 +13,7 @@ describe Attraction do
               "name": "Eiffel Tower",
               "photos": [
                   {
-                      "photo_reference": 
+                      "photo_reference":
                       "CmRaAAAAkYtmO5R9m4docIuo-HGALNkkor4tECv68NKqWGJMU7Fbbgahpf6YLZCrmBUexLtLvzW_6IDH5bXboceO9hTIdEW1vH_SB538SHRX_hUF_x8XjWYtFZstD4kuPVzrE0qFEhD0ZslHLhgJcy--UBwst5tEGhTm4TjufhB0gmUNXIJM-rIcrWuxLQ",
                   }
               ],

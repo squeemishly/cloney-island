@@ -24,6 +24,8 @@ gem 'faraday'
 gem "bootstrap_form", github: "bootstrap-ruby/rails-bootstrap-forms" , branch: "bootstrap-v4"
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
+gem 'twilio-ruby'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -39,4 +41,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-rails'
   gem 'simplecov', :require => false
+  gem 'vcr'
+  gem 'webmock'
 end

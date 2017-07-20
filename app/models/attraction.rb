@@ -1,3 +1,5 @@
+require 'json'
+
 class Attraction
   attr_reader :name,
               :vicinity,
@@ -29,22 +31,29 @@ class Attraction
     @formatted_phone_number = attr[:formatted_phone_number] if attr[:formatted_phone_number]
     @rating = attr[:rating] if attr[:rating]
     @website = attr[:website] if attr[:website]
-    @opening_hours = attr[:opening_hours] if attr[:opening_hours]
+    @opening_hours = attr[:opening_hours][:weekday_text] if attr[:opening_hours]
     @international_phone_number = attr[:international_phone_number] if attr[:international_phone_number]
     @reviews = attr[:reviews] if attr[:reviews]
   end
 
-  def self.fetch_attractions_by_city(city)
-    attractions = GooglePlacesService.fetch_attractions_by_city(city)
+  def self.fetch_attractions_by_city(attraction_type, city)
+    attractions = GooglePlacesService.fetch_attractions_by_city(attraction_type, city)
     attractions.map do |attraction|
       new(attraction)
     end
   end
 
   def self.marker_format(attractions)
-    attractions.map do |attraction|
-      [attraction.name, attraction.lat, attraction.lng]
+    attractions_formatted = attractions.map do |attraction|
+      {
+        name: attraction.name.gsub("'", ""),
+        lat: attraction.lat,
+        lng: attraction.lng,
+        photo: attraction.photo_url,
+        place_id: attraction.place_id
+      }
     end
+    attractions_formatted.to_json
   end
 
   def self.fetch_details(place_id)

@@ -1,31 +1,62 @@
 <div class="attraction-details">
-  <h1 class="attraction-details-name"><%= @attraction.name %></h1>
-    <div>
-      <img class="attraction-details-img" src=<%= @attraction.photo_url %>>
+  <%#<h5 class="add-attraction-button">Add Attraction Placeholder</h5>%>
+
+  <div class="card">
+  <% if current_user && @trip%>
+      <%= link_to "/users/#{current_user.id}/trips/#{@trip.id}?place_id=#{attraction.place_id}&name=#{attraction.name}&lat=#{attraction.lat}&lng=#{attraction.lng}", :method=> :put, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% elsif current_user %>
+      <%= link_to user_trips_path(current_user), class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% else %>
+      <%= link_to login_path, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+        <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
+      <% end %>
+    <% end %>
+    <div style="background-image: url(<%= @attraction.photo_url %>);" class="city-image attraction-details-img">
     </div>
-  <div class="attraction-details-address">
+    <div class="card-block">
+      <h2 class="card-title attraction-details-name"><%= @attraction.name %></h2>
+    </div>
+    </div>
+  <div class="attraction-details-address attraction-details-field">
     <%= "Address: #{@attraction.formatted_address}" if @attraction.formatted_address %>
   </div>
-  <div class="attraction-details-phone">
+  <div class="attraction-details-phone attraction-details-field">
     <%= "Phone Number: #{@attraction.formatted_phone_number}" if @attraction.formatted_phone_number %>
   </div>
+  <div class="attraction-details-rating attraction-details-field">
     <%= "Rating: #{@attraction.rating}" if @attraction.rating %>
-  <div class="attraction-details-website">
+  </div>
+  <div class="attraction-details-website attraction-details-field">
     <%= link_to "Official Website", @attraction.website if @attraction.website %>
   </div>
-  <div class="attraction-details-hours">
-      <%= "Hours of Operation: #{@attraction.opening_hours}" if @attraction.opening_hours%>
+  <div class="attraction-details-hours attraction-details-field">
+  <% if @attraction.opening_hours %>
+      <%= "Hours of Operation:" %>
+      <ul>
+        <% @attraction.opening_hours.each do |daily_hours| %>
+          <li><%= daily_hours %></li>
+        <% end %>
+      </ul>
+  <% end %>
   </div>
+  <div class="attraction-details-international_phone_number attraction-details-field">
     <%= @attraction.international_phone_number if @attraction.international_phone_number %>
-  <div class="attraction-details-review">
+  </div>
+  <div class="attraction-details-review attraction-details-field">
     <% if @attraction.reviews %>
+    <h4>Visitor Reviews:</h4>
+    </div>
       <% @attraction.reviews.each do |review| %>
-        Visitor Reviews: <%= review[:author_name] %>
-        <%= review[:rating] %>
-        <%= review[:relative_time_description] %>
-        <%= review[:text] %>
-        <%= link_to 'Author Website', review[:author_url] %>
+        <div class="review-detail attraction-details-field">
         <img src="<%= review[:profile_photo_url] %>" alt="author-avatar">
+        <a href=<%= review[:author_url] %>> <%= review[:author_name] %></a>
+        <p>Rating: <%= review[:rating] %> <span class="light-text"><%= review[:relative_time_description] %></span></p>
+        <p><%= review[:text] %></p>
+        </div>
       <% end %>
     <% end %>
   </div>

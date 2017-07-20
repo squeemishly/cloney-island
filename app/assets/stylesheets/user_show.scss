@@ -1,0 +1,54 @@
+@import "variables.scss";
+
+.panel-heading {
+  background-color: $purple !important;
+  color: white !important;
+}
+
+.panel-info {
+  border-color: $purple !important;
+}
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.table-user-information > tbody > tr > td {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+.btn-edit-email {
+  background-color: $orange;
+  color: white;
+}
+
+.btn-edit-email:hover {
+  background-color: $orange;
+  color: white !important;
+}
+
+.btn-edit-phone {
+  background-color: $purple;
+  color: white;
+}
+
+.btn-edit-phone:hover {
+  background-color: $purple;
+  color: white !important;
+}

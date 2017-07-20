@@ -1,0 +1,41 @@
+@import "variables.scss";
+
+form {
+  width: 400px;
+  margin:0 auto;
+}
+
+.sign-in {
+  text-align: center;
+}
+
+.oauth-logins {
+  text-align: center;
+}
+
+.btn-google, .btn-facebook {
+  margin: 10px;
+  width: 200px;
+}
+
+.btn-sign-in {
+  background-color: $orange;
+  color: white;
+}
+
+.btn-get-sms {
+  background-color: $orange;
+  color: white;
+}
+
+.sign-in a {
+  color: $orange;
+}
+
+.forgot-password-field {
+  align-items: center;
+}
+
+.email-field {
+  margin-left: 75px;
+}

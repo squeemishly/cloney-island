@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Account Information</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/17882472_1763325660645423_776774994741952512_n.jpg" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>Name:</td>
+                    <td><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></td>
+                  </tr>
+                  <tr>
+                    <td>Email:</td>
+                    <td><%= current_user.email %></td>
+                  </tr>
+                  <tr>
+                    <td>Phone:</td>
+                    <td><%= current_user.phone %></td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <td>View My Reviews</td>
+                      <td><%= link_to "Change Password", users_password_reset_path(current_user.id), method: :get %></td>
+                    </tr>
+                  </tr>
+                </tbody>
+              </table>
+              <%= link_to "Edit Email", edit_user_path(current_user), class: "btn btn-edit-email" %>
+              <%= link_to "Edit Phone", edit_user_path(current_user), class: "btn btn-edit-phone" %>
+              <%= link_to "Delete Account", user_path(current_user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

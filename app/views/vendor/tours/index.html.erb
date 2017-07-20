@@ -1,0 +1,42 @@
+<h2 align="center"><%= @vendor.first_name %>'s Guided Tours</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class -"panel-title">All Your Tours</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                  <% @tours.each do |tour| %>
+                    <div class="tour">
+                      <tr>
+                        <p><strong>Tour Name: </strong><%= tour.name %></p>
+                      </tr>
+                      <tr>
+                        <p><strong>Average Rating:</strong> <%= "#{tour.average_rating}" unless tour.average_rating.nil? %></p>
+                      </tr>
+                      <tr>
+                        <p><strong>Description:</strong><%= tour.description %><p>
+                      </tr>
+                      <tr>
+                        <p><strong>Price:</strong><%= tour.price %></p>
+                      </tr>
+                      <hr/>
+                      </hr/>
+                    </div>
+                  <% end %>
+                </tbody>
+              </table>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,41 +23,43 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">NEW TRIP</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
+              <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+              <% if current_user && current_user.vendor? %>
+                <li class="new-trip"><a href=<%= user_vendor_dashboard_path(current_user) %>>Vendor Dashboard</a></li>
+              <% elsif current_user %>
+                <li class="new-trip"><a href=<%= new_user_trip_path(current_user) %>>New Trip</a></li>
+              <% else %>
+                <li class="new-trip"><a href=<%= login_path %>>New Trip</a></li>
+              <% end %>
               </li>
             </ul>
-            <form class="navbar-form navbar-left">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-nav btn-default">Submit</button>
-            </form>
+
             <ul class="nav navbar-nav navbar-right">
-              <% if current_user %>
+              <% if current_user && current_user.vendor? %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AVATAR<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %><span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href=<%= user_vendor_dashboard_path(current_user) %>>Vendor Dashboard</a></li>
+                  <li><a href=<%= user_vendor_tours_path(current_user) %> class="my-tours">My Tours</a></li>
+                  <li><a href=<%= new_user_vendor_tour_path(current_user) %>>Create New Tour</a></li>
+                  <li><a href=<%= user_path(current_user) %> class="my-account-link">My Account</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                  <li><a href=<%= logout_path %> class="sign-out-link">Sign Out</a></li>
+                </ul>
+              </li>
+              <% elsif current_user %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle user-avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user-name"><%= current_user.first_name%></span>&nbsp&nbsp<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href=<%= user_trips_path(current_user) %>>My Trips</a></li>
+                  <li><a href=<%= new_user_trip_path(current_user) %>>Plan New Trip</a></li>
+                  <li><a href=<%= user_path(current_user) %> class="my-account-link">My Account</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href=<%= logout_path %> class="sign-out-link">Sign Out</a></li>
                 </ul>
               </li>
               <% else %>
-                <li><a href="/login" class="sign-in-link">SIGN IN</a></li>
+                <li><a href="/login" class="sign-in-link">Sign In</a></li>
               <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -73,8 +75,14 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-              <li><a href="#">PLACES</a></li>
-              <li><a href="#">TOURS</a></li>
+              <li><a href="#">Attractions</a></li>
+              <li><a href="#">Tours</a></li>
+              <% if current_user %>
+                <li><a href=<%= conversations_path %>>Chat</a></li>
+              <% end %>
+              <% if current_user && current_user.admin? %>
+                <li><a href=<%= admin_dashboard_path %>>Dashboard</a></li>
+              <% end %>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -83,6 +91,7 @@
   </div>
 </div>
 
+<% if params[:city] %>
 <nav class="navbar navbar-default navbar-filters nav-bar-third">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -90,19 +99,20 @@
         <span class="sr-only">Toggle navigation</span>
       </button>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+    <div class="collapse navbar-collapse navbar-filters" id="bs-example-navbar-collapse-3">
       <ul class="nav navbar-nav">
-        <li><a href="#">SIGHTSEEING</a></li>
-        <li><a href="#">SHOPPING</a></li>
-        <li><a href="#">RESTAURANTS</a></li>
-        <li><a href="#">MUSEUMS</a></li>
-        <li><a href="#">FAMILY</a></li>
-        <li><a href="#">TRANSPORT</a></li>
-        <li><a href="#">NIGHTLIFE</a></li>
-        <li><a href="#">OUTDOORS</a></li>
-        <li><a href="#">SPORTS</a></li>
-        <li><a href="#">RELAXATION</a></li>
+        <li><a href="/search?attraction_type=point-of-interest&city=<%=@city_id%>">Sightseeing</a></li>
+        <li><a href="/search?attraction_type=shopping_mall&city=<%=@city_id%>">Shopping</a></li>
+        <li><a href="/search?attraction_type=restaurant&city=<%=@city_id%>">Restaurants</a></li>
+        <li><a href="/search?attraction_type=museum&city=<%=@city_id%>">Museums</a></li>
+        <li><a href="/search?attraction_type=library&city=<%=@city_id%>">Libraries</a></li>
+        <li><a href="/search?attraction_type=transit_station&city=<%=@city_id%>">Transport</a></li>
+        <li><a href="/search?attraction_type=night_club&city=<%=@city_id%>">Nightlife</a></li>
+        <li><a href="/search?attraction_type=park&city=<%=@city_id%>">Parks</a></li>
+        <li><a href="/search?attraction_type=gym&city=<%=@city_id%>">Sports</a></li>
+        <li><a href="/search?attraction_type=spa&city=<%=@city_id%>">Relaxation</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% end %>

@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+h1.create-trip {
+  color: $purple;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+
+.btn-create-trip {
+  background-color: $orange !important;
+  color: white !important;
+}

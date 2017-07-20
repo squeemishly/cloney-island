@@ -14,6 +14,8 @@
 
 .logo {
  max-height: 104px;
+ padding-top: 5px;
+ padding-left: 17px;
 }
 
 .navbar-main, .navbar-secondary {
@@ -79,5 +81,34 @@ button.navbar-toggle {
   float: left;
   background-color: $orange;
   color: white;
+}
 
+.sign-in-link {
+  text-transform: uppercase;
+}
+
+.new-trip {
+  text-transform: uppercase;
+}
+
+.navbar-secondary {
+  text-transform: uppercase;
+  padding-bottom: 25px;
+}
+
+.navbar-filters {
+  text-transform: uppercase;
+}
+
+.navbar-third {
+  padding-bottom: 5px;
+}
+
+.glyphicon-cog {
+  font-size: 1.5em;
+}
+
+span.user-name {
+  text-transform: uppercase;
+  padding-bottom: 20px;
 }

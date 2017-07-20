@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :trip do
-    start_date "9-28-2017"
-    end_date "9-30-2017"
+    start_date "2017-10-28"
+    end_date "2017-10-30"
     user
     start_city "Denver"
+    city
   end
 end

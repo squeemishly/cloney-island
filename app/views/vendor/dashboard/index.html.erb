@@ -1,0 +1,46 @@
+
+<div align="center">
+  <h2>Welcome <%= @vendor.first_name %>!</h2>
+  <%= link_to "New Tour", new_user_vendor_tour_path(@vendor), class: "btn btn-edit-email" %>
+  <%= link_to "View All Tours", user_vendor_tours_path(@vendor), class: "btn btn-edit-phone" %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class -"panel-title">Manage Tours</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class=" col-md-9 col-lg-9 ">
+              <table class="table table-user-information">
+                <tbody>
+                    <% @vendor.tours.each do |tour| %>
+                      <div class="tour">
+                        <tr>
+                          <p><strong>Tour Name: </strong> <%= tour.name %></p>
+                        </tr>
+                        <tr>
+                          <p><strong>Tour Description: </strong> <%= tour.description %></p>
+                        </tr>
+                        <tr>
+                          <p><strong>Tour Price: </strong> <%= tour.price %></p>
+                        </tr>
+                        <%= link_to "Edit", edit_user_vendor_tour_path(@vendor, tour), class: "btn btn-edit-email" %>
+                        <%= link_to "Delete", user_vendor_tour_path(@vendor, tour), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+                        <hr/>
+                        </hr/>
+                      </div>
+                    <% end %>
+                  </tbody>
+                </table>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
