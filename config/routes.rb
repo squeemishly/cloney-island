@@ -32,4 +32,9 @@ end
 
   resources :confirmations, only: [:new, :create]
 
+  resources :conversations do
+    resources :messages
+  end
+
+  get '/chat_query', to: 'chat_query#index', as: 'chat_query'
 end
