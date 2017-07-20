@@ -23,7 +23,6 @@ RSpec.describe "A signed-in user can view a list of their planned trips" do
     expect(page).to have_content("My Trips")
 
     within first(".my-trip-list") do
-      # expect(page).to have_css("div.trip-city-pic")
       expect(page).to have_content(trip1.start_date)
       expect(page).to have_content(trip1.end_date)
       expect(page).to have_content(trip1.start_city)
