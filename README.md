@@ -1,6 +1,6 @@
 # Cloney Island
 
-
+![alt text](http://i.imgur.com/WlFozNA.png)
 
 ## Description
 
@@ -15,6 +15,10 @@ This site is built with Javascript, SASS, CSS, Postgresql, Rails 5.1.2, Ruby ver
 Here's a look at the relationships in our database: 
 
 ![alt text](http://i.imgur.com/8aGT3nP.png)
+
+## Heroku
+
+  * [Visit us on Heroku](https://morning-thicket-74383.herokuapp.com/)
 
 ## Local Install
 
