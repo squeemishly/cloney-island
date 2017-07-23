@@ -14,7 +14,7 @@ This site is built with Javascript, SASS, CSS, Postgresql, Rails 5.1.2, Ruby ver
 
 Here's a look at the relationships in our database: 
 
-![alt text](http://imgur.com/a/grhZ7)
+![alt text](http://i.imgur.com/8aGT3nP.png)
 
 ## Local Install
 
