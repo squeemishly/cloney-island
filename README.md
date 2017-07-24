@@ -40,3 +40,10 @@ To run locally:
 
 ## Testing Suite
 * ```rspec```
+
+## Contributors
+* [Natalia Colome](https://github.com/nmcolome)
+* [Charlie Corrigan](https://github.com/charliecorrigan)
+* [Sarah Kirk](https://github.com/sarahdactyl71)
+* [Rhonda Wilhelmson](https://github.com/rwilhel)
+* [Kristen (squee) Mueller](https://github.com/squeemishly)
