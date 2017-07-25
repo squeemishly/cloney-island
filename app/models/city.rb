@@ -3,13 +3,7 @@ class City < ApplicationRecord
 
   def self.create_new_city(params)
     raw_city = city_lookup(params)
-    City.find_or_create_by(place_id: raw_city[:place_id]) do |city|
-      city.name = raw_city[:name]
-      city.country = raw_city[:formatted_address].split(", ").last
-      city.picture = photo_lookup(raw_city[:photos].first[:photo_reference])
-      city.lat = raw_city[:geometry][:location][:lat]
-      city.lng = raw_city[:geometry][:location][:lng]
-    end
+    city_search(raw_city)
   end
 
   def self.city_lookup(params)
@@ -18,6 +12,16 @@ class City < ApplicationRecord
 
   def self.photo_lookup(reference)
     GooglePlacesService.new.fetch_photo(reference)
+  end
+
+  def self.city_search(params)
+    City.find_or_create_by(place_id: params[:place_id]) do |city|
+      city.name = params[:name]
+      city.country = params[:formatted_address].split(", ").last
+      city.picture = photo_lookup(params[:photos].first[:photo_reference])
+      city.lat = params[:geometry][:location][:lat]
+      city.lng = params[:geometry][:location][:lng]
+    end
   end
 
 end
