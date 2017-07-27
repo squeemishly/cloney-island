@@ -51,9 +51,6 @@ class GooglePlacesService
 
   def self.search_for_city(query)
     new.search_for_city(query)
-    # get_url("textsearch/json?key=#{ENV['google_map_api_key']}&query=#{query}")[:results][0]
-    # response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=#{ENV['google_map_api_key']}&query=#{query}")
-    # JSON.parse(response.body, symbolize_names: true)[:results][0]
   end
 
   def search_for_city(query)

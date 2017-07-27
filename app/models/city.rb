@@ -25,10 +25,6 @@ class City < ApplicationRecord
   end
 
   def self.city_find(query)
-    # info = GooglePlacesService.new({city: query}).fetch_city
-    # binding.pry
-    # response = Faraday.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=#{ENV['google_map_api_key']}&query=#{query}")
-    # info = JSON.parse(response.body, symbolize_names: true)[:results][0]
     info = GooglePlacesService.search_for_city(query)
     self.city_search(info)
   end
