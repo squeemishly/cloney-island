@@ -35,7 +35,7 @@
             </ul>
 
             <div class="search-feild">
-              <%= form_tag('/search?city=', method: :get) do %>
+              <%= form_tag('/search', method: :get) do %>
               <div>
                 <%= text_field_tag :query, "find a city", class: "transp-text" %>
                 <%= submit_tag "Search", class: "btn btn-search" %>
