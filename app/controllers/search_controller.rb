@@ -12,6 +12,12 @@ class SearchController < ApplicationController
       @attractions_js = Attraction.marker_format(@attractions)
     elsif params[:attraction]
       @attraction = Attraction.fetch_details(params[:attraction])
+    elsif params[:query]
+      @city = City.city_find(params[:query])
+
+      @attraction_type = "point-of-interest"
+      @attractions = Attraction.fetch_attractions_by_city(@attraction_type, @city)
+      @attractions_js = Attraction.marker_format(@attractions)
     end
   end
 end
