@@ -48,4 +48,12 @@ class GooglePlacesService
   def self.fetch_city(params)
     new({start_city: params[:trip][:start_city]}).fetch_city
   end
+
+  def self.search_for_city(query)
+    new.search_for_city(query)
+  end
+
+  def search_for_city(query)
+    get_url("textsearch/json?key=#{ENV['google_map_api_key']}&query=#{query}")[:results][0]
+  end
 end
