@@ -1,22 +1,19 @@
 $(document).on('turbolinks:load', function() {
-  // console.log("hello")
   $("a.add-attraction-button").on("click", function(event) {
+    event.preventDefault();
     let newUrl = $(this).attr("href");
     let selectedDay = $("select#days").val();
-    // console.log(selectedDay)
-    // console.log(newUrl)
 
     $.ajax({
       url: newUrl,
       data: { day: selectedDay },
       method: "PUT"
     }).done(function(response) {
-      // alert(response.responseText);
       alert(response);
     }).fail(function(response) {
-      // alert(response.responseText);
       alert(response);
     });
+    event.stopPropagation();
     event.preventDefault();
   });
 });
