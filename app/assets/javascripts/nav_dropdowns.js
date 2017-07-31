@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  // console.log("hello")
   $("a.add-attraction-button").on("click", function(event) {
     let newUrl = $(this).attr("href");
     let selectedDay = $("select#days").val();
