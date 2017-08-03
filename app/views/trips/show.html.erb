@@ -14,9 +14,12 @@
               <table class="table table-user-information">
                 <tbody>
                   ATTRACTIONS:<br>
-                  <% @trip.itineraries.each do |itinerary| %>
+                  <% @trip.sorted_itineraries do |itinerary| %>
+                  <%# @trip.itineraries.each do |itinerary| %>
                     <tr>
-                      <div class="attraction-name"><%= itinerary.place.name %><br></div>
+                      <div class="attraction-name">
+                        <%= itinerary.place.name %>: <%= itinerary.date %>
+                      </div>
                     </tr>
                   <% end %>
                 </tbody>

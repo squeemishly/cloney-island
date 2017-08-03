@@ -17,4 +17,8 @@ class Trip < ApplicationRecord
     return [] unless start_date && end_date
     (start_date..end_date).to_a
   end
+
+  def sorted_itineraries
+    self.itineraries.order(:date)
+  end
 end
