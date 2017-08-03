@@ -32,20 +32,18 @@
                 <li class="new-trip"><a href=<%= login_path %>>New Trip</a></li>
               <% end %>
 
-              <% if current_user %>
-                <%= render partial: "/layouts/trip_dropdowns" %>
-              <% end %>
-              </li>
             </ul>
 
-            <!-- <div class="search-feild nav navbar-form"> -->
+            <% if current_user %>
+              <%= render partial: "/layouts/trip_dropdowns" %>
+            <% end %>
+
               <%= form_tag('/search', method: :get, class: "nav navbar-form navbar-left") do %>
               <div>
                 <%= text_field_tag :query, "find a city", class: "transp-text" %>
                 <%= submit_tag "Search", class: "btn btn-search" %>
               </div>
               <% end %>
-            <!-- </div> -->
 
             <ul class="nav navbar-nav navbar-right">
               <% if current_user && current_user.vendor? %>
