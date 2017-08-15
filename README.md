@@ -15,12 +15,15 @@ This site is built with Javascript, SASS, CSS, Postgresql, Rails 5.1.2, Ruby ver
 
   * [Ruby version 2.4.1](https://www.ruby-lang.org/en/documentation/installation/)
 
-To run locally:
+Before attempting to run, setup the environment variables:
   * clone this repo.
   * cd into it
   * ```bundle```
   * ```bundle exec figaro install```
-  * There are several required environmental variables. Ask project contributors for required values to add into application.yml.
+  * add the following env variables to application.yml: google_map_api_key, phone, TWILIO_ACCOUNT_SID,
+  TWILIO_AUTH_TOKEN, TWILIO_NUMBER
+
+To run locally:
   * ```rake db:setup```
   * ```rake db:seed```
   * ```rails server```
