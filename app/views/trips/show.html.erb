@@ -14,14 +14,17 @@
               <table class="table table-user-information">
                 <tbody>
                   ATTRACTIONS:<br>
-                  <% @trip.sorted_itineraries do |itinerary| %>
-                  <%# @trip.itineraries.each do |itinerary| %>
-                    <tr>
-                      <div class="attraction-name">
-                        <%= itinerary.place.name %>: <%= itinerary.date %>
-                      </div>
-                    </tr>
-                  <% end %>
+                  <% @trip.sorted_itineraries.each do |itinerary| %>
+                      <tr>
+                        <div class="attraction-name">
+                          <tr>
+                            <td class="itinerary-place-name"><%= link_to itinerary.place.name, "/search?attraction=#{itinerary.place.google_place_id}" %></td>
+                            <td class="itinerary-date"><%= itinerary.date %></td>
+                            <!-- <td><%#= link_to "Remove Attraction", user_trip_itinerary_path(current_user.id, @trip.id, itinerary.id), method: :delete %></td> -->
+                          </tr>
+                        </div>
+                      </tr>
+                    <% end %>
                 </tbody>
               </table>
              </div>
