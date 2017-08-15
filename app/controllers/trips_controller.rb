@@ -31,14 +31,36 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find(params[:id]) if current_user.trips.include?(Trip.find(params[:id]))
-    @place = Place.find_or_create_by(google_place_id: params[:place_id]) do |place|
-      place.name = params[:name]
-      place.lat = params[:lat]
-      place.lng = params[:lng]
+    @trip = Trip.find(params[:id])
+    if @trip && @trip.user == current_user
+      if params[:place_id]
+        @place = Place.find_or_create_by(google_place_id: params[:place_id]) do |place|
+          place.name = params[:name]
+          place.lat = params[:lat]
+          place.lng = params[:lng]
+        end
+
+        itinerary = @trip.itineraries.new(place_id: @place.id, date: Date.parse(params[:day]))
+        if itinerary.save
+          message = "#{@place.name} successfully added to #{params[:day]}"
+          response_status = 201
+        else
+          message = "Your itinerary didn't save. Error: #{itinerary.errors}"
+          response_status = 500
+        end
+      else
+        message = "Place Id is missing."
+        response_status = 404
+      end
+    elsif @trip
+      message = "You can't add attractions to other's trips!"
+      response_status = 403
+    else
+      message = "Something went wrong, please try again!"
+      response_status = 418
     end
-    @trip.itineraries.create(place_id: @place.id, date: @trip.start_date)
-    flash.now[:alert] = "#{@place.name} successfully added"
+
+    render plain: message, status: response_status
   end
 
   private
