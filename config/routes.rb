@@ -7,13 +7,16 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy] do
-    resources :trips, only: [:new, :index, :create, :show, :edit, :update]
+    resources :trips, only: [:new, :index, :create, :show, :edit, :update] do
+      resources :itineraries, only: [:destroy]
+    end
     namespace :vendor do
       get '/dashboard', to: 'dashboard#index'
       resources :tours, except: [:create]
       post '/tours/:id', to: 'tours#create'
     end
   end
+
 
 namespace :admin do
   get '/dashboard', to: 'dashboard#index'

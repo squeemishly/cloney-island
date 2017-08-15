@@ -20,7 +20,7 @@
                           <tr>
                             <td class="itinerary-place-name"><%= link_to itinerary.place.name, "/search?attraction=#{itinerary.place.google_place_id}" %></td>
                             <td class="itinerary-date"><%= itinerary.date %></td>
-                            <!-- <td><%#= link_to "Remove Attraction", user_trip_itinerary_path(current_user.id, @trip.id, itinerary.id), method: :delete %></td> -->
+                            <td><%= link_to "Remove Attraction", user_trip_itinerary_path(current_user, @trip, itinerary), method: :delete %></td>
                           </tr>
                         </div>
                       </tr>
