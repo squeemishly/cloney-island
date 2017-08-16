@@ -1,5 +1,5 @@
-<%= form_for Message.new, method: :post do |f| %>
+<%= form_for(Message.new, remote: true, method: :post) do |f| %>
   <%= f.text_field :content, placeholder: "Message" %>
   <%= f.hidden_field :private_chat_id, value: "#{params[:id]}" %>
-  <%= f.submit "Send" %>
+  <%= f.submit "Send", class: "btn message-btn" %>
 <% end %>
