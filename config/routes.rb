@@ -37,7 +37,6 @@ end
 
   resources :private_chats, only: [:index, :new, :create, :show]
   resources :messages, only: [:create]
-  # get '/chat_query', to: 'chat_query#index', as: 'chat_query'
 
   mount ActionCable.server, at: '/cable'
 end
