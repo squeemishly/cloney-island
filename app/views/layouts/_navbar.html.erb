@@ -89,7 +89,7 @@
               <li><a href="#">Attractions</a></li>
               <li><a href="#">Tours</a></li>
               <% if current_user %>
-                <li><a href=<%= conversations_path %>>Chat</a></li>
+                <li><a href=<%= private_chats_path %>>Chat</a></li>
               <% end %>
               <% if current_user && current_user.admin? %>
                 <li><a href=<%= admin_dashboard_path %>>Dashboard</a></li>

@@ -1,0 +1,11 @@
+<%= link_to "Start a new chat", new_private_chat_path %>
+
+<ul>
+<% @private_chats.each do |private_chat| %>
+  <li>
+    <% participants = private_chat.participant_ids.map { |id| User.find(id.to_i).username } %>
+    <% participants.delete(current_user.username) %>
+    <%= link_to "#{participants.join(", ")}", private_chat_path(private_chat) %>
+  </li>
+<% end %>
+</ul>
