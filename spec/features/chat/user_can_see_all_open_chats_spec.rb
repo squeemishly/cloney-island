@@ -6,7 +6,6 @@ RSpec.describe "User sees all open conversations" do
     user2 = create(:user)
     chat = PrivateChat.create(participant_ids: ["#{user.id}", "#{user2.id}"])
     message = Message.create(content: "hi", user_id: user.id, private_chat_id: chat.id)
-    message2 = Message.create(content: "hello", user_id: user2.id, private_chat_id: chat.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit "/"
@@ -20,11 +19,10 @@ RSpec.describe "User sees all open conversations" do
   end
 
   it "user2 sees a list of participants usernames indicating open conversations" do
-    user = User.create(username: "test_user", password: "password")
-    user2 = User.create(username: "test_user2", password: "password")
+    user = create(:user)
+    user2 = create(:user)
     chat = PrivateChat.create(participant_ids: ["#{user.id}", "#{user2.id}"])
     message = Message.create(content: "hi", user_id: user.id, private_chat_id: chat.id)
-    message2 = Message.create(content: "hello", user_id: user2.id, private_chat_id: chat.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user2)
 
     visit "/"
