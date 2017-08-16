@@ -1,5 +1,7 @@
 class PrivateChatsController < ApplicationController
   def index
+    @chat_ids = PrivateChat.find_my_chats(current_user.id).pluck(:id)
+    @private_chats = @chat_ids.map { |id| PrivateChat.find(id) }
   end
 
   def new
