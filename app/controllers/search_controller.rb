@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
   def index
     if params[:city]
-      @city = City.find(params[:city])
+      @city_id = params[:city]
+      @city = City.find(@city_id)
       if params[:trip]
         @trip = Trip.find(params[:trip])
       end
