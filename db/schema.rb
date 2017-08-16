@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815234041) do
+ActiveRecord::Schema.define(version: 20170816000542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,25 @@ ActiveRecord::Schema.define(version: 20170815234041) do
     t.index ["trip_id"], name: "index_itineraries_on_trip_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content"
+    t.bigint "private_chat_id"
+    t.index ["private_chat_id"], name: "index_messages_on_private_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "google_place_id"
     t.string "name"
     t.float "lat"
     t.float "lng"
+  end
+
+  create_table "private_chats", force: :cascade do |t|
+    t.string "participant_ids", default: [], array: true
   end
 
   create_table "tours", force: :cascade do |t|
@@ -74,6 +88,7 @@ ActiveRecord::Schema.define(version: 20170815234041) do
 
   add_foreign_key "itineraries", "places"
   add_foreign_key "itineraries", "trips"
+  add_foreign_key "messages", "private_chats"
   add_foreign_key "tours", "users"
   add_foreign_key "trips", "cities"
   add_foreign_key "trips", "users"
