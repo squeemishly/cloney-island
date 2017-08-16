@@ -4,7 +4,7 @@
     <a class="attraction-preview-link" href="/search?attraction=<%=attraction.place_id%>"></a>
 
     <% if current_user && @trip %>
-      <%= link_to "/users/#{current_user.id}/trips/#{@trip.id}?place_id=#{attraction.place_id}&name=#{attraction.name}&lat=#{attraction.lat}&lng=#{attraction.lng}", :method=> :put, class: "add-attraction-button btn btn-xs btn-warning btn-expand" do %>
+      <%= link_to "/users/#{current_user.id}/trips/#{@trip.id}?place_id=#{attraction.place_id}&name=#{attraction.name}&lat=#{attraction.lat}&lng=#{attraction.lng}", :method=> :put, class: "add-attraction-button btn btn-xs btn-warning btn-expand add-attraction-button-current-user-and-trip" do %>
         <i class="glyphicon glyphicon-plus"></i>&nbsp&nbsp<strong>SCHEDULE</strong>
       <% end %>
     <% elsif current_user %>
