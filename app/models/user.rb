@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :trips, dependent: :destroy
   has_many :tours
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :messages
 
   validates_presence_of :first_name
   validates_presence_of :last_name
