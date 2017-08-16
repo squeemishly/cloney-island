@@ -46,28 +46,32 @@
 
 .message {
   margin: 5px 0;
-  padding: 20px;
-  max-width: 50%;
-  min-width: 10%;
+  padding: 4px;
+  // max-width: 50%;
+  // min-width: 10%;
+  &:hover {
+    opacity: 0.8;
+    background-color: #cfd7e1;
+  }
 }
 
-.message.viewer {
-  align-self: flex-start;
-  background-color: #76a6db;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  color: white;
-}
+// .message.viewer {
+//   align-self: flex-start;
+//   background-color: #76a6db;
+//   border-top-left-radius: 20px;
+//   border-top-right-radius: 20px;
+//   border-bottom-right-radius: 20px;
+//   color: white;
+// }
 
-.message.other {
-  align-self: flex-end;
-  background-color: #cfd7e1;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  color: #757575;
-}
+// .message.other {
+//   align-self: flex-end;
+//   background-color: #cfd7e1;
+//   border-top-left-radius: 20px;
+//   border-top-right-radius: 20px;
+//   border-bottom-left-radius: 20px;
+//   color: #757575;
+// }
 
 .message-body {
   font-size: 16px;

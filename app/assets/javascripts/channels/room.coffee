@@ -1,7 +1,6 @@
 $(document).on 'turbolinks:load', ->
   private_chat_id = $("#message_private_chat_id").val()
   enter_message()
-  scroll_bottom()
 
   App.room = App.cable.subscriptions.create {
     channel: "RoomChannel"
@@ -15,7 +14,7 @@ $(document).on 'turbolinks:load', ->
     $('#messages-table').append(
       """
       <div class="message">
-        <p class="message-user">#{data.username}</p>
+        <p class="message-user">#{data.username}:</p>
         <p class="message-body">#{data.content}</p>
       </div>
       """
@@ -27,6 +26,3 @@ enter_message = () ->
       $('.message-btn').click()
       event.target.value = ""
       event.preventDefault()
-
-scroll_bottom = () ->
-  $('#messages-table').scrollTop($('#messages-table')[0].scrollHeight)
