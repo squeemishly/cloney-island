@@ -14,7 +14,7 @@ RSpec.describe User do
     it "has relationships" do
       user = create(:user)
       expect(user).to respond_to :tours
-      expect(user).to respond_to :conversations
+      expect(user).to respond_to :messages
       expect(user).to respond_to :trips
     end
   end
