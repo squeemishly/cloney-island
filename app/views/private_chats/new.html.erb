@@ -1,0 +1,4 @@
+<%= form_for(@private_chat) do |f| %>
+  <%= f.collection_select(:participant_ids, User.all, :id, :username, {}, prompt: "Select participants", name: "participant_ids[]", multiple: true, size: User.count) %>
+  <%= f.submit "Go" %>
+<% end %>
