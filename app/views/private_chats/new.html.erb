@@ -1,4 +1,6 @@
+<h4 class="instructions">To select multiple users press and hold the command button while selecting them.<br>Then, click on Go</h4> 
+
 <%= form_for(@private_chat) do |f| %>
   <%= f.collection_select(:participant_ids, User.all, :id, :username, {}, prompt: "Select participants", name: "participant_ids[]", multiple: true, size: User.count) %>
-  <%= f.submit "Go" %>
+  <%= f.submit "Go", class: "btn select-btn" %>
 <% end %>

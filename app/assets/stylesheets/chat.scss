@@ -76,3 +76,25 @@
 .message-user {
   font-size: 14px;
 }
+
+#private_chat_participant_ids {
+  height: 400px;
+  overflow: scroll;
+  width: 100%;
+}
+
+.select-btn {
+  margin: 0;
+  width: 100%;
+  background-color: #47bd8f;
+  color: #fff;
+
+  &:hover {
+    opacity: 0.8;
+    color: #fff;
+  }
+}
+
+.instructions {
+  text-align: center;
+}
