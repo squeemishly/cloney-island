@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $("a.add-attraction-button").on("click", function(event) {
+  $("a.add-attraction-button-current-user-and-trip").on("click", function(event) {
     event.preventDefault();
     var newUrl = $(this).attr("href");
     var selectedDay = $("select#days").val();
