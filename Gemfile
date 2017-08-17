@@ -26,6 +26,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
 gem 'twilio-ruby'
 gem 'faker'
+gem 'redis'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
