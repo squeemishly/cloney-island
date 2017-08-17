@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .message p {
   margin: 0;
 }
@@ -101,4 +103,14 @@
 
 .instructions {
   text-align: center;
+}
+
+.btn-chat {
+  background-color: $orange;
+  color: white;
+  margin: 10px;
+}
+
+.button_to {
+  margin: 0;
 }
