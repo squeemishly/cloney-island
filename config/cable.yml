@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:4acc2b5b99afd45d00a9eb4a347cf5e3@angelfish.redistogo.com:11686/
   channel_prefix: cloney-island_production
