@@ -9,8 +9,13 @@ class PrivateChatsController < ApplicationController
   end
 
   def create
-    @participant_ids = params[:participant_ids].select(&:present?) << current_user.id
-    @private_chat = PrivateChat.create(participant_ids: @participant_ids)
+    @participant_ids = params[:participant_ids].select(&:present?) << current_user.id.to_s
+    if PrivateChat.find_existing(@participant_ids.join(",")).pluck(:id) != []
+      existing_id = PrivateChat.find_existing(@participant_ids.join(",")).pluck(:id).first
+      @private_chat = PrivateChat.find(existing_id)
+    else
+      @private_chat = PrivateChat.create(participant_ids: @participant_ids)
+    end
     redirect_to private_chat_path(@private_chat)
   end
 
