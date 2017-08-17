@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def create_username
     self.username = "#{self.email.split("@")[0]}"
   end
+
+  def self.sorted_descending
+    self.order(:id)
+  end
 end
