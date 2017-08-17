@@ -18,7 +18,7 @@ Here's a look at the relationships in our database:
 
 ## Heroku
 
-  * [Visit us on Heroku](https://morning-thicket-74383.herokuapp.com/)
+  * [Visit us on Heroku](https://stark-waters-79297.herokuapp.com)
 
 ## Local Install
 
