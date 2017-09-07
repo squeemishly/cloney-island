@@ -14,6 +14,5 @@ $(document).on('turbolinks:load', function() {
       alert(response);
     });
     event.stopPropagation();
-    event.preventDefault();
   });
 });
