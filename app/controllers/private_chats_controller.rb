@@ -10,11 +10,12 @@ class PrivateChatsController < ApplicationController
 
   def create
     @participant_ids = params[:participant_ids].select(&:present?) << current_user.id.to_s
-    if PrivateChat.find_existing(@participant_ids.join(",")).pluck(:id) != []
-      existing_id = PrivateChat.find_existing(@participant_ids.join(",")).pluck(:id).first
-      @private_chat = PrivateChat.find(existing_id)
+    @sorted_participant_ids = @participant_ids.map {|v| v.to_i }.uniq.sort
+    if PrivateChat.find_existing(@sorted_participant_ids.join(",")).pluck(:id) != []
+      existing_chat_id = PrivateChat.find_existing(@sorted_participant_ids.join(",")).pluck(:id)[0]
+      @private_chat = PrivateChat.find(existing_chat_id)
     else
-      @private_chat = PrivateChat.create(participant_ids: @participant_ids)
+      @private_chat = PrivateChat.create(participant_ids: @sorted_participant_ids)
     end
     redirect_to private_chat_path(@private_chat)
   end
